@@ -1,0 +1,542 @@
+\documentclass[a4paper, 12pt]{book}
+
+\usepackage{fancyhdr}
+
+\newcommand{\ttitle}{Kombinatorika 2 - zapiski s predavanj prof. Konvalinke}
+\newcommand{\ttitleshort}{Kombinatorika 2}
+\newcommand{\tauthor}{Tomaž Poljanšek}
+\newcommand{\tdate}{študijsko leto 2023/24}
+
+\usepackage{color}
+\usepackage{soul}
+\usepackage[numbers]{natbib}
+
+\usepackage{physics}
+
+\usepackage[parfill]{parskip}
+\usepackage[hyphens]{url}
+
+\usepackage[usestackEOL]{stackengine}[2013-10-15] % formatting Pascal
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{cancel}
+\usepackage[export]{adjustbox}
+
+% Related to math
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{youngtab}
+\usepackage{tikz}
+
+% encoding and language
+\usepackage{lmodern}
+\usepackage[slovene, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% multiline comments
+\usepackage{comment}
+\usepackage{verbatim}
+
+% random text - for texting
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+\usepackage{hyperref}
+
+% dodano
+\usepackage{enumitem}
+\usepackage{ulem}
+\newcommand{\msout}[1]{\text{\sout{\ensuremath{#1}}}}
+
+% images
+\usepackage{graphicx}
+\graphicspath{ {../images/} }
+
+% no blank page
+\usepackage{atbegshi}
+\renewcommand{\cleardoublepage}{\clearpage}
+%\renewcommand{\clearpage}{}
+
+% theorems
+\theoremstyle{definition}
+\newtheorem{counter}{Counter}[section]
+\newtheorem{defn}[counter]{Definicija}
+\newtheorem{lemma}[counter]{Lema}
+\newtheorem{conseq}[counter]{Posledica}
+\newtheorem{claim}[counter]{Trditev}
+\newtheorem{theorem}[counter]{Izrek}
+\newtheorem{pro}[counter]{Dokaz}
+%%
+\theoremstyle{remark}
+\newtheorem*{ex}{Primer}
+\newtheorem*{exmp}{Zgled}
+\newtheorem*{rem}{Opomba}
+
+% QED
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\hypersetup{pdftitle={\ttitle}}
+
+\addtolength{\marginparwidth}{-20pt}
+\addtolength{\oddsidemargin}{40pt}
+\addtolength{\evensidemargin}{-40pt}
+
+\renewcommand{\baselinestretch}{1.3}
+\setlength{\headheight}{15pt}
+\renewcommand{\chaptermark}[1]
+{\markboth{\MakeUppercase{\thechapter.\ #1}}{}} \renewcommand{\sectionmark}[1]
+{\markright{\MakeUppercase{\thesection.\ #1}}} \renewcommand{\headrulewidth}{0.5pt} \renewcommand{\footrulewidth}{0pt}
+
+% header
+\fancyhf{}
+\fancyhead[LE,RO]{\sl \thepage} 
+\fancyhead[RE]{\sc \tauthor}
+\fancyhead[LO]{\sc \ttitleshort}
+
+
+\newcommand{\autfont}{\Large}
+\newcommand{\titfont}{\LARGE\bf}
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+\setcounter{tocdepth}{1}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ch}{\operatorname{char}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{icomma}
+\usepackage{tabularx}
+\usepackage{hhline}
+
+\title{\ttitle}
+\author{\tauthor}
+\date{\tdate}
+
+\newcommand\mymaketitle{
+  \begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+        \Huge
+        \textbf{\ttitle}
+                        
+        \vspace{1.5cm}
+        \huge
+        \tauthor
+            
+        \vspace{3cm}
+        \Large
+        \tdate
+    \end{center}
+  \end{titlepage}
+}
+
+
+
+
+\begin{document}
+
+\selectlanguage{slovene}
+\renewcommand{\thepage}{}
+\newcommand{\sn}[1]{"`#1"'}
+
+\mymaketitle
+
+\clearpage
+%\AtBeginShipoutNext{\AtBeginShipoutDiscard}
+
+\frontmatter
+
+% kazalo
+\pagestyle{empty}
+\def\thepage{}
+\tableofcontents{}
+
+%%
+\def\x{\hspace{3ex}}    %BETWEEN TWO 1-DIGIT NUMBERS
+\def\y{\hspace{2.45ex}}  %BETWEEN 1 AND 2 DIGIT NUMBERS
+\def\z{\hspace{1.9ex}}    %BETWEEN TWO 2-DIGIT NUMBERS
+\stackMath
+
+%\clearpage
+%\phantomsection
+
+%\section*{Seznam uporabljenih kratic}
+
+%\noindent\begin{tabular}{p{0.1\textwidth}|p{.8\textwidth}}
+%  {\bf kratica} & {\bf izraz} \\ \hline
+%  {\bf SVM}   & support vector machine (metoda podpornih vektorjev) \\
+%\end{tabular}
+
+%\clearpage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Povzetek}
+%\chapter*{Povzetek}
+
+%Predloga.
+
+\pagenumbering{arabic}
+
+\mainmatter
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+
+
+
+% 1. predavanje
+
+\chapter{Osnove}
+
+
+\section{Kako štejemo?}
+
+$S$ končna množica, $|S|$ = ? \\
+Pogosto $S_n, n \in \N$. \\
+Preštevalno zaporedje $|S_0|, |S_1|, |S_2| \dots$ \\
+Kaj je odgovor?
+
+\begin{enumerate}[label=(\arabic{*})]
+  \item Formula. \\
+    $[n] = \{1, 2 \dots n\}$. \\
+    $S_n = 2^{[n]} = P([n])$. \\
+    $|S_n| = 2^n$. \\
+    $S_n = \{$permutacije n elementov$\}$. \\
+    $|S_n| = n! = 1 \cdot 2 \cdots n$ \sn{n fakulteta} \sn{n factorial}. \\
+    $S_n = \{$kompozicije n s členi 1 ali 2$\}$, npr. 5 = 1+2+1. \\
+    $|S_5| = 8$. \\
+    $1, 1, 2, 3, 5, 8 \dots$ \\
+    $|S_n| = F_n$ - Fibonaccijevo zaporedje.
+  \item Asimptotska formula. \\
+    $|S_n| \sim a_n$ (to pomeni $\lim_{n \to \infty} \frac{a_n}{|S_n|} = 1$). \\
+    $n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n$ - Stirlingova formula. \\
+    $F_n \sim \frac{1}{\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^{n+1}$.
+  \item Z rekurzijo. \\
+    $S_n = 2^{[n]}$. \\
+    $a_n = |S_n|, a_n = 2a_{n-1}; \; n \geq 1, \; a_0 = 1$. \\
+    $S_n = \{$kompozicije s členi 1 ali 2$\}$. \\
+    $S_n = F_n, F_n = F_{n-1} + F_{n-2}; \; n \geq 2, \; F_0 = F_1 = 1$. \\
+    $F_{n-1}$ - kompozicije, ki se končajo z 1, $F_{n-2}$ - končajo z 2.
+  \item Z rodovno funkcijo (generating function). \\
+    $(a_n)_{n \in \N}$ zaporedje. \\
+    $a_0 + a_1 x + a_2 x^2 + \dots = \sum_{n=0}^{\infty} a_n x^n = \sum_n a_n x^n$
+      običajna (ordinary) rodovna funkcija - ORF. \\
+    $a_n = 2^n$, $\sum_{n=0}^{\infty} 2^n x^n = \frac{1}{1-2x}$. \\
+    $\sum_n F_n x^n = \frac{1}{1-x-x^2}$. \\
+    $\sum_n n! x^n$ //. \\
+    $\sum_n \frac{a_n}{n!} x^n$ eksponentna rodovna funkcija. \\
+    $\sum_n 2^n \frac{x^n}{n!} = e^{2x}$. \\
+    $\sum_n \frac{n!}{n!} x^n = \frac{1}{1-x}$.
+\end{enumerate}
+%
+(4) je najboljši način, da poznamo zaporedje.
+
+\begin{itemize}[label={--}]
+  \item Rodovna funkcija je velikokrat \sn{lepa}, tudi če ni lepe formule za zaporedje. \\
+    $i_n \dots$ \# involucij z $n$ elementi ($\pi^2 = $ id). \\
+    ni enostavnejše formule za $i_n$. \\
+    $\sum_{n=0}^{\infty} \frac{i_n}{n!} x^n = e^{x + \frac{x^2}{2}}$
+  \item Do rodovne funkcije lahko pogosto pridemo neposredno s kombinatoričnim premislekom. \\
+    Involucija = permutacija s cikli dolžine 1 ali 2. \\
+    $\sum F_n x^n = \frac{1}{1-x-x^2};$ $x$ - cikli dolžine 1, $x^2$ - cikli dolžine 2.
+  \item V rodovni funkciji so \sn{skrite} (1)-(3).
+\end{itemize}
+
+
+\section{Osnovne Kombinatorične strukture}
+
+$\N = \{0, 1, 2 \dots\}$. \\
+$[n] = \{1, 2 \dots n\}$. \\
+$2^A = P(A) = \{B \subseteq A\}$. \\
+$\binom{A}{k} = \{B \subseteq A: |B| = k\}$ \sn{A nad k} (angl. \sn{A choose k}). \\
+$\binom{[4]}{2} = \{\{1,2\}, \{1,3\} \dots \{3,4\}\}$. \\
+$Y^X = \{f: X \to Y\}$. \\
+Statistika na množici $S$ je preslikava $S \to \N$. \\
+$S = 2^A$. \\
+Moč je statistika. \\
+$S$ končna množica, $f$ statistika na $S$. \\
+Pogosto gledamo polinom $\sum_{s \in S} x^{f(s)}$ (enumeration). \\
+$|.|$ na $2^{[3]}: 1 + 3 x + 3 x^2 + x^3 = (1+x)^3$. \\
+$S_n = \{$permutacije $[n]\} = \{f: [n] \to [n]: f $ bijektivna$\}$. \\
+% slikica
+%s puščicami \\
+$\begin{pmatrix}1 & 2 & 3 \\ 2 & 1 & 3\end{pmatrix}$ - dvovrstična notacija. \\
+$2 \; 1 \; 3$ - enovrstična notacija. \\
+$(1 \; 2) \msout{(3)}$ - produkt disjunktnih ciklov. \\
+$i, \pi(i), \pi^2(i) \dots$ \\
+Gotovo $\exists j_1 < j_2: \pi^{j_1}(i) = \pi^{j_2}(i) \implies i = \pi^j(i); \; j > 0$. \\
+$(i \; \pi(i) \dots \pi^{j-1}(i))$ cikel. \\
+$38241765 = (1 \; 3 \; 2 \; 8 \; 5) (4) (6 \; 7) = (4) (2 \; 8 \; 5 \; 1 \; 3) (7 \; 6)$. \\
+Množenje permutacij: kompozicije. \\
+Nekomutativno za $n > 2$. \\
+Disjunktni cikli komutirajo. \\
+Zapis: enoličen do vrstnega reda ciklov in ciklične ureditve ciklov. \\
+Cikel dolžine 1 = negibna točka. \\
+Cikel dolžine 2 = transpozicija. \\
+$(S_n \cdot)$ simetrična grupa. \\
+$e = id = 1 \; 2 \dots n$. \\
+$\pi^{-1}$ inverz (kot preslikava). \\
+$3 \; 8 \; 2 \; 4 \; 1 \; 7 \; 6 \; 5^{-1} = 5 \; 3 \; 1 \; 4 \; 8 \; 7 \; 6 \; 2$. \\
+$3 \; 1 \; 4 \; 2 \cdot 4 \; 2 \; 3 \; 1 = 2 \; 1 \; 4 \; 3$ - množimo z desne. \\
+Statistika: \# ciklov = $c(\pi)$ (štejemo tudi cikle dolžine 1). \\
+$n=3: x^3 + 3 x^2 + 2 x = x(x+1)(x+2)$. \\
+$\sum_{\pi \in S_n} x^{c(\pi)} = \sum_k |\{\pi \in S_n: c(\pi) = n\}| x^k$. \\
+$|\{\pi \in S_n: c(\pi) = n\}| =: c(n,k)$ - Stirlingovo število 1. vrste. \\
+$\sum_{B \subseteq [n]} x^{|B|} = \sum_k |\binom{[n]}{k}| x^k$. \\
+$|\binom{[n]}{k}| =: \binom{n}{k}$ - binomski koeficient. \\
+%
+%
+% 2. predavanje
+%
+Inverzija $\pi \in S_n$ je $(i,j)$, da je za $i < j$ $\pi_i > \pi_j$. \\
+$inv(\pi) = $ \# inverzij $\pi$. \\
+$inv(4 \; 1 \; 6 \; 2 \; 5 \; 3) = 7$. \\
+$0 \leq inv(\pi) \leq \binom{n}{2}$. \\
+Signatura permutacije: $(-1)^{inv(\pi)}$. \\
+$sg \pi = 1$ - soda permutacija: produkt sodo mnogo transpozicij. \\
+$sg \pi = -1$ - liha permutacija: produkt liho mnogo transpozicij. \\
+$det A = \sum_{\pi \in S_n} (-1)^{inv(\pi)} a_{1,\pi(1)} \cdots a_{n,\pi(n)}$. \\
+Izraz brez $(-1)^{inv(\pi)}$: permanenta. \\
+$n=3:$ \\
+$1 + 2 x + 2 x^2 + x^3 = 1 + x^2 + x^3 + x + x^2 + x^3 = (1+x)(1+x^2)$. \\
+$\sum_{\pi in S_n} x^{inv(\pi)} = 1 \cdot (1+x) (1+x^2) \cdots (1+x^{n-1})$ - kasneje. \\
+\# permutacij v $S_n$ s k inverzijami: ni standardne oznake. \\
+spust/padec (descent) $i: \pi_i > \pi_{i+1}$. \\
+$des(4 \; 1 \; 6 \; 2 \; 5 \; 3) = 3$. \\
+$0 \leq des(\pi) \leq n-1$. \\
+\# permutacij v $S_n$ s $k-1$ spusti $= A(n,k)$ - Eulersko število ($k-1$ iz zgodovinskih razlogov). \\
+$\sum_k A(n,k) x^k = \sum_{\pi \in S_n} x^{1+des(\pi)} = A_n(x)$ - eulerski polinom. \\
+$n=3:$ \\
+$x + 4x^2 + x^3$. \\
+razdelitev/razbitje (angl. set partition) $A$ je $\{B_1, B_2 \dots B_n\}, da velja:$
+\begin{itemize}[label={--}]
+  \item $B_i \neq \emptyset \; i = 1 \dots k$,
+  \item $B_i \cap B_j = \emptyset \; 1 \leq i < j \leq k$,
+  \item $\cup_{i=1}^k B_i = A$.
+\end{itemize}
+$B_i$: bloki razdelitve, \\
+\# blokov, \\
+\# razdelitev $[n]$ s $k$ bloki $= S(n,k)$ - Stirlingovo število druge vrste. \\
+$A = [3] \quad \{\{1\}, \{2\}, \{3\}\}, \{\{1,2\}, \{3\}\} \dots \{\{1,2,3\}\}$. \\
+$x + 3 x^2 + x^3$. \\
+$S(4,2) = 4 + 3 = 7$. \\
+Kompozicija \# n je $\lambda = (\lambda_1 \dots \lambda_l), \lambda_i > 0$ člen kompozicije,
+$\lambda_i \in \N, \\
+\sum_{i=1}^{l} \lambda_i = n$. \\
+$l(\lambda)$ \# členov - dolžina. \\
+$\lambda \models n$ - $\lambda$ je kompozicija $n$. \\
+Razčlenitev \# n je $\lambda = (\lambda_1 \dots \lambda_l), \lambda_i > 0, \lambda_i \in \N$. \\
+$\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_l, \sum_{i=1}^{l} = n$ \\
+(angl. integer partition). \\
+$p(n)$ - \# razčlenitev $n$. \\
+$p_k(n)$ - \# razčlenitev $n$ s $k$ členi. \\
+$n=4:$ \\
+$4, 31, 22, 13, 211, 121, 112, 1111$ - 8 kompozicij. \\
+$4, 31, 22, 221, 1111$ - 5 razčlenitev. \\
+$p(4) = 5, p_2(4) = 2$. \\
+$B(n) = \sum_k S(n,k)$ - \# razčlenitev $[n]$, Bellovo število. \\
+$B(3) = 5$. \\
+$L(n,k)$ - razdelitev $[n]$ na $k$ linearno urejenih blokov. \\
+$L(4,2) = 4 \cdot 6 + 3 \cdot 2 \cdot 2 = 36$ - Lahovo število. \\
+$E_n =$ \# alternirajočih permutacij v $S_n$ - Eulerjevo število (Euler number). \\
+$\pi_1 > \pi_2 < \pi_3 > \pi_4 \dots$ \\
+Primerjaj: eulerska števila (eulerian number). \\
+$1, 1, 1, 2, 5$. \\
+Poti: \\
+npr. poti od $(0,0)$ do $(n,m)$ s korakom $(1,0)$ (vzhod) in $(0,1)$ (sever); \\
+% skica
+npr. poti od $(0,0)$ do $(2n,0)$ s korakoma $(1,1)$ in $(1,-1)$; \\
+% skica
+npr. poti od $(0,0)$ do $(2n,0)$ s korakoma $(1,1)$ in $(1,-1)$, nikoli pod $x$ osjo - Dyckove poti; \\
+% skica
+$c_n =$ \# Dyckovih poti dolžine $n$ (konec v $(2n,0)$) - Catalanova števila. \\
+$1,1,2,5,14,42 \dots$ \\
+Drevesa (povezani aciklični grafi). \\
+\# označenih dreves na $n$ vozliščih. \\
+% skica
+Cayleyev izrek: $n^{n-2}$. \\
+Ravninska drevesa. \\
+% skica
+(Vrstni red pomemben). \\
+Dvojiška drevesa: vsako vozlišče ima $2$ ali $0$ naslednikov.
+% skica
+
+
+\section{Osnovna načela preštevanja}
+
+Načelo vsote: $A \cap B = \emptyset \implies |A \cap B| = |A| + |B|$. \\
+$i \neq j: A_i \cap A_j = \emptyset \implies |\cup_{i=1}^{n} A_i| = \sum_{i=1}^n |A_i|$. \\
+Načelo produkta: $|A \times B| = |A| \cdot |B|, |\prod_{i=1}^n A_i| = \prod_{i=1}^{n} |A_i|$. \\
+Kombinatorično:
+\begin{itemize}[label={}]
+  \item 2 možnosti, izberemo eno ali drugo (ne pa obe) $\implies$ \# načinov je vsota \# načinov,
+  \item dvakrat izbiramo, izbiri sta neodvisni $\implies$ \# načinov je produkt \# načinov.
+\end{itemize}
+\begin{claim}
+  $|2^A| = 2^{|A|}$.
+\end{claim}
+\begin{pro}
+  Za vsak element se odločimo, ali ga damo v podmnožico ali ne.
+  2 izbiri, izbiramo $|A|$-krat, izbire so neodvisne $2 \cdot 2 \cdots 2 = 2^{|A|}$. \\
+  $\phi: 2^A \to \{0,1\}^{|A|}, A = \{a_1, a_2 \dots a_n\}$. \\
+  $\phi(B) = (\epsilon_1 \dots \epsilon_n), \epsilon_i = \begin{cases}
+      1 \; a_i \in B \\
+      0 \; \text{sicer}
+    \end{cases}$ \\
+  $\psi: \{0,1\}^{|A|} \to 2^A$. \\
+  $\psi(\epsilon_1 \dots \epsilon_n) = \{a_i: \epsilon_i = 1\}$. \\
+  $\psi \circ \phi, \phi \circ \psi$ identiteti. \\
+  $|\{0,1\}|^{|A|} = 2^{|A|}$.
+  \qed
+\end{pro}
+\begin{claim} \text{}
+  \begin{enumerate}
+    \item $|K^N| = |K|^{|N|}$.
+    \item $|\{f \in K^n \text{ injektivna}\}| = |K| (|K|-1) \dots (|K|-|N|+1)$.
+    \item $|S_n| = n (n-1) \dots 1 = n!$.
+  \end{enumerate}
+\end{claim}
+oznake: \\
+$n^{\underline{k}} = n (n-1) \dots (n-k+1)$: $n$ na $k$ padajoče. \\
+$n^{\overline{k}} = n (n+1) \dots (n+k-1)$: $n$ na $k$ naraščajoče.
+\begin{rem}
+  Pri 2. in 3. smo uporabili varianto načela produkta: izbire sicer niso neodvisne, je pa neodvisno število izbir.
+\end{rem}
+Dirichletov princip (pigeon-hole principle): \\
+$\phi: X \to Y$ injektivna $\implies |X| \leq |Y|$. \\
+Če damo $n$ kroglic v $k$ škatel, $n > k$, sta v vsaj eni škatli vsaj $2$ kroglici.
+\begin{ex} \text{}
+  \begin{enumerate}[label=(\arabic{*})]
+    \item $n$ ljudi, med njimi sta dva, ki poznata enako mnogo ljudi. \\
+      $X =$ljudje, $f=$ \# znanstev. \\
+      $n$ kroglic, $n$ škatel, ampak škatli $0$ in $n-1$ ne moreta biti obe neprazni.
+    \item $X \subseteq [2n], |X| = n+1$. \\
+      Obstajata $x,y \in X, x \neq y, x|y$. \\
+      $x = 2^k \cdot l, k \geq 0, k$ lih. \\
+      $Y = \{i \in [2n]$ liho$\}$. \\
+      $x \mapsto l$.
+  \end{enumerate}
+\end{ex}
+
+
+\section{Binomski koeficienti}
+
+$\binom{n}{k} = \left|\binom{[n]}{k}\right|$ = število k-elementnih podmnoživ v $[n]$
+= število izbir k elementov izmed $n$ elementov. \\
+$\binom{4}{2} = 6, \binom{5}{0} = 1, \binom{8}{-2} = 0, \binom{8}{9} = 0$. \\
+$\binom{n}{0} = 1, \binom{n}{n} = 1, \binom{n}{1} = n$. \\
+$\binom{n}{n-k} = \binom{n}{k}$. \\
+$\phi: \binom{[n]}{n-k} \to \binom{[n]}{k}$. \\
+$\phi(A) = A^c$. \\
+$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$. \\
+$\binom{n-1}{k-1}$: izberemo $n$. \\
+$\binom{n-1}{k}$: ne izberemo $n$-ja. \\
+Pascalov trikotnik: \\
+\Longstack[l]{
+n=0\\
+n=1\\
+n=2\\
+n=3\\
+n=4\\
+n=5\qquad\ \\
+}
+\Longstack{
+1\\
+1\x 1\\
+1\x 2\x 1\\
+1\x 3\x 3\x 1\\
+1\x 4\x 6\x 4\x 1\\
+1\x 5\y 10\z 10\y 5\x 1%\\
+%\overline{0\x 1\x 2\x 3\x 4\x 5}
+}
+\begin{claim}
+  $\binom{n}{k} = \frac{n^{\underline{k}}}{k!} = \begin{cases}
+    \frac{n!}{n! (n-k)!} \; 0 \leq k \leq 0 \\
+    0 \quad k > n
+  \end{cases}$
+\end{claim}
+\begin{pro}
+  Izberemo $1$ element na $n$ načinov, $2$ na $n-1 \dots \implies n^{\underline{k}}$ načinov,
+  vsak izbor smo šteli $k!$-krat. \\
+  Ali: preštejemo urejene izbire $k$ različnih elementov iz $[n]$; \\
+  $n^{\underline{k}} = \binom{n}{k} \cdot k!$. \\
+  $\binom{n}{k}$: najprej izberemo k elementov. \\
+  $k$: nato jih uredimo.
+  \qed
+\end{pro}
+\begin{theorem}[Binomski izrek]
+  $(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}$; \\
+  $a,b \in K$ komutativni kolobar, $n \in \N$.
+\end{theorem}
+\begin{pro} \text{} \\
+  \begin{enumerate}[label=D\arabic{*}.]
+    \item Indukcija po $n$: \\
+      $n=0$: $1=1$ \\
+      $n-1 \to n$:
+      \begin{align*}
+        (a+b)^n &= (a+b)^{n-1}(a+b) = \\
+        &\stackrel{\text{IP}}{=} \sum_{k=0}^{n-1} \binom{n-1}{k} a^k b^{n-1-k} (a+b) = \\
+        &= \sum_{k=0}^{n-1} \binom{n-1}{k} a^{k+1} b^{n-1-k} + \sum_{k=0}^{n-1} \binom{n-1}{k} a^k b^{n-k} = \\
+        &= \sum_{k=1}^{n-1} \binom{n-1}{k-1} a^{k} b^{n-k} + \sum_{k=1}^{n-1} \binom{n-1}{k} a^k b^{n-k} = \\
+        &= \sum_{k=0}^{n} \binom{n-1}{k-1} a^{k} b^{n-k} + \sum_{k}^{n} \binom{n-1}{k} a^k b^{n-k} = \\
+        &= \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}.
+      \end{align*}
+    \item $(a+b)^n = \sum_k \binom{n}{k} a^k b^{n-k}$ DN.
+    \item $(a+b) \dots (a+b) = \sum_{\text{izbira $a$ ali $b$}} \text{produkt izbranih} =$\\
+      $= \sum_{k} \binom{n}{k} a^k b^{n-k}$. \\
+      $a$ izberemo $k$-krat. \\
+      Izberemo $k$ oklepajev, pri katerih izberemo $a$.
+  \end{enumerate}
+  \qed
+\end{pro}
+$\binom{10}{3} = \frac{10 \cdot 9 \cdot 8}{3 \cdot 2} = 120$. \\
+$\binom{12}{10} = \binom{12}{2} = \frac{12 \cdot 11}{2} = 66$. \\
+Izbori: $n$ kroglic, $k$ izberemo. \\
+\begin{center}
+  \begin{tabular}{c | c | c |c}
+    & s ponavljanjem & brez ponavljanja & \\
+    \hline
+    vrstni red pomemben & $n^k$ & $n^{\underline{k}}$ & variacije \\
+    ni pomemben & $\binom{n+k-1}{k}$ & $\binom{n}{k}$ & kombinacije
+  \end{tabular}
+\end{center}
+$1 \leq i_1 \leq i_2 \leq \dots \leq i_k \leq n$. \\
+$j_1 = i_1, j_2 = i_2+1 \dots j_k = i_k+k-1$. \\
+$1 \leq j_1 < j_2 < \dots < j_k \leq n+k-1$.
+\begin{claim}
+  Število kompozicij $n$ je $2^{n-1} \; (n \geq 1)$, število kompozicij s $k$ členi je $\binom{n-1}{k-1} \; (n \geq 1)$.
+\end{claim}
+\begin{pro}
+  $n$ kroglic $\quad \circ | \circ \circ \circ | \circ \circ - 6 = 1 + 3 + 2$. \\
+  $k-1$ pregrad, $n-1$ mest za pregrade.
+  \qed
+\end{pro}
+
+
+
+%\clearpage
+%\phantomsection
+
+%\addcontentsline{toc}{chapter}{Literatura}
+%\bibliography{../bibtex/literatura}
+%\bibliographystyle{plainnat}
+
+
+%\clearpage
+%\phantomsection
+
+%\chapter*{Dodatki}
+%\addcontentsline{toc}{chapter}{Dodatki}
+%D.
+
+
+
+
+\end{document}
