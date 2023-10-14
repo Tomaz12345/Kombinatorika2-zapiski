@@ -191,7 +191,7 @@
 
 
 
-% 1. predavanje
+% 1. predavanje: 3.10.
 
 \chapter{Osnove}
 
@@ -293,7 +293,7 @@ $\sum_{B \subseteq [n]} x^{|B|} = \sum_k |\binom{[n]}{k}| x^k$. \\
 $|\binom{[n]}{k}| =: \binom{n}{k}$ - binomski koeficient. \\
 %
 %
-% 2. predavanje
+% 2. predavanje: 5.10.
 %
 Inverzija $\pi \in S_n$ je $(i,j)$, da je za $i < j$ $\pi_i > \pi_j$. \\
 $inv(\pi) = $ \# inverzij $\pi$. \\
@@ -514,11 +514,175 @@ $1 \leq j_1 < j_2 < \dots < j_k \leq n+k-1$.
   Število kompozicij $n$ je $2^{n-1} \; (n \geq 1)$, število kompozicij s $k$ členi je $\binom{n-1}{k-1} \; (n \geq 1)$.
 \end{claim}
 \begin{pro}
-  $n$ kroglic $\quad \circ | \circ \circ \circ | \circ \circ - 6 = 1 + 3 + 2$. \\
+  $n$ kroglic $\quad \circ | \circ \circ \circ | \circ \circ: \; 6 = 1 + 3 + 2$. \\
   $k-1$ pregrad, $n-1$ mest za pregrade.
   \qed
 \end{pro}
+%
+%
+% 3. predavanje: 12.10.
+%
+Kompozicije: $2^{n-1}, \binom{n-1}{k-1}$. \\
+Šibka kompozicija: $(\lambda_1 \dots \lambda_l); \; \lambda_i \geq 0, \; \lambda_1 + \dots + \lambda_l = n$. \\
+$3: 12, 3, 21, 102, 300, 0102 \dots$ \\
+Število šibkih kompozicij $n$ s $k$ členi. \\
+% skica
+$n+k-1$ objektov, premešamo na $\binom{n+k-1}{k-1}$ oz. $\binom{n+k-1}{n}$ načinov. \\
+Še en dokaz: \\
+$\lambda_1 + \dots + \lambda_l = n, \; \lambda_i \geq 0$. \\
+$\mu_i = \lambda_i + 1 \; \mu_i \geq 1$. \\
+$\mu_1 + \dots + \mu_l = n + k \implies \binom{n+k-1}{n-1}$. \\
+Primerjaj z: kombinacije s ponavljanjem. \\
+$n$ kroglic, $k$-krat izbiram. \\
+$\lambda_i$: kolikokrat izberemo $i$-to kroglico. \\
+$\lambda_1 + \dots + \lambda_n = k, \; \lambda_i \geq 0$. \\
+Šibke kompozicije $k$ z $n$ členi: $\binom{k+n-1}{k}$.
+\begin{claim}
+  \begin{equation*}
+    L(n,k) = \frac{n!}{k!} \binom{n-1}{k-1}.
+  \end{equation*}
+\end{claim}
+\begin{pro}
+  Koliko je urejenih razdelitev na linearno urejene bloke:
+  \begin{equation*}
+    k! \cdot L(n,k) = n! \cdot \binom{n-1}{k-1}.
+  \end{equation*}
+  Tukaj predstavljajo
+  \begin{itemize}
+    \item $L(n,k)$: urejene bloke,
+    \item $k!$: njihov vrstni red,
+    \item $n!$: permutacije,
+    \item $\binom{n-1}{k-1}$: šibke kompozicije.
+  \end{itemize}
+\end{pro}
+% skica
+Poti iz $(0,0)$ v $(n,m)$, premikamo se gor ali desno. \\
+$n$-krat gor, $m$-krat desno: $\binom{n+m}{m}$ možnosti. \\
+Poti iz $(0,0)$ v $(2n,0)$, desno-gor ali desno-dol. \\
+$n$-krat gor, $n$-krat dol: $\binom{2n}{n}$. \\
+Dyckove poti: isto kot prej, se ne spustimo pod $x$-os. \\
+Pot je slaba, če gre pod $x$-os: \\
+% skica
+Od tam naprej, kjer 1. doseže $y=-1$, prezrcalimo pot preko $y=-1$. \\
+Konča se v $y=-2$. \\
+Število slabih poti = število poti od $(0,0)$ do $(2n,-2)$. \\
+Teh je $\binom{2n}{n-1}$: $(n-1)$-krat gor, $(n+1)$-krat dol. \\
+$C_n =$ število Dyckovih poti doižine $n$ = $\binom{2n}{n} - \binom{2n}{n-1}$ \\
+$= \frac{(2n!)}{n!n!} - \frac{(2n)!}{(n-1)!(n+1)!} = \binom{2n}{n}(1 - \frac{n}{n+1}) = \frac{1}{n+1} \binom{2n}{n}$. \\
+Multinomski koeficienti: \\
+$\alpha_1 \times 1, \alpha_2 \times 2 \dots \alpha_k \times k: \; 11..12..2..k$. \\
+Na koliko načinov lahko premešamo:
+\begin{equation*}
+  \binom{\alpha_1 + \dots + \alpha_k}{\alpha_1} \binom{\alpha_2 + \dots + \alpha_k}{\alpha_2} \dots
+  %\binom{\alpha_{k-1} + \alpha_k}{\alpha_{k-1}} \binom{\alpha_k}{\alpha_k} =
+  \binom{\alpha_k}{\alpha_k} =
+  \frac{(\alpha_1 + \dots + \alpha_k)!}{\alpha_1! \dots \alpha_k!}.
+\end{equation*}
+Definiramo
+\begin{equation}
+  \label{multinomski}
+  \binom{\alpha_1 + \dots + \alpha_k}{\alpha_1, \alpha_2 \dots \alpha_k} := \frac{(\alpha_1 + \dots + \alpha_k)!}{\alpha_1! \dots \alpha_k!}.
+\end{equation}
+Izrazu \refeq{multinomski} pravimo multinomski simbol. \\
+Figure v 1. vrsti pri šahu: $\frac{8!}{1!1!2!2!} = 7!$. \\
+$i$-jem damo indekse $\alpha_1 \dots \alpha_k: \; 1_1 \dots 1_{\alpha_1} 2_1 \dots k_{\alpha_k}$ \\
+Premešamo na $(\alpha_1 + \dots + \alpha_k)!$ načinov. \\
+Eno permutacijo dobimo $(\alpha_1! \dots \alpha_k!)$-krat. \\
+Multimnožica $M$ je množica, v kateri se elementi lahko ponavljajo. \\
+$M = \{1, 1, 1, 2, 2, 3, 3, 3, 3\} = \{1^3, 2^2, 3^4\}$. \\
+Število permutacij multimnožice je multinomski simbol. \\
+Formalno je multimnožica $(S,f)$, kjer je $S$ množica, $f: S \to \N$ šteje kolikokrat se posamezen element ponovi.
 
+
+\section{Dvanajstera pot}
+
+$n$ kroglic, $k$ škatel; na koliko načinov lahko damo kroglice v škatle.
+\begin{center}
+  \begin{tabular}{c | c | c | c | c}
+    $N \setminus K$ & vse & injekcije & surjekcije & \\
+    \hline
+    L L & $k^n$ & $k^{\underline{n}}$ & $k! S(n,k)$ & \\
+    N L & $\binom{n+k-1}{k-1}$ & $\binom{k}{n}$ & $\binom{n-1}{k-1}$ & \sn{kompozicije} \\
+    L N & $\sum_i S(n,i)$ & $\begin{cases}1 \; k \geq n \\ 0 \text{ sicer} \end{cases}$ & $S(n,k)$ & razdelitve \\
+    N N & $\overline{p_k(n)}$ & $\begin{cases}1 \; k \geq n \\ 0 \text{ sicer} \end{cases}$ & $p_k(n)$ & razčlenitve
+  \end{tabular}
+\end{center}
+Vpeljemo ekvivalenčne relacije
+\begin{itemize}
+  \item $f \sim_N g: \; \exists \pi \in S_n: \; f \circ \pi = g$
+  \item $f \sim_K g: \; \exists \sigma \in S_k: \; \sigma \circ f = g$
+  \item $f \sim_{N,k} g: \; \exists \pi \in S_n, \sigma \in S_k: \; \sigma \circ f \circ \pi = g$.
+\end{itemize}
+
+
+\section{Rekurzije}
+
+$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$. \\
+$c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k)$; \\
+$c(n-1,k-1)$: $n$ negibna, $(n-1)$: za kateri element vstavimo. \\
+$S(n,k) = S(n-1,k-1) + k S(n-1,k)$; \\
+$S(n-1,k-1)$: $n$ v svojem bloku, $k$: v kateri blok vstavimo. \\
+$L(n,k) = L(n-1,k-1) + (n+k-1) L(n-1,k)$; \\
+$L(n-1,k-1)$: $n$ v svojem bloku, $(n+k-1)$: kam vstavimo. \\
+$B(n+1) = \sum_{k=0}^{n} \binom{n}{k} B(n-k) = \sum_{k=0}^{n} \binom{n}{k} B(k)$; \\
+odstranimo blok, v katerem je $n+1$, $k$: število elementov v bloku skupaj z $n+1$,
+$\binom{n}{k}$: kateri elementi v bloku skupaj z $n+1$, $B(n-k)$: razdelimo ostale. \\
+$p_k(n) = p_{k-1}(n-1) + p_k(n-k)$; \\
+$p_{k-1}(n-1)$: $\lambda_l = 1$, $p_k(n-k)$: $\lambda_l \geq 2$ (odstranimo 1. stolpec v Ferrersovem diagramu). \\
+$A(n,k) = (n+1-k) A(n-1,k-1) + k A(n-1,k)$.
+ostranimo $n$, $k$: n damo na konec ali za spust, $(n+1-k)$: $n$ damo na začetek ali za vzpon.
+V $S_n$ velja še: števio spustov + število vzponov = $n-1$. \\
+$2 E_{n+1} = \sum_{k=0}^{n} \binom{n}{k} E_k E_{n-k} \; n \geq 1$; \\
+% skica
+$k$: koliko elementov je pred $n+1$, število obratno alternirajočih = število alternirajočih ($i \to n+1-i$),
+$E_k$: pred $n+1$, $E_{n-k}$: za $n+1$, štejemo in alternirajoče in obratno alternirajoče permutacije. \\
+$C_{n+1} = \sum_{k=0}^{n} C_k C_{n-k}$; \\
+% skica
+$k$: ko 1. pridemo v $y=0$: pred in za tem sta Dyckovi poti. \\
+$p(n) = p(n-1) + p(n-2) - p(n-5) - p(n-7) + p(n-12) + p(n-15) - \dots$ \\
+Eulerjev petkotniški izrek (dokaz kasneje) (pentagonal).
+
+
+\section{Načelo vklučitev in izključitev (NVI)}
+
+(Principle of inclusion and exclusion). \\
+$|A \cup B| = |A| + |B| - |A \cap B|$. \\
+$|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|$.
+\begin{theorem}[NVI]
+  \begin{align*}
+    |\cup_{i=1}^n A_i| &= |A_1| + |A_2| + \dots + |A_n| \\
+    &- |A_1 \cap A_2| - \dots - |A_{n-1} \cap A_n| \\
+    &+ |A_1 \cap A_2 \cap A_3| + \dots + |A_{n-2} \cap A_{n-1} \cap A_n| \\
+    &- \dots \\
+    &= \sum_{i=1}^{n} (-1)^{i-1} \sum_{1 \leq j_1 < \dots < j_k \leq n} |A_{j_1} \cap \dots \cap A_{j_k}| \\
+    &= \sum_{\emptyset \neq S \subseteq [n]} (-1)^{|S|-1} |A_S|,
+  \end{align*}
+  kjer je $A_S := \cap_{i \in S} A_i$.
+\end{theorem}
+\begin{pro} \text{}
+  $x \in \cup_{i=1}^n A_i$. \\
+  Trdimo, da $x$ prispeva $1$ k vsoti na desni. \\
+  Recimo, da je $x$ v natanko $m$ množicah $A_i \; (1 \leq m \leq n)$:
+  \begin{align*}
+    &m - \binom{m}{2} + \binom{m}{3} - \dots + (-1)^{m} \binom{m}{m} \\
+    &= 1 - \left(\binom{m}{0} - \binom{m}{1} + \binom{m}{2} - \dots + (-1)^{m-1} \binom{m}{m}\right) \\
+    &= 1 - (1-1)^m = 1.
+  \end{align*}
+\end{pro}
+\begin{claim}[NVI, 2. verzija]
+  \begin{equation*}
+    \left|\cap_{i=1}^n A_i^C\right| = \sum_{S \subseteq [n]} |A_S|.
+  \end{equation*}
+\end{claim}
+\begin{pro}
+  \begin{align*}
+    \left|\cap_{i=1}^n A_i^C\right| &= \left|(\cup_{i=1}^n A_i)^C\right| \\
+    &= |A| - |\cup_{i=1}^n A_i| \\
+    &= |A| + \sum_{\emptyset \neq S \subseteq [n]} (-1)^{|S|} |A_S| \\
+    &= \sum_{S \subseteq [n]} |A_S|,
+  \end{align*}
+  kjer velja še $A_{\emptyset} = A$.
+\end{pro}
 
 
 %\clearpage
