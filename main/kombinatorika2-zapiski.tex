@@ -659,7 +659,7 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
   \end{align*}
   kjer je $A_S := \cap_{i \in S} A_i$.
 \end{theorem}
-\begin{pro} \text{}
+\begin{pro} \text{} \\
   $x \in \cup_{i=1}^n A_i$. \\
   Trdimo, da $x$ prispeva $1$ k vsoti na desni. \\
   Recimo, da je $x$ v natanko $m$ množicah $A_i \; (1 \leq m \leq n)$:
@@ -683,6 +683,213 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
   \end{align*}
   kjer velja še $A_{\emptyset} = A$.
 \end{pro}
+
+
+% 4. predavanje: 19.10.
+
+\begin{ex}
+  \begin{enumerate}[label=(\arabic{*})] \text{}
+    \item Koliko je $k$-elementnih antiverig v $B_n$? \\
+      $B_n = (2^{[n]}, \subseteq)$ Boolova algebra, antiveriga - množica neprimerljivih elementov.
+      \begin{enumerate}[label={k=\arabic*:}]
+        \item $2^n$ (vsi elementi).
+        \item 
+          \begin{align*}
+            &S = \{(A,B): A, B \subseteq [n]\} \\
+            &S_1 = \{(A,B): A \subseteq B\} \\
+            &S_2 = \{(A,B): B \subseteq A\} \\
+            &|S_1^C \cap S_2^C| = |S| - |S_1| - |S_2| + |S_1 \cap S_2| = 4^n - 2 \cdot 3^n + 2^n;
+          \end{align*}
+          $4^n$: vse možnosti $x \in, \notin A,B$, $3^n$: vse razen $x \in A, \notin B \dots$ \\
+          $\implies \frac{1}{2} (4^n - 2 \cdot 3^n + 2^n)$.
+        \item
+          \begin{align*}
+            &S = \{(A,B,C): A,B,C \in 2^{[n]}\} \\
+            &S_1: A \subseteq B, S_2: B \subseteq A, S_3: A \subseteq C, S_4: C \subseteq A \\
+            &S_5: B \subseteq C, S_6: C \subseteq B. \\
+            &|\cap_{i=1}^6 S_i^C| = 8^n - 6 \cdot 6^n + 3 \cdot 4^n + 6 \cdot 5^n - 6 \cdot 4^n - \stackrel{\text{DN}}{\dots}
+          \end{align*}
+          $6^n: S_i$, $4^n:$ npr. $S_1 \cap S_2$, $5^n$: npr. $S_1 \cap S_3$, $4^n:$ npr. $S_1 \cap S_4$.
+      \end{enumerate}
+    \item $i_n$: število premestitev v $S_n$ = število permutacij v $S_n$ brez negibne točke (dearangement).
+      \begin{align*}
+        &A = S_n \\
+        &A_i = \{\pi \in S_n: \pi_i = i\} \\
+        &|A_{I}| = (n - |I|)! \\
+        i_n &= \sum_{I \subseteq [n]} (-1)^{|I|} (n - |I|)! \\
+        &= \sum_{k=0}^{n} \binom{n}{k} (-1)^k (n-k)! \\
+        &= n! \sum_{k=0}^{n} \frac{(-1)^k}{k!}.
+      \end{align*}
+      $P$(število premestitev) $= \sum_{k=0}^{n} \frac{(-1)^k}{k!} \stackrel{n \to \infty}{\to} e^{-1}$.
+    \item Število surjekcij iz $[n]$ v $[k]$.
+      \begin{align*}
+        &A = [k]^{[n]} \\
+        &A_i = ([k] \setminus \{i\})^{[n]} \\
+        \left|\cap_{i=1}^n A_i^C\right| &= \sum_{I \subseteq [n]} (-1)^{|I|} (k - |I|)^n \\
+        &= \sum_{k=1}^{n} \binom{k}{i} (-1)^i (k-i)^n \\
+        &\stackrel{i=k-i}{=} \sum_{j=1}^{k} (-1)^{k-j} \binom{k}{j} j^n \\
+        &= k! S(n,k);
+      \end{align*}
+      surjekcija je urejena razdelitev;
+      \begin{equation*}
+        S(n,k) = \sum_{j=0}^{n} \frac{(-1)^{k-j} j^n}{j! (k-j)!}.
+      \end{equation*}
+    \item Eulerjev petkotniški izrek:
+      \begin{equation*}
+        p(n) = p(n-1) + p(n-2) - p(n-5) - \dots
+      \end{equation*}
+      \begin{align*}
+        &A = \{\text{razčlenitve }n\} \\
+        &A_i = \{\text{razčlenitve }n \text{, ki vsebujejo }i \text{ za člen}\} \; i = 1,2 \dots n \\
+        &|A_i| = p(n-i) \\
+        &|A_i \cap A_j| = p(n-k-j) \\
+        &|A_I| = p(n - \sum_{i \in I} i) \\
+        p(n) &= p(n-1) + p(n-2) + p(n-3) + \dots \\
+        &- p(n-1-2) - p(n-1-3) - p(n-2-3) - \dots \\
+        &+ p(n-1-2-3) - \dots \\
+        &= p(n-1) + p(n-2) - p(n-5) - p(n-7) + \dots
+      \end{align*}
+      Franklinova bijekcija: \\
+      $p(n) = \sum_{m=1}^{\infty} (\alpha(m) - \beta(m)) p(n-m)$; m - razčlenitve z različnimi členi, \\
+      $\alpha(m) = $ število razčlenitev $m$ z liho mnogo različnimi členi, \\
+      $\beta(m) = $ število razčlenitev $m$ z sodo mnogo različnimi členi, \\
+      Bijekcija
+      \begin{align*}
+        \Phi: & \{\text{razčlenitev }m \text{ z liho mnogo različnimi členi}\} (\setminus \{\dots\}) \\
+        &\to \{\text{razčlenitev }m \text{ z sodo mnogo različnimi členi}\} (\setminus \{\dots\}).
+      \end{align*}
+      % skica
+      $f(\lambda) = \max \{i: \lambda_i = \lambda_1 - i + 1\}$ - bok, \\
+      $g(\lambda) = \lambda_{l(\lambda)}$ - najmanjši člen,
+      \begin{enumerate}[label={\alph*)}]
+        \item $f(\lambda) \geq g(\lambda)$: min $\to$ bok,
+          % skica
+        \item $f(\lambda) < g(\lambda)$: bok $\to$ min,
+          % skica
+      \end{enumerate}
+      a) ne dela (število členov se ohrani), \\ % skica
+      b) ne dela (2 člena enako dolga), \\ % skica
+      a) ne dela, ko: \\ % skica
+      $f(\lambda) = g(\lambda) = l(\lambda)$ \\
+      $m = k + (k+1) + \dots + (2k-1) = \frac{2k(2k-1)}{2} - \frac{k(k-1)}{2} = \frac{k(3k-1)}{2}$ \\
+      $(\alpha(m) - \beta(m)) = (-1)^{k-1}$ ($k$ lih ali sod). \\
+      b) ne dela, ko: \\ % skica
+      $f(\lambda) = g(\lambda) - 1 = l(\lambda)$ \\
+      $m = (k+1) + (k+2) + \dots + (2k) = \dots = \frac{k(3k+1)}{2}$ \\
+      $(\alpha(m) - \beta(m)) = (-1)^{k-1}$. \\
+      Eulerjev petkotniški izrek:
+      \begin{align*}
+        p(n) &= \sum_{k=1}^{\infty} (-1)^{k-1} \left(p\left(n-\frac{k(3k-1)}{2}\right) + p\left(n-\frac{k(3k+1)}{2}\right)\right) \\
+        \text{oz.} & \sum_{k \in \Z} (-1)^k p\left(n - \frac{k(3k+1)}{2}\right) = 0.
+      \end{align*}
+      Tukaj smo upoštevali ko vstavimo $-k$: $\frac{-k(-3k-1)}{2} = \frac{k(3k+1)}{2}$ in $p(0) = 0$.
+  \end{enumerate}
+\end{ex}
+\begin{theorem}[\sn{NVI}] \text{} \\
+  $f, g: B_n \to K$, $K$ komutativni kolobar.
+  \begin{equation*}f(T) = \sum_{S \subseteq T} g(S) (\forall T \in B_n) \iff
+    g(T) = \sum_{S \subseteq T} (-1)^{|T \setminus S|} f(S) (\forall T \in B_n).
+  \end{equation*}
+\end{theorem}
+\begin{exmp} \text{} \\
+  $des(\pi) = |\{i : \pi(i) > \pi(i+1)\}|$ \\
+  $D(\pi) = \{i : \pi(i) > \pi(i+1)\}$ \\
+  $D(1\;4\;2\;6\;5\;3) = \{2,4,5\}$ \\
+  $f_n(T) = |\{\pi \in S_n: D(\pi) = T\}|$ \\
+  npr. $n=8, T=\{1,5\}$ \\
+  $g_n(T) = |\{\pi \in S_n: D(\pi) \subseteq T\}|$ \\
+  $T = \{t_1, t_2 \dots t_k\}$ \\
+  $g_n(T) = \binom{n}{t_1} \binom{n-t_1}{t_2-t_1} \binom{n-t_1-\dots-t_{k-1}}{t_k}
+    = \binom{n}{t_1,t_2-t_1 \dots t_k-t_{k-1}, n-t_k}$ \\
+  $\_ < \_ < \_ < \underline{t_i} \lessgtr \_$: zaradi $\subseteq$: tam lahko spust ali pa ne. \\
+  // če lastnosti točno določene: težko ($f_n(T)$), če \sn{vsebovano} ($g_n(T)$): lažje \\
+  $g_n(T) = \sum_{S \subseteq T} f_n(S)$ \\
+  \begin{align*}
+    f_n(T) &= \sum_{S \subseteq T} (-1)^{|T \setminus S|} g_n(S) \\
+    &= \sum_{S \subseteq T} (-1)^{|T \setminus S|} \binom{n}{s_1, s_2-s_1 \dots n-s_k} \\
+    &\stackrel{\text{vaje}}{=} det\left[\binom{n-t_i}{t_{j+1}-t_j}\right]_{i,j=0}^{|T|}.
+  \end{align*}
+  npr. $n=8$, $T=\{1,5\}, t_0=0, t_{|T|}=n+1=9$
+  \begin{equation*}
+    f_8(\{1,5\}) = \begin{vmatrix}
+      \binom{8}{1} & \binom{8}{5} & \binom{8}{8} \\
+      \binom{7}{0} & \binom{7}{1} & \binom{7}{7} \\
+      \binom{3}{-4} & \binom{3}{0} & \binom{3}{3}
+    \end{vmatrix} = 217.
+  \end{equation*}
+\end{exmp}
+\begin{pro} \text{} \\
+  $(\implies)$:
+  \begin{align*}
+    \sum_{S \subseteq T} (-1)^{|T \setminus S|} f(S) &= \sum_{S \subseteq T} (-1)^{|T \setminus S|} f(S) \sum_{U \subseteq S} g(U) \\
+    &= \sum_{U \subseteq T} \left(\sum_{U \subseteq S \subseteq T} (-1)^{|T \setminus S|}\right) g(U) \\
+    &\stackrel{k=|S \subseteq U|}{=} \sum_{U \subseteq T}
+      \sum_{k=0}^{|U|} \binom{|T \setminus U|}{k} (-1)^{|T \setminus U| - k} g(U) \\
+    &= g(T).
+  \end{align*}
+  Na notranji vsoti uporabimo binomski izrek za $-1$ in $1:$
+  \begin{equation*}
+    (1-1)^{|T \setminus S|} =
+    \begin{cases}
+      1: U = T \\
+      0: U \subset T
+    \end{cases}
+  \end{equation*}
+\end{pro}
+
+
+\section{Polinomske enkosti}
+
+$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$
+\begin{theorem} \text{}
+  \begin{enumerate}[label={(\alph*)}]
+    \item $\sum_k c(n,k) x^k = x^{\overline{n}}$
+    \item $\sum_k (-1)^{n-k} c(n,k) x^k = x^{\underline{n}}$
+    \item $\sum_k S(n,k) x^{\underline{k}} = x^{n}$
+    \item $\sum_k (-1)^{n-k} S(n,k) x^{\overline{k}} = x^{n}$
+    \item $\sum_k L(n,k) x^{\underline{k}} = x^{\overline{n}}$
+    \item $\sum_k (-1)^{n-k} L(n,k) x^{\overline{k}} = x^{\underline{n}}$
+  \end{enumerate}
+\end{theorem}
+\begin{rem}
+  $K[x] = \{$polinomi v $x\}$ vektorski prostor (celo algebra), $K$ komutativen obseg. \\
+  $\{x^n\}, \{x^{\underline{n}}\}, \{x^{\overline{n}}\}$ naravne baze.
+\end{rem}
+\begin{pro} \text{}
+  \begin{enumerate}
+    \item[(a)] Indukcija (na vajah drugače): \\
+      $n=0$: 1=1 \\
+      $n-1\to n$:
+        \begin{align*}
+          x^{\overline{n}} &= x^{\overline{n-1}}(x+n-1) \stackrel{\text{IP}}{=} (x+n-1) \sum_k c(n-1,k) x^k \\
+          &= \sum_k c(n-1,k-1) x^k + (n-1) \sum_k c(n-1,k) x^k = \sum_k c(n,k) x^k,
+        \end{align*}
+    \item[(b)] $x \to -x$ v (a),
+    \item[(c)] Preslikava = razdelitev + injekcija, \\
+      število preslikav iz $[n]$ v $[k] = \sum_k S(n,k) x^{\underline{k}}$, kjer predstavljajo
+      \begin{itemize}
+        \item $k$: število blokov,
+        \item $S(n,k)$: razdelimo $[n]$ na $k$ blokov,
+        \item $x^{\underline{k}}$: injekcija $[k] \to [x]$.
+      \end{itemize}
+      Dokazali smo za $x \in \N \implies$ polinoma sta enaka (ujemanje v $\infty$ točkah).
+    \item[(e)] Z indukcijo DN.
+  \end{enumerate}
+\end{pro}
+$\pi = 4\;2\;5\;1\;6\;3$ \\
+$inv(\pi) = 7$ \\
+$I(\pi) = \{(1,2), (1,4), (1,6) \dots\}$ \\
+$TI(\pi) = (a_1 \dots a_n); \; a_k = \{(i,j): \pi_i > \pi_j = k\}$ (\sn{desna stran}) - tabela inverzij. \\
+$TI(\pi) = (3,1,3,0,0,0)$ \\
+$0 \leq a_i \leq n-i$.
+\begin{claim} \text{} \\
+  $TI: S_n \to [0,n-1] \times [0,n-2] \times \dots \times [0,0]$ je bijekcija.
+\end{claim}
+\begin{conseq}
+  \begin{equation*}
+    \sum_{\pi \in S_n} q^{inv(\pi)} = n! = (1+q) (1+q+q^2) \dots (1+q+\dots+q^{n-1}).
+  \end{equation*}
+\end{conseq}
 
 
 %\clearpage
