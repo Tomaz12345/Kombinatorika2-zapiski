@@ -171,10 +171,11 @@
 
 %\section*{Seznam uporabljenih kratic}
 
-%\noindent\begin{tabular}{p{0.1\textwidth}|p{.8\textwidth}}
-%  {\bf kratica} & {\bf izraz} \\ \hline
-%  {\bf SVM}   & support vector machine (metoda podpornih vektorjev) \\
-%\end{tabular}
+\noindent\begin{tabular}{p{0.1\textwidth}|p{.8\textwidth}}
+  {\bf kratica} & izraz \\ \hline
+  {\bf NSTE} & naslednje trditve so ekvivalentne \\
+  {\bf orf} & običajna rodovna funkcija
+\end{tabular}
 
 %\clearpage
 %\phantomsection
@@ -1358,7 +1359,7 @@ Iz asociativnosti (ki je nismo dokazali) sledi $G_1 = G_2 = F^{<-1>}$.
 \section{Reševanje linearnih rekurzivnih enačb s konstantnimi koeficienti}
 
 \begin{ex} \text{} \\
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=(\arabic*)]
     \item $a_n = 2 a_{n-1} + 1 \; n \geq 1, a_0 = 1$ \\
       $1, 3, 7, 15 \dots$ \\
       $F(x) = \sum_n a_n x^n$ rodovna funkcija (angl. generating function) zaporedja.
@@ -1393,9 +1394,234 @@ Iz asociativnosti (ki je nismo dokazali) sledi $G_1 = G_2 = F^{<-1>}$.
       \begin{align*}
         p^{\text{obr}}\left(\frac{1}{\lambda_i}\right) &=
           c_0 \cdot \frac{1}{\lambda_i^d} + c_1 \cdot \frac{1}{\lambda_i^{d-1}} + \dots + c_d \\
-        &= \frac{c_0 + c_1 \lambda_i + \dots + c_d \lambda_i^d}{\lambda_i^d} = 0.
+        &= \frac{c_0 + c_1 \lambda_i + \dots + c_d \lambda_i^d}{\lambda_i^d} = 0
+      \end{align*}
+
+
+% 7. predavanje: 9.11.
+
+      \begin{align*}
+        F(x) &= \frac{1}{1-x-x^2} \\
+        &= \frac{1}{(1-y_1 x) (1-y_2 x)} \\
+        &= \frac{\frac{1}{1-\frac{y_2}{y_1}}}{1-y_1 x} + \frac{\frac{1}{1-\frac{y_1}{y_2}}}{1-y_2 x} \\&= 
+        \frac{1}{y_1 - y_2} \left(\frac{y_1}{1-y_1 x} - \frac{y_2}{1-y_2 x}\right) \\
+        &y_1 - y_2 = 5 \\
+        \implies &F_n = \frac{1}{\sqrt{5}} \left(\left(\frac{1+\sqrt{5}}{2}\right)^{n-1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1}\right).
       \end{align*}
   \end{enumerate}
+\end{ex}
+\begin{theorem}
+  NSTE (naslednje trditve so ekvivalentne) za $(a_n)_n, a_n \in \C$:
+  \begin{enumerate}[label=(\arabic*)]
+    \item $c_d a_n + c_{d-1} a_{n-1} + \dots + c_n a_{n-d} = 0, \quad n \geq d, \; c_0,c_d \neq 0$,
+    \item $F(x) = \sum_n a_n x^n = \frac{P(x)}{c_d + \dots + c_0 x^d}, \; deg \; P < d$,
+    \item $a_n = \sum_{i=1}^{k} p_i(n) \lambda_i^n$, $\lambda_1 \dots \lambda_k$ ničle $c_d y^d + \dots + c_0$
+      (karakteristični polinom) s kratnostmi $\alpha_1 \dots \alpha_k$, $deg \; p_i < \alpha_i$.
+  \end{enumerate}
+\end{theorem}
+\begin{pro} \text{} \\
+  $(1) \Longrightarrow (2)$:
+  \begin{align*}
+    &c_d a_n + c_{d-1} a_{n-1} + \dots + c_n a_{n-d} = 0 \qquad / \cdot x^n \sum_{n=d}^{\infty} \\
+    &c_d (F(x) - a_0 - \dots - a_{d-1} x^{d-1}) \\
+    +& c_{d-1} (F(x) - a_0 - \dots - a_{d-2} x^{d-2}) \\
+    +& \dots + c_0 x^d F(x) = 0 \\
+    F(x) &= (c_d + c_{d-1} x + c_{d-2} x^2 + \dots + c_0 x^d) = P(x) \quad deg P < d.
+  \end{align*}
+  $(2) \Longrightarrow (1)$:
+  \begin{align*}
+    &(c_d + c_{d-1} x + \dots + c_0 x^d) \cdot \sum_n a_n x^n = P(x) \\
+    &n \geq d: \; [x^n]: \; c_d a_n + \dots + c_0 a_{n-d} = 0.
+  \end{align*}
+  $(2) \Longrightarrow (3)$:
+  \begin{align*}
+    \sum_n a_n x^n &= \frac{P(x)}{c_d (1-\lambda_1 x)^{\alpha_1} \dots (1-\lambda_m x)^{\lambda_m}} \\
+    &\stackrel{\text{parc}}{=} \sum_{i=1}^{k} \sum_{j=1}^{\alpha_i} \frac{A_{ij}}{(1-\lambda_i x)^{j}} \\
+    \frac{1}{(1-x)^d} &= \sum_n \binom{n+d-1}{d-1} x^n \\
+    a_n &= \sum_{i=1}^{k} \left(\sum_{j=1}^{\alpha_i} A_{ij} \cdot \binom{n+j-1}{j-1}\right) \lambda_i^n, \\
+    \binom{n+j-1}{j-1} &\text{binom v $n$ stopnje } j-1 < \alpha_i.
+  \end{align*}
+  $(3) \Longrightarrow (2)$: podobno: $p_i(n)$ zapišemo v bazi $\binom{n+j-1}{j-1}$.
+\end{pro}
+\begin{ex} \text{} \\
+  $a_n - 7 a_{n-1} + 18 a_{n-2} - 12 a_{n-3} = 0$, $a_0, a_1, a_2$ dani. \\
+  $y^3 - 7 y^2 + 18 y - 12 = (y-2)^2 (y-3)$ \\
+  $\implies a_n = 2^n (An + B) + 3^n \cdot C$. \\
+  $A,B,C$ dobimo iz $a_0, a_1, a_2$ (vstavimo, dobimo sistem).
+\end{ex}
+\begin{rem} \text{} \\
+  $\sum_n a_n x^n = \frac{P(x)}{Q(x)}, \; deg P \geq deg Q \iff c_d a_n + \dots + c_n a_{n-d} = 0$ za $n \geq N$ (dovolj velik).
+\end{rem}
+\begin{rem} \text{} \\
+  $c_d a_n + \dots + c_0 a_{n-d} = r(n) \cdot \lambda^n, \; deg \; r = \alpha$. \\
+  Homogena $+$ partikularna \\
+  $\sum_n r(n) \lambda^n x^n = \frac{R(x)}{(1-\lambda x)^{\alpha}}$. \\
+  Če $\lambda \; \alpha_i-$kratna ničla karakterističnega polinoma: $\sum_{j=1}^{\alpha + \alpha_i} \dots$ \\
+  Nastavek: $n^{\alpha_i} q(n) \lambda^n, \; deg \; q = \alpha_i - 1$.
+\end{rem}
+\begin{ex} \text{} \\
+  $a_n - 4 a_{n-1} + 4 a_{n-2} = n \cdot 2^n, \; n \geq 2$. \\
+  Partikularna: $n^2 \cdot (An + B) 2^n$.
+\end{ex}
+
+
+\section{Nadaljevanje uporabe običajnih rodovnih funkcij}
+
+$F(x) = \sum_n a_n x^n$ \\
+$F(x) \stackrel{\text{orf}}{\longleftrightarrow} (a_n)_n$ \\
+$F^{'}(x) \stackrel{\text{orf}}{\longleftrightarrow} ((n+1) a_{n+1})_n$ \\
+$x F^{'}(x) \stackrel{\text{orf}}{\longleftrightarrow} (n a_n)_n$ \\
+$D F(x) := F^{'}(x)$, $D$: operator odvajanja. \\
+$(x D)^2 F(x) \stackrel{\text{orf}}{\longleftrightarrow} (n^2 a_n)_n$ \\
+$p(x D) F(x) \stackrel{\text{orf}}{\longleftrightarrow} (p(n) a_n)_n, \quad p$ polinom.
+\begin{ex} \text{} \\
+  $\sum_j j^2$ \\
+  $\frac{1}{1-x} \stackrel{\text{orf}}{\longleftrightarrow} (1)_n$ \\
+  $(x D)^2 \frac{1}{1-x} \stackrel{\text{orf}}{\longleftrightarrow} \left(\sum_{j=0}^n a_j\right)_n$ \\
+  $x \cdot \left(\frac{x}{(1-x)^2}\right)^{'} = \dots = \frac{x(1+x)}{(1-x)^3}$ - samo členi.
+  $F(x) \stackrel{\text{orf}}{\longleftrightarrow} (a_n)_n$ \\
+  $F(x) \cdot \frac{1}{1-x} \stackrel{\text{orf}}{\longleftrightarrow} \left(\sum_{j=0}^{n} a_j\right)_n$
+    - konvolucija z $(1)_n$. \\
+  \begin{align*}
+    [X^n] \left(F(x) \cdot \frac{1}{1-x}\right) &= [x^n] \left(\frac{x^2}{(1-x)^4} + \frac{x^2}{(1-x)^4}\right) \\
+    &= \binom{n+2}{3} + \binom{n+1}{3} \\
+    &= \frac{n(n+1)(2n+1)}{6}.
+  \end{align*}
+\end{ex}
+$F(x) \cdot G(x) = \sum_n a_n x^n \cdot \sum_n b_n x^n = \sum_n \left(\sum_{k=0}^{n} a_k b_{n-k}\right) x^n$. \\
+% skica
+Naj bo $1.$ del struktura $A$ ($(a_n)_n$ preštevalno zaporedje), \\
+naj bo $2.$ del struktura $B$ ($(b_n)_n$ preštevalno zaporedje): \\
+$\sum_{k=0}^n a_k b_{n-k}$.
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic*)]
+    \item $m$ kroglic, rdeče, črne, zelene, zelenih kroglic sodo in so na koncu. \\
+      % skica
+      $1, 2, 5, 10 \dots$ \\
+      $A$: rdeče / črne kroglice: $2^n \to \frac{1}{1-2x}$ \\
+      $B$: sodo mnogo zelenih kroglic: $1, 0, 1, 0, 1 \dots \to \frac{1}{1-x^2}$ \\
+      $\frac{1}{1-2x} \cdot \frac{1}{1-x^2} = \frac{\frac{4}{3}}{1-2x} + \frac{-\frac{1}{2}}{1-x} + \frac{\frac{1}{6}}{1+x}$ \\
+      $a_n = \frac{4}{3} \cdot 2^n - \frac{1}{2} + \frac{1}{6} (-1)^n$.
+    \item Kompozicije s $k$ členi \\
+      % skica
+      $A$: neničelno število: $0, 1, 1, 1, 1 \dots \to \frac{x}{1-x}$ \\
+      $\left(\frac{x}{1-x}\right)^k = \sum_n \binom{n+k-1}{k-1} x^{n+k} = \sum_n \binom{n-1}{k-1} x^n$, \\
+      šibke kompozicije: \\
+      $\left(\frac{1}{1-x}\right)^k$, \\
+      kompozicije z lihimi členi: $0, 1, 0, 1, 0, 1 \dots \to \frac{x}{1-x^2}$ \\
+      $\left(\frac{x}{1-x^2}\right)^k$.
+    \item $S(n,k)$ \\
+      $n=7, k=3: \{\{1, 4, 5\}, \{2, 7\}, \{3, 6\}\}$ \\
+      $\sum_n S(n,k) x^n = ?$ \\
+      Vrstni red določimo: $1$ v $1.$ bloku, v $2.$ bloku najmanjše število, ki ni v $1.$ bloku $\dots$ \\
+      $\to 1 \; 2 \; 3 \; 1 \; 1 \; 3 \; 2$ (primer od prej). \\
+      Dobimo: zaporedje $n$ števil v $[k]$, vsa od $1$ do $k$ se pojavijo, $1.$ pojavitev $i$ je pred $1.$ pojavitvijo $i+1$ \\
+      $1 \; (1 \dots 1) 2 (1/2 \dots 1/2) 3 (\dots) \dots$ \\
+      $x \cdot \frac{1}{1-x} \cdot x \cdot \frac{1}{1-2x} \dots$ \\
+      $\sum_n S(n,k) x^n = \frac{x^k}{(1-x) (1-2x) \dots (1-kx)}$. \\
+      Ekvivalentno: $(1-kx) \sum_n S(n,k) x^n = \sum_n S(n-1, k-1) x^n$ \\
+      $[x^n]: S(n,k) - k S(n-1,k) = S(n-1, k-1)$ \\
+      $\frac{x^k}{(1-x) \dots (1-kx)} = \frac{(-1)^k}{k!} + \sum_{j=1}^{k} \frac{A_j}{1-jx} \stackrel{DN}{=} \dots$
+    \item Razčlenitve \\
+      $\overline{p_k}(n) \stackrel{\text{konjugiranje}}{=}$ število razčlenitev $n$ s členi $\leq k$ \\
+      % skica
+      \begin{align*}
+        &\frac{1}{1-x} \cdot \frac{1}{1-x^2} \dots \frac{1}{1-x^k} \\
+        &= \sum_n \overline{p_k}(n) x^n \\
+        &= (1+x+x^2+\dots) (1+x^2+x^4+\dots) (1+x^3+\dots) \dots (1+x^k+\dots)
+      \end{align*}
+      $[x^n]: x^n = x^{m_1} \cdot x^{2 m_2} \dots x^{k m_k}$ \\
+      $n = m_1 + 2 m_2 + \dots + k m_k$ \\
+      $k \dots k \dots 3 2 \dots 2 1 \dots 1$ % ali skica
+      \begin{align*}
+        \sum_n p_n(n) x^n &= \lim_{k \to \infty} \sum_n \overline{p_k}(n) \\
+        &= \lim_{n \to \infty} \frac{1}{\prod_{j=1}^{n}} \\
+        &= \prod_{i=1}^{\infty} \frac{1}{1-x^i}.
+      \end{align*}
+      $d(n)$: število razčlenitev $n$ z različnimi členi \\
+      $\sum_n d(n) x^n = \prod_{i=1}^{\infty} (1-x^i)$ ($0$ ali $1$-krat vedno) \\
+      $o(n)$ = število razčlenitev $n$ z lihimi členi \\
+      $\sum_n o(n) x^n = \prod_{i=0}^{\infty} \frac{1}{1-x^{2i + 1}}$ \\
+      $\prod_i (1+x^i) \cdot \frac{1-x^i}{1+x^i} = \prod_{i} \frac{1-1^{2i}}{1-x} = \prod_i \frac{1}{1-x^{2i+1}}$ \\
+      $\Longrightarrow o(n) = d(n)$. \\
+      DN: bijekcija.
+    \item $c_n$: Dyckove poti dolžine $n$ \\
+      % skica
+      $c_{n+1} = \prod_{k=0}^n c_k \cdot c_{n-k} \qquad / \cdot x^{n+1} \sum_n$ \\
+      % skica
+      $F(x) - 1 = x \cdot \sum_{n=0}^{\infty} \left(\sum_{k=0}^{n} c_k c{n-k}\right) x^n = x \cdot F^2(x)$ \\
+      $F(x) = 1 + x F^2(x)$: \\
+      $1$: prazna, $xF^2(x)$: dolžine $n$, $2n$ korakov \\
+      Motzkinova pot: v smeri $(1,1), (1,-1), (1,0)$ \\
+      % skica
+      $M(x) = 1 + x M(x) + x^2 M^2(x)$: \\
+      $1$: prazna, $x M(x)$: naravnost, $x^2 M^2(x)$: desno-gor \\
+      $x F^2 - F + 1 = 0$ \\
+      $F = \frac{-1 \pm \sqrt{1-4x}}{2x}$ \\
+      $\sqrt{1-4x} = 1 - \sum_{n=1}^{\infty} \frac{1}{n} \binom{2n-2}{n-1} \cdot \frac{(-1)^n}{2^{2n-1}} (-4x)^n
+        = 1 - \sum_{n=1}^{\infty} \frac{2}{n} \binom{2n-2}{n-1} x^n$ \\
+      $\frac{1+\sqrt{1-4x}}{2x}$ - ne, ker $\frac{2 + \dots}{2x}$ \\
+      $\frac{1-\sqrt{1-4x}}{2x} = \sum_{n=0}^{\infty} \frac{1}{n+1} \binom{2n}{n} x^n$. \\
+      Druga utemeljitev: \\
+      $4 x^2 F^2 - 4 x F + 4 x = 0$ \\
+      $(2xF - \left(1-\sqrt{1-4x}\right)) (2xF - \left(1+\sqrt{1-4x}\right)) = 0$ v $K[[x]]$. \\
+      $2xF - \left(1+\sqrt{1-4x}\right) \neq 0$ (konstantni koeficient nima $0$) \\
+      $\Longrightarrow \; 2 x F = 1 - \sqrt{1-4x}$.
+  \end{enumerate}
+\end{ex}
+$F^k(x)$: razdelimo na $k$ delov, vsakemu damo strukturo $F$. \\
+$\sum_{k=0}^{\infty} F^k(x) = \frac{1}{1-F^k(x)}$: razdelimo na poljubno mnogo delov, vsakemu $F$.
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic*)]
+    \item Kompozicije $n$. \\
+      $\frac{1}{1-\frac{x}{1-x}} = \frac{1-x}{1-2x} = \begin{cases}2^{n-1} \; n > 0 \\ 0 \; n = 0\end{cases}$ \\
+      kompozicije s členi $1$ in $2$ \\
+      $\frac{1}{1-(x+x^2)}$.
+    \item $2 \times n$ plošča, domine $2 \times 1$. \\
+      % skica
+      Primitivni tlakovanji \\
+      $\frac{1}{1-x-x^2}$ \\
+      Domini $1 \times 1$ in $2 \times 1$ \\
+      $n = 1$: 1 možnost, \\
+      $n = 2$: 3, \\
+      $n = 3$: 2, \\
+      $n = 4$: 2, \\
+      % skica(e)
+      $\vdots$ \\
+      $\frac{1}{1-(2x + 3x^2 + 2x^3 + \dots)} = \frac{1}{1-x^2-\frac{2x}{1-x}} = \frac{1-x}{1-3x-x^2+x^3}$.
+    \item Primitivna Dyckova pot: se ne dotakne x osi. \\
+      % skica
+      $F(x) = \frac{1}{1 - x F(x)}$, \\
+      $M(x) = \frac{1}{1 - x - x^2 F(x)}$. \\
+      Levi faktor Dyckove poti: % skica
+      $L(x) = \frac{F(x^2)}{1 - x - x^2 F(x)} = \dots = \frac{2}{1 - 2 x + \sqrt{1-4x^2}}$ \\
+      $F(x^2)$: Dyckova pot (na začetku), $x F(x^2)$: korak + Dyckova pot. \\
+      DN: $L_n = \binom{n}{\lfloor\frac{n}{2}\rfloor}$, namig: $\frac{1}{\sqrt{1-4x}} = ?$
+  \end{enumerate}
+\end{ex}
+$(F \circ G)(x) = a_0 + a_1 G(x) + a_2 G^2(x) + \dots$: razdelimo na poljubno delov, vsakemu delu damo strukturo $G$,
+delom da strukturo $F$.
+\begin{ex} \text{} \\
+  Število kompozicij s sodo mnogo lihimi členi. \\
+  $n = 0: 1$ \\
+  $n = 1: 0$ \\
+  $n = 2: 1$ \\
+  $n = 3: 0$ \\
+  $n = 4: 3$ \\
+  $n = 5: 0$ \\
+  $n = 6: 8$ \\
+  $n = 7: 0$ \\
+  $n = 8: 21$ \\
+  $G(x) = \frac{x}{1-x^2}$ - lihi \\
+  $F(x) = \frac{1}{1-x^2}$ - sodo mnogo.
+  \begin{align*}
+    (F \circ G)(x) &= \frac{1}{1-\left(\frac{x}{1-x^2}\right)^2} \\
+    &= \frac{(1-x^2)^2}{(1-x-x^2)(1+x-x^2)} \\
+    &= \dots \\
+    &= 1 + \frac{x}{2} \left(\frac{1}{1-x-x^2} - \frac{1}{1+x-x^2}\right) \\
+    &= \sum_{n \text{ lih}} F_n x^n
+  \end{align*}
+  kjer se, ko razpišemo $\left(\frac{1}{1-x-x^2} - \frac{1}{1+x-x^2}\right)$ sodi odštejejo, lihi štejejo $2$-krat, to delimo z $2$.
 \end{ex}
 
 
