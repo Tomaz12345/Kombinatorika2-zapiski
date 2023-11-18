@@ -174,7 +174,11 @@
 \noindent\begin{tabular}{p{0.1\textwidth}|p{.8\textwidth}}
   {\bf kratica} & izraz \\ \hline
   {\bf NSTE} & naslednje trditve so ekvivalentne \\
-  {\bf orf} & običajna rodovna funkcija
+  {\bf orf} & običajna rodovna funkcija \\
+  {\bf erf} & eksponentna rodovna funkcija \\
+  {\bf fp} & formalni polinom \\
+  {\bf fpv} & formalna potenčna vrsta \\
+
 \end{tabular}
 
 %\clearpage
@@ -1623,6 +1627,219 @@ delom da strukturo $F$.
   \end{align*}
   kjer se, ko razpišemo $\left(\frac{1}{1-x-x^2} - \frac{1}{1+x-x^2}\right)$ sodi odštejejo, lihi štejejo $2$-krat, to delimo z $2$.
 \end{ex}
+
+
+% 8. predavanje: 16.11.
+
+\begin{ex}[Dobri Will Hunting] \text{} \\
+  % skica
+  \begin{enumerate}[label=(\arabic{*})]
+    \item Matrika sosednosti: $A=\begin{bmatrix}
+        0 & 1 & 0 & 1 \\
+        1 & 0 & 2 & 1 \\
+        0 & 2 & 0 & 0 \\
+        1 & 1 & 0 & 0
+      \end{bmatrix}$.
+    \item Matrika, ki opisuje sprehode dolžine $3: A^3=\begin{bmatrix}
+        2 & 7 & 2 & 3 \\
+        7 & 2 & 12 & 7 \\
+        2 & 12 & 0 & 2 \\
+        3 & 7 & 2 & 2
+      \end{bmatrix}$.
+    \item Poišči rodovno funkcijo za sprehode $i \to j$
+      \begin{equation*}
+        \sum_{k=0}^{\infty} A^k x^k = (I-Ax)^{-1} = \frac{1}{det(I-Ax)} \begin{bmatrix}\dots\end{bmatrix}
+      \end{equation*}
+    \item $1 \to 3$: \\
+      $\frac{2x^2 + 2x^3}{1 - 7x^2 - 2x^3 + 4x^4}$.
+  \end{enumerate}
+\end{ex}
+
+
+\section{Uporaba eksponentnih rodovnih funkcij}
+
+$F(x) = \sum_n \frac{a_n}{n!} x^n$ \\
+$F(x) \stackrel{\text{erf}}{\longleftrightarrow} (a_n)_n$ \\
+$\left[\frac{x^n}{n!}\right] F(x) = a_n$ \\
+$\left[\frac{x^n}{n!}\right] F(x) = n! [x^n] F(x)$ \\
+$F^{'}(x) \stackrel{\text{erf}}{\longleftrightarrow} (a_{n+1})_n$ \\
+$x F^{'}(x) \stackrel{\text{erf}}{\longleftrightarrow} (n \cdot a_n)_n$ \\
+$p(xD) F(x) \stackrel{\text{erf}}{\longleftrightarrow} (p(n) a_n)_n$.
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic{*})]
+    \item $F_{n+2} = F_{n+1} + F_n; \; n \geq 0$ \\
+      $F(x) = \sum_n \frac{F_n}{n!} x^n$ \\
+      $F^{''}(x) - F^{'}(x) - F(x) = 0$ \\
+      $\lambda^2 - \lambda - 1 = 0 \; \implies \; \lambda_{1,2} = \frac{1 \pm \sqrt{5}}{2}$ \\
+      $F(x) = A e^{\frac{1+\sqrt{5}}{2} x} + B e^{\frac{1-\sqrt{5}}{2} x}$ \\
+      $F_n = \left[\frac{x^n}{n!}\right] F(x) =
+        A \left(\frac{1+\sqrt{5}}{2}\right)^n + B \left(\frac{1-\sqrt{5}}{2}\right)^n$.
+    \item $i_n$: število involucij v $S_n \; (\pi^2 = id)$. \\
+      $i_n = i_{n-1} + (n-1) i_{n-2}; \; n \geq 2$: \\
+      $i_{n-1}$: $n$ fiksna točka \\
+      $i_{n-2}$: $n$ v transpoziciji z enim od $n-1$ ostalih. \\
+      $I(x) = \sum_{n} \frac{i_n}{n!} x^n$ \\
+      $I^{''} - I^{'} - (xI^{'} + I) = 0$ \\
+      $I^{''} - (x+1)I^{'} - I = 0$ \\
+      $(I^{'} - (x+1)I^{'})^{'} = 0$ \\
+      $I^{'} - (x+1)I = c$ \\
+      $x=0:\; 1 - 1 = 0 = c$ \\
+      $I^{'} = (x+1)I$ \\
+      $\int \frac{dI}{I} = \int (x+1) dx$ \\
+      $\ln I = \frac{x^2}{2} + x + \log D$ \\
+      $I = D e^{x + \frac{x^2}{2}} \; \stackrel{x=0}{\implies} \; D = 1$\\
+      $I(x) = e^{x + \frac{x^2}{2}}$.
+  \end{enumerate}
+\end{ex}
+$F(x) = \sum_n \frac{a_n}{n!} x^n$ \\
+$G(x) = \sum_n \frac{b_n}{n!} x^n$ \\
+$F(x) G(x) = \sum_n \left(\sum_{k=0}^{n} \frac{a_k}{k!} \frac{b_{n-k}}{(n-k)!}\right) x^n =
+\sum_n \left(\sum_{k=0}^{n} \binom{n}{k} a_k b_{n-k}\right) \frac{x^n}{n!}$ \\
+$\sum_{k=0}^{n} \binom{n}{k} a_k b_{n-k}$: binomska konvolucija. \\
+% skica
+orf: neoznačene strukture, \\
+erf: označene strukture.
+\begin{ex} \text{} \\
+  $d_n$: premestitve v $S_n$ (dearangement) - permutacije brez negibne točke. \\
+  $D(x) = \sum_n \frac{d_n}{n!} x^n$. \\
+  Permutacija = premestitev + množica negibnih točk. \\
+  $(1 \, 5 \, 2) \; (3) \; (4 \, 8 \, 7) \; (6)$ \\
+  % skica
+  $\frac{1}{1-x} = D(x) \cdot e^x$ \\
+  $D(x) = \frac{e^{-x}}{1-x}$ \\
+  $e^{-x} = \sum_n \frac{(-1)^n}{n!} x^n$ \\
+  $\frac{e^{-x}}{1-x} = \sum_n \left(\sum_{k=0}^{n} \frac{(-1)^k}{k!}\right) x^n$ \\
+  $d_n = n! \sum_{k=0}^{n} \frac{(-1)^k}{k!}$.
+\end{ex}
+\begin{align*}
+  F(x) G(x) &= \sum_{n} \left(\sum_{k=0}^{n} \binom{n}{k} a_k b_{n-k}\right) \frac{x^n}{n!} \\
+  &= \sum_n \left(
+    \sum_{(S_1,S_2), S_1 \cap S_2 = \emptyset, S_1 \cup S_2 = [n]} a_{|S_1|} b_{|S_2|} 
+    \right) \frac{x^n}{n!}
+\end{align*}
+\begin{equation*}
+  F^k(x) = \sum_n \left(
+    \sum_{(i_1 \dots i_k), i_j \geq 0, i_1 + \dots + i_k = n}
+    \binom{n}{i_1 \dots i_k} a_{i_1} \dots a_{i_k}
+    \right) \frac{x^n}{n!}.
+\end{equation*}
+Predpostavimo $F(0) = 0$!!
+\begin{align*}
+  F^k(x) &= \sum_n \left(
+    \sum_{(S_1 \dots S_k), S_i \neq \emptyset, S_i \cap S_j = \emptyset, S_1 \cup \dots \cup S_k = n}
+    a_{|S_1|} \dots a_{|S_k|}
+    \right) \frac{x^n}{n!} \\
+  &= k! \sum_n \left(
+    \sum_{(B_1 \dots B_k) \text{razdelitev } [n]}
+    a_{|B_1|} \dots a_{|B_k|}
+    \right) \frac{x^n}{n!}.
+\end{align*}
+\begin{theorem} \text{} \\
+  $F(0) = 0$. \\
+  $\frac{1}{k!} F^k(x)$ je erf za strukturo: izberemo razdelitev in vsakemu bloku damo strukturo $F$.
+\end{theorem}
+\begin{ex} \text{} \\
+  $\sum_n S(n,k) \frac{x^n}{n!} = \frac{1}{k!} (e^k-1)^k$ \\
+  $F$: neprazna množica: $0,1,1 \dots \; \stackrel{\text{erf}}{\implies} \; e^x-1$. \\
+  Binomski izrek $(e^x-1)k = e^{-kx} - \dots$ nam da formulo za $S(n,k)$. \\
+  $\sum_n c(n,k) \frac{x^n}{n!} = \frac{1}{k!} \left(\log \frac{1}{1-x}\right)^k$ \\
+  $F$: cikel: $a_n = (n-1)!$ za $n \geq 1 \; \stackrel{\text{erf}}{\implies} \; \log \frac{1}{1-x}$ \\
+  $\sum_n L(n,k) \frac{x^n}{n!} = \frac{1}{k!} \left(\frac{x}{1-x}\right)^k$ \\
+  $F$: neprazna linearno urejena množica:
+  $a_n = (n)!$ za $n \geq 1 \; \stackrel{\text{erf}}{\implies} \; \log \frac{1}{1-x}$. \\
+\end{ex}
+\begin{theorem}[Eksponentna formula] \text{} \\
+  $F(0) = 0$. \\
+  $e^{F(x)}$ je erf za strukturo: izberemo razdelitev, vsakemu (bloku) damo strukturo $F$.
+\end{theorem}
+\begin{pro}
+  $\sum_{k=0}^{\infty} \frac{1}{k!} F^k(x) = e^{F(x)}$.
+\end{pro}
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic*)]
+    \item Permutacija = množica disjunktnih ciklov. \\
+      $\frac{1}{1-x} = e^{\log \frac{1}{1-x}}$. \\
+      DN: direktno.
+    \item Involucija = množica ciklov dolžine $1$ in $2$: $(0,1,1,0,0 \dots)$ \\
+      $\sum_{n} \frac{i_n}{n!} = e^{x+\frac{x^2}{2}}$ \\
+      $a_n = |\{\pi \in S_n: \pi^6 = id\}|$ \\
+      $\sum_n \frac{a_n}{n!} x^n = e^{x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^6}{6}}$ \\
+      $\sum_n \frac{d_n}{n!} x^n = e^{\sum_{n \geq 2} \frac{x^n}{n}} = e^{\log \frac{1}{1-x} - x} = \frac{e^{-x}}{1-x}$.
+    \item $\sum_n \frac{B(n)}{n!} x^n = e^{e^x-1}$.
+    \item $a_n$: število $2$-regularnih grafov $(deg v = 2\; \forall v \in V(G))$, \\
+      $F:$ moč množice neusmerjenih ciklov dolžime $\geq 3$: $a_n = \frac{(n-1)!}{2}; \; n \geq 3$ \\
+      $\sum_n \frac{a_n}{n!} x^n = e^{\sum_{n \geq 3} \frac{(n-1)!}{2} \frac{x^n}{n}} =
+        e^{\frac{1}{2} \left(\log \frac{1}{1-x} - x - \frac{x^2}{2}\right)} =
+        \frac{e^{-\frac{x}{2} - \frac{x^2}{4}}}{\sqrt{1-x}}$.
+  \end{enumerate}
+\end{ex}
+Kompozitum: \\
+$(F \circ G)(x) = \sum_k \frac{a_k}{k!} G^k(x)$.
+\begin{theorem}[O kompoziciji] \text{} \\
+  $F(x), G(x), F(0) = 0$. \\
+  Potem je $(F \circ G)(x)$ erf za strukturo: množico razdelimo na bloke, vsakemu bloku damo strukturo $G$,
+  množici blokov damo strukturo $F$.
+\end{theorem}
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\tilde{B(n)}$: urejena Bellova števila = število urejenih razdelitev množice $[n]$. \\
+      $\tilde{B(2)} = 3: \; \{1,2\}; \{1\},\{2\}; \{2\},\{1\}$ \\
+      $\tilde{B(n)} = \sum_k S(n,k)$. \\
+      $\tilde{B(n)}$: število vseh surjekcij iz $[n]$. \\
+      $\sum_n \frac{\tilde{B(n)}}{n!} x^n = \frac{1}{1-(e^x-1)} = \frac{1}{2-e^x}$ \\
+      $G(x) = e^x-1$ \\
+      $F(x) = \frac{1}{1-x}$.
+    \item Permutacije z lihim številom ciklov \\
+      $\sum_n a_n \frac{x^n}{n!} = \frac{e^{\log \frac{1}{1-x}} - e^{-\log \frac{1}{1-x}}}{2} =
+        \frac{1}{2} \left(\frac{1}{1-x} - (1-x)\right)$. \\
+      $G(x) = \log \frac{1}{1-x}$ \\
+      $F(x) = \frac{e^x - e^{-x}}{2} \qquad (F(x)-F(-X):$ lihi $)$ \\
+      $a_n = \begin{cases}
+        0 \; n = 0 \\
+        1 \; n = 1 \\
+        \frac{n}{2} \; n \geq 2
+      \end{cases}$
+  \end{enumerate}  
+\end{ex}
+\begin{center}
+  % skice
+  \begin{tabular}{c | c}
+    orf & erf \\
+    \hline
+    $F(x) G(x)$ & $F(x) G(x)$ \\
+    $F^k(x)$ & $\frac{1}{k!} F^k(x)$ \\
+    $\frac{1}{1-F(x)}, \; F(0) = 0$ & $e^{F(x)}$ \\
+    $F \circ G$ & $F \circ G$
+  \end{tabular}
+\end{center}
+
+
+\section{Algebraične rodovne funkcije}
+
+$K[x]$ polinomi, \\
+$K[[x]]$ formalni polimon (fp?), \\
+$K(x)$ racionalne funkcije (polje ulomkov za $K[x]$), \\
+$\frac{1}{x} \in K(x), \; \frac{1}{x} \notin K[[x]]$, \\
+$K(x) \cap K[[x]]$ racionalna rodovna funkcija. \\
+Za taka zaporedja imamo linearne rekurzije. \\
+$F(x) = \sum_n a_n x^n$ \\
+$xF^2 - F + 1 = 0$ \\
+$c_{n+1} = \sum_{k=0}^{n} c_k c_{n-k}$ kvadratična rekurzija. \\
+Ali je $F(x) \in K(x)$? \\
+$F(x) = \frac{P(x)}{Q(x)}$ \\
+$xP^2 = PQ - Q^2 = Q(P-Q)$ \\
+$L:$ deg $P \cdot 2 + 1$ - liha stopnja, \\
+$D: \begin{cases}
+  \text{deg } P < \text{deg } Q \; \implies Q(P-Q) \text{ sode stopnje} \\
+  \text{deg } P \geq \text{deg } Q \; \implies \text{ deg } Q(P-Q) \leq 2 \cdot \text{ deg } P
+\end{cases}$
+\begin{defn} \text{} \\
+  $F(x) \in K[[x]]$ je algebraična reda $d$, če \\
+  $Q_d(x) F^d(x) + Q_{d-1}(x) F^{d-1}(x) + \dots + Q_0(x) = 0$ za $Q_0 \cdot Q_d \in K[X]$,
+  $Q_0, Q_0 \neq 0$, ne obstaja taka enačba stopnje $< d$.
+\end{defn}
+Algebraična reda $d$ = racionalna fpv (formalna potenčna vrsta). \\
+$F(x) = \sum_n F_n x^n, \; M(x) = \sum_n M_n x^n$ algebraični reda 2.
 
 
 %\clearpage
