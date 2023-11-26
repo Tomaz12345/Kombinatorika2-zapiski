@@ -1839,7 +1839,235 @@ $D: \begin{cases}
   $Q_0, Q_0 \neq 0$, ne obstaja taka enačba stopnje $< d$.
 \end{defn}
 Algebraična reda $d$ = racionalna fpv (formalna potenčna vrsta). \\
-$F(x) = \sum_n F_n x^n, \; M(x) = \sum_n M_n x^n$ algebraični reda 2.
+$F(x) = \sum_n F_n x^n, \; M(x) = \sum_n M_n x^n$ algebraični reda 2. \\
+%
+%
+% 9. predavanje: 23.11.
+%
+$Q_d(x) F^d(x) + \dots + Q_0(x) = 0$ za $Q_0, Q_d \neq 0$ \\
+$C_n: x F(x)^2 - F(x) + 1 = 0$ \\
+$M_n: x^2 F(x)^2 + x F(x) + 1 = 0$. \\
+$S$-drevo: \\
+$S \subseteq \{1, 2, 3 \dots\}$. \\
+Drevo s korenom, vsak element je list ali pa je število naslednikov v $S$. \\
+$\{2,3\}$-drevo \\
+% skica
+$a_n$: število $S$-dreves z $n$ vozlišči, \\
+$b_n$: število $S$-dreves z $n$ listi. \\
+$U(x) = \sum_n a_n x^n$ \\
+$V(t) = \sum_n b_n t^n$. \\
+$S = \{2,3\}$ \\
+$U(x) = x + x U^2(x) + x U^3(x)$: \\
+$x$: 1 vozlišče. \\
+$V(t) = t + v^2(t) + v^3(t)$: \\
+koren ne prispeva k številu listov. \\
+$U(x) = x + \sum_{k \in S} x U^k(x)$ \\
+$V(t) = t + \sum_{k \in S} t V^k(t)$, $1 \notin S$. \\
+$S$ končna $\implies \; S$ algebraična. \\
+Če $S$ neskončna, sta $U$ in $V$ vseeno lahko algebraični. \\
+\begin{ex} \text{} \\
+  \begin{itemize}
+    \item $S = \{2\}$ - dvojiška drevesa. \\
+      $v = t + v^2$ \\
+      $v^2 - v + t = 0 \implies v = \frac{1-\sqrt{1-4t}}{2} = \sum_{n=1}^{\infty} C_{n-1} t^n$ \\
+      $C_n$: število dvojiških dreves z $n+1$ listi. \\
+      % skica
+    \item $S = \{k\}$ \\
+      $v = t + v^k$ - Lagrangeeva inverzija (kasneje). \\
+    \item $S = \{1, 2, 3, 4 \dots\}$ \\
+      $U = x + x \sum_{k=1}^{\infty} U^k = x + x \frac{U}{1-U}$ \\
+      $U - U^2 = x - xU + xU = x$ \\
+      $U^2 - U + x = 0 \implies U = \frac{1-\sqrt{1-4x}}{2} = \sum_{n=1}^{\infty} C_{n-1} x^n$ \\
+      $C_n$: število ravninskih dreves z $n+1$ vozlišči. \\
+      % skica
+  \end{itemize}
+  Izkaže se: $U,V$ algebraični $\iff \; S$ se za končno množico razlikuje od končne unije aritmetičnih zaporedij.
+\end{ex}
+\begin{claim} \text{} \\
+  $K_{alg}[[x]] = \{F[x] \in K[[x]] \text{ algebraična}\}$ je podalgebra $K[[x]]$.
+\end{claim}
+$x F^2 - F + 1 = 0$ \\
+$F^2 + 2 x F F^{'} = 0$ \\
+$F^{'} = \frac{F^2}{1 - 2 x F} \stackrel{?}{=} a + bF; \; a, b \in K(x)$ \\
+$F^2 = a + b F - 2 a x F - 2 b x F^2$ \\
+$(1 - 2 b x) F^2 + (2 a x - b) F - a x = 0$ \\
+$(1 - 2 b x + (2 a b - x)) F - 1 - 2 b x - a x = 0$ \\
+$\to$: 2 enačbi, 2 neznanki. \\
+$a = \frac{1}{x (1-4x)}$ \\
+$b = \frac{2x-1}{x (1-4x)}$ \\
+$F^{'} - \frac{1}{x (1-4x)} - \frac{2x-1}{x (1-4x)} F = 0$ \\
+$x (1-4x) F^{'} - 1 - (2x-1) F = 0$ \\
+$F^{'} = \sum_n n C_n x^{n+1}$ \\
+$[x^n]: n C_n - 4 (n-1) C_{n-1} + 2 C_{n-1} + C_n$ za $n > 1$ \\
+$C_n = \frac{2 (n-1)}{n+1} C_{n-1} \implies \dots C_n = \frac{1}{n+1} \binom{2n}{n}$.
+\begin{defn} \text{} \\
+  $F(x) \in K[[x]]$ je $D$-končna, če je \\
+  $R_n(x) F^{(d)}(x) + \dots + R_1 F^{'}(x) + R_0 = 0$ za $R_i(x) \in K[x]$. \\
+  Ekvivalentno: vektorski prostor nad $K(x)$, generiran z $F, F^{'}, F^{''} \dots$ je končno razsežen.
+\end{defn}
+\begin{defn} \text{} \\
+  $(a_n)_n$ je $P$-rekurzivna, če je $p_d(n) a_n + \dots + p_0(n) a_{n-d} = 0$ za $n \geq d$.
+\end{defn}
+\begin{claim} \text{} \\
+  $F(x) = \sum_n a_n x^n$ je $D$-končna $\iff \; (a_n)_n$ je $P$-rekurzivna.
+\end{claim}
+Torej: za $P$-rekurzivno zaporedje lahko člene hitro izračunamo.
+\begin{exmp} \text{} \\
+  $F(x) = \sum_n C_n x^n$ je $D$-končna, \\
+  $e^x$ je $D$-končna: $F^{'} - F = 0$, \\
+  $e^x$ ni algebraična.
+\end{exmp}
+\begin{theorem} \text{} \\
+  $F(x)$ algebraična $\implies \; D$-končna.
+\end{theorem}
+\begin{pro} (skica): \\
+  $Q_d(x) F^d(x) + \dots + Q_0(x) = 0 \quad /^{'}$ \\
+  $Q_d(x)^{'} F^d(x) + d Q_d(x) F^{d-1}(x) F^{'}(x) + \dots + Q_0^{'}(x) = 0$ \\
+  $F^{'}(x) \in K(x, F(x))$ \\
+  Iz algebre: \\
+  $K$ obseg, $u$ v večjem obsegu;
+  \begin{enumerate}[label={(\roman*)}]
+    \item v algebraičnem: $K[u] = K(u)$ končno razsežen VP,
+    \item v transcendentnem: $K[u] \subseteq K[x]$ (\sn{$u$ spremenljivka}).
+  \end{enumerate}
+  $K = K[x]$ \\
+  $u = F(x)$ \\
+  $K[u] = K(x, F(x))$. \\
+  Torej: $K(x, F(x))$ je končno razsežen VP nad $K(x)$, torej so $1, F, F^{'} \dots$ linearno neodvisni
+  $\implies$ $F$ je $D$-končna.
+\end{pro}
+
+
+\section{Eulerjeva in eulerska števila}
+
+$E_n$: število alternirajočih permutacij v $S_n$. \\
+$E_3 = 2$ $(231), (132)$ \\
+$2 E_{n+1} = \sum_{k=0}^{n} \binom{n}{k} E_k E_{n-k} + \delta_{n0}$ \\
+$E(x) = \sum_n \frac{E_n}{n!} x^n$ \\
+$2 F^{'} = F^2 + 1$ \\
+$\int \frac{2dF}{F^2 + 1} = \int dx$ \\
+$2 \arctan F = x + 2c$ \\
+$F = \tan \left(\frac{x}{2} + c \right)$ \\
+$F(0) = 1 = \tan c \; \implies \; c = \frac{\pi}{4}$ \\
+$\tan \left(\frac{x}{2} + \frac{\pi}{4}\right) = \frac{\tan \frac{x}{2} + 1}{1 - \tan \frac{x}{2}}
+= \frac{\sin \frac{x}{2} + \cos \frac{x}{2}}{\cos \frac{x}{2} - \sin \frac{x}{2}} = \frac{1 + \sin x}{\cos x}$.
+\begin{theorem} \text{} \\
+  $\sum_n \frac{E_n}{n!} x^n = \frac{1 + \sin x}{\cos x}$ oz. \\
+  $\frac{1}{\cos x} = \sum_{n \text{ sod}} \frac{E_n}{n!} x^n$ \\
+  $\frac{1}{\sin x} = \sum_{n \text{ lih}} \frac{E_n}{n!} x^n$ \\
+\end{theorem}
+\begin{rem} \text{} \\
+  Bernoullijeva števila. \\
+  $B_n = \begin{cases}
+    1 \; n = 0 \\
+    \frac{1}{2} \; n = 1 \\
+    0 \; n > 1, n \text{ lih} \\
+    \frac{(-1)^{\frac{n}{2} + 1} E_{n-1}}{2^n (2^n - 1)} \; n > 0, n \text{ sod}
+  \end{cases}$ \\
+  $\sum_n B_n \frac{x^n}{n!} = \frac{x e^x}{e^x - 1}$ \\
+  $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$ \\
+  $\sum_{n=1}^{\infty} \frac{1}{n^4} = \frac{\pi^4}{90}$ \\
+  $\sum_{n=1}^{\infty} \frac{1}{n^{2k}} = \frac{2^{2n} (-1)^{k+1} \pi^{2k}}{2 \cdot (2k)!}
+  = \frac{E_{2k-1} \pi^{2k}}{2 (2k-1)! (2^{2k}-1)} = \zeta(2k)$ \\
+  Riemmanova funkcija $\zeta$: \\
+  $\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}$ za $Re \; s > 1$. \\
+  % skica
+  Z analitičnim nadaljevanjem lahko $\zeta$ definiramo na $\C \setminus \{1\}$. \\
+  $\zeta(-n) = \frac{B_{n+1}}{n+1}$ - soda negativna števila so ničle - trivialne ničle. \\
+  Riemmanova hipoteza: \\
+  $Re \; z = \frac{1}{2}$ za vsako netrivialno ničlo $z$ funkcije $\zeta$. \\
+  $\zeta(-1) = -\frac{B_2}{2} = -\frac{1}{12}$ \\
+  \sn{$\sum_{n=1}^{\infty} n = -\frac{1}{12}$} \\
+  Faulhaberjeva formula: \\
+  $\sum_{i=1}^{n} i = \frac{n (n+1)}{2} = \frac{n^2}{2} + \frac{n}{2}$ \\
+  $\sum_{i=1}^{n} i^2 = \frac{n (n+1) (2n+1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}$ \\
+  $\sum_{i=1}^{n} i^3 = \frac{n^2 (n+1)^2}{4} = \frac{n^4}{4} + \frac{n^3}{2} + \frac{n^2}{4}$ \\
+  $\sum_{i=1}^{n} i^k = \frac{1}{k+1} \sum_{l=0}^{k} \binom{k+1}{l} B_l n^{k+1-l} \\
+  = \frac{n^{k+1}}{k+1} + \frac{n^k}{2} + \sum_{l=1}^{\lfloor\frac{k}{2}\rfloor}
+  \frac{(-1)^{l+1} \binom{k}{2l-1}}{2^{2l} (2^{2l}-1)} E_{2l-1} n^{k-1-2l} \\
+  = \log n + \gamma + \frac{1}{2n} - \sum_{k=1}^{\infty} \frac{B_{2k}}{2k \cdot n^{2k}} \\
+  = \log n + \gamma + \frac{1}{2n} - \sum_{k=1}^{\infty} \frac{(-1)^k E_{2k-1}}{2^{2k} (2^{2k} - 1) n^{2k}}$, \\
+  kjer je $H_n = 1 + \frac{1}{2} + \dots + \frac{1}{n}$ $n$-to harmoično število.
+\end{rem}
+$A(n,k)$: število permutacij v $S_n$ z $k-1$ spusti. \\
+$A(n,k) = (n+1-k) A(n-1,k-1) + k A(n-1,k)$ \\
+% skica
+$\frac{1}{1-x} = 1 + x + x^2 + \dots \quad /^{'} / \cdot x$ \\
+$\frac{x}{(1-x)^2} = x + 2x^2 + 3x^3 + \dots \quad /^{'} / \cdot x$ \\
+$\frac{x+x^2}{(1-x)^3} = x + 4x^2 + 9x^3 + \dots \quad /^{'} / \cdot x$ \\
+$\frac{x+4x^2+x^3}{(1-x)^4} = x + 8x^2 + 27x^3 + \dots$ \\
+$A_n(x) = \sum_k A(n,k) x^k$ eulerski polinom.
+\begin{theorem} \text{} \\
+  $\sum_m m^n x^m = \frac{A_n(x)}{(1-x)^{n-1}}$.
+\end{theorem}
+\begin{pro} \text{} \\
+  Indukcija: \\
+  $n=0$: $\frac{1}{1-x} = \frac{1}{1-x}$ \\
+  $n-1 \to n$:
+  \begin{enumerate}[label={}]
+    \item $\sum_m m^{n-1} x^m = \frac{A_{n-1}(x)}{(1-x)^n} \quad /^{'} / \cdot x$ \\
+      $x \cdot \sum_m m^{n-1} x^{m-1} = \frac{A_{n-1}^{'}(x)(1-x)^n + A_{n-1}(x)n(1-x)^{n-1}}{(1-x)^{2n}}
+      \stackrel{?}{=} \frac{A_n(x)}{(1+x)^{n+1}}$
+    \item $[x^k]$: $(k+1) A(n-1,k-1) - k A(n-1,k) + n A(n-1,k) = A(n,k)$ \checkmark
+    \item $A_{n-1}(x) = \sum_k A(n-1,k) x^k$
+    \item $A_{n-1}^{'}(x) = \sum_k k A(n-1,k) x^{k-1}$.
+  \end{enumerate}
+\end{pro}
+\begin{theorem} \text{} \\
+  $\sum_{n,k} A(n,k) x^k \frac{y^n}{n!} = \frac{1-x}{1-x e^{xy(1-y)}}$ -
+  mešana rodovna funkcija (običajna v $x$, eksponentna v $y$).
+\end{theorem}
+\begin{pro} \text{} \\
+  $\sum_{n,k} A(n,k) x^k \frac{y^n}{n!} $ \\
+  $= (1-x) \left( \sum_k \frac{A_n(x)}{(1-x)^{n+1}} \cdot \frac{y^n}{n!} (1-x)^n\right)$ \\
+  $= (1-x)\sum_n \left( \sum_m m^n x^m \right) \frac{y^n (1-x)^n}{n!}$ \\
+  $= (1-x) \sum_m \left( \sum_n \frac{m^n y^n (1-x)^n}{n!} \right) x^n$ \\
+  $= (1-x) \sum_m e^{xy(1-x)} x^m$ \\
+  $= \frac{1-x}{1 - e^{xy(1-x)}}$.
+\end{pro}
+
+
+\section{Izračun povprečij in variance}
+
+Koliko elementov ima v povprečju podmnožica $[n]$? \\
+$\frac{\sum_{T \subseteq [n]} |T|}{2^n} = \frac{\sum_n k \binom{n}{k}}{2^n} = \frac{n \cdot 2^{n-1}}{2^n} = \frac{n}{2}$ \\
+$(1+x)^n = \sum_k \binom{n}{k} x^k \quad /^{'}$ \\
+$n (1+x)^{n-1} = \sum_k k \binom{n}{k} x^{n-1}$ \\
+$x=1$: \\
+$n \cdot 2^{n-1} = \sum_k k \binom{n}{k}$. \\
+$S$ končna množica. \\
+$F(x) = \sum_{a \in S} x^{f(a)}$ \\
+$F(1) = |S|$ \\
+$F^{'}(x) = \sum_{a \in S} f(a) \cdot x^{f(a) - 1}$ \\
+$F^{'}(1) = \sum_{a \in S} f(a)$ \\
+$\mu = \frac{F^{'}(1)}{F(1)} = (\log^{'} F)(1)$ \\
+$F(x) = (1+x)^n$ \\
+$\log F(x) = n \log(1+x)$ \\
+$\log^{'} F(x) = \frac{n}{1+x}$ \\
+$(\log^{'} F)(1) = \frac{n}{2}$ \\
+$\sigma^2 = E(x^2) - \mu^2$ \\
+$E(x^2) = \frac{\sum_n f^2(s)}{|S|}$ \\
+$F^{'}(x) + x F^{''}(x) = (x F^{'}(x))^{'} = \sum_{a \in S} f^2(a) x^{f(a)-1}$ \\
+$x=1$: \\
+$\sigma^2 = \frac{F^{'}(1) + F^{''}(1)}{F(1)} - \frac{F^{'}(1)^2}{F(1)^2} =
+ \frac{F^{'}(1)}{F(1)} + \frac{F^{''}(1) F(1) - F^{'}(1)^2}{F(1)^2}$. \\
+Torej \\
+$\mu = (\log^{'} F)(1)$ \\
+$\sigma^2 = (\log^{'} F)(1) + (\log^{''} F)(1)$ \\
+$F(x) = (1+x)^n$ \\
+$\mu = \frac{n}{2}$ \\
+$\log^{'} F(x) = \frac{n}{1+x}$ \\
+$\log^{''} F(x) = -\frac{n}{(1-x)^2}$ \\
+$\sigma^2 = \frac{n}{2} - \frac{n}{4} = \frac{n}{4}$ \\
+$\frac{n}{2} \pm \frac{\sqrt{n}}{2}$. \\
+Koliko ciklov ima v povprečju permutacija v $S_n$? \\
+$\sum_{\pi \in S_n} x^{f(\pi)} = \sum_k c(n,k) x^k = x^{\overline{n}} = F(x)$ \\
+$\log F(x) = \log x + \log (x+1) + \dots + \log (x+n-1)$ \\
+$\log^{'} F(x) = \frac{1}{x} + \dots + \frac{1}{x+n-1}$ \\
+$\mu = H_n = \log n + \gamma + o(1)$ \\
+$\log^{''} F(x) = -\frac{1}{x^2} - \dots - \frac{1}{(x+n-1)^2}$ \\
+$\sigma^2 = H_n - \sum_{i=1}^n i^2 = \log n + \gamma - \frac{\pi^2}{6} + o(1)$ \\
+$\log n \pm \sqrt{\log n}$.
 
 
 %\clearpage
