@@ -2070,6 +2070,229 @@ $\sigma^2 = H_n - \sum_{i=1}^n i^2 = \log n + \gamma - \frac{\pi^2}{6} + o(1)$ \
 $\log n \pm \sqrt{\log n}$.
 
 
+% 10. predavanje: 30.11.
+
+\section{Lagrangeeva inverzija}
+
+$K[x]$ algebra polinomov, \\
+$K(x)$ obseg racionalnih funkcij (obseg ulomkov $K[x]$), \\
+$K[[x]]$ algebra formalnih potenčnih vrst, \\
+$K((x)) = \{\sum_{n \geq n_0} a_n x^n; \; n_0 \in \Z, a_i \in K\}$ obseg formalnih Laurentovih vrst (obseg ulomkov $K[[x]]$). \\
+$\frac{F(x)}{G(x)} = \frac{F(x)}{x^m H(x)}, \frac{F(x)}{H(x)} \in K[[x]], H(0) \neq 0$. \\
+Seštevanje, množenje, odvod, kompozitum, valuacija $(\in \Z)$. \\
+$res F(x) = [x^{-1}] F(x)$ residuum.
+\begin{lemma}
+  $res F(x) = 0 \leftrightarrow F(x) = G^{'}(x)$ za $K((x))$.
+\end{lemma}
+\begin{pro} \text{} \\
+  $(\Longleftarrow)$
+  \begin{align*}
+    &F(x) = \left(\sum_{n \geq n_0} b_n x^n \right) = \left(\sum_{n \geq n_0} n b_n x^{n-1} \right) \\
+    &[x^{-1}] F(x) = 0 \cdot b_0 = 0.
+  \end{align*}
+  $(\Longrightarrow)$
+  \begin{align*}
+    &F(x) = \sum_{n \geq n_0} a_n x^n \\
+    &G(x) = \sum_{n \geq n_0} \frac{a_{n-1} x^n}{n} \\
+    &a_{-1} = 0.
+  \end{align*}
+\end{pro}
+\begin{lemma} \text{} \\
+  $F(x) \in K((x)), F(x) \neq 0$,
+  $res \frac{F^{'}(x)}{F(x)} = v(F(x))$.
+\end{lemma}
+\begin{pro} \text{} \\
+  $F(x) = x^{n_0} G(x)$ \\
+  $n_0 = v(F(x))$ \\
+  $G(x) \in K[[x]], G(0) \neq 0$ \\
+  $\frac{F^{'}(x)}{F(x)} = \frac{n_0 x^{n_0 - 1} G(x) + x^{n_0} x^{n_0} G^{'}(x)}{x^{n_0} G(x)} = \frac{n_0}{x} + \frac{G^{'}(x)}{G(x)}$ \\
+  $\frac{G^{'}(x)}{G(x)} \in K[[x]]$.
+\end{pro}
+Lagrangeeva inverzija (1. verzija): \\
+$F \in K[[x]]$ \\
+$v(F(x)) = 1$ \\
+$n \cdot [x^n] \left(F^{<-1>}(x)\right)^k = k \cdot [x^{-k}] F^{-n}(x)$; \\
+$F^{-n}(x) \in K((x))$. \\
+Torej: $n \cdot [x^n] F^{<-1>}(x) = res F^{-1}(x)$.
+\begin{pro}
+  $\left(F^{<-1>}(x)\right)^k = \sum_{m \geq k} c_m x^m$ \\
+  $x \leftrightarrow F(x)$ \\
+  $x^k = \sum_{m \geq k} c_m (F(x))^m \quad /^{'}$ \\
+  $k x^{k-1} = \sum_{m \geq k} m c_m F^{m-1}(x) F^{'}(x) \quad /: F^n(x)$ \\
+  $\frac{k x^{k-1}}{F^n(x)} = \sum_{m \geq k} m c_m F^{m-n-1}(x) F^{'}(x) \quad / res$ \\
+  $[x^{-1}] \frac{k x^{k-1}}{F^n(x)} = [x^{-k}] \frac{k}{F^n(x)}$ \\
+  $F^{m-n-1}(x) F^{'}(x) = \frac{\left(F^{m-n}(x)\right)^{'}}{m-n}$; $m \neq n$ \\
+  $res \left(F^{m-n-1}(x) F^{'}(x)\right) = 0$ če $m \neq n$ in $1$ sicer (lemi) \\
+  $\to n \cdot a_n \cdot 1$ (leva stran).
+  \qed
+\end{pro}
+\begin{ex} \text{} \\
+  $F(x) = x - x^2$ \\
+  $F^{<-1>}(x) = ?$ \\
+  $n [x^n] F^{<-1>}(x) = [x^{-1}] \left(\frac{1}{1-x^2}\right)^n = [x^{-n}] \frac{x^{-n}}{(1-x)^n}$ \\
+  $\frac{1}{(1-x)^n} = \sum_m \binom{m+n-1}{n-1} x^m$ \\
+  $[x^n] F^{<-1>}(x) = \frac{1}{n} \binom{2n-2}{n-1} = C_{n-1}$. \\
+  Še ena razlaga: \\
+  $y - y^2 = x$ \\
+  $y^2 - y + x = 0 \implies y = \frac{1 \pm \sqrt{1-4x}}{2} \implies y = x \sum_n C_n x^n$.
+\end{ex}
+Lagrangeeva inverzija (2. verzija) \\
+$F(x) = x G(F(x))$ \\
+$F(x) \in K[[x]]$ \\
+$G(x) \in K[[x]], G(0) \neq 0, v(F) = 1$ \\
+$[x^k] F(k)^k = k [x^{n-k}] G(x)^n$.
+\begin{pro} \text{} \\
+  $f(x) := \frac{x}{G(x)}, v(f) = 1$ \\
+  $f(F(x)) = \frac{F(x)}{G(F(x))} = 1 \to$ ima levi inverz, tudi desni. \\
+  $n [x^n] F(x)^k = k [x^n] \left(f^{<-1>}(x)\right)^k$ \\
+  $= k [x^{-k}] f^{-k}(x) = k [x^{-k}] x^{-n} G^n(x)$.
+\end{pro}
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\alph*)]
+    \item $S = \{k\}$ \\
+      $k = 3$ \\
+      $a_n:$ število $k$-dreves na $n$ vozliščih. \\
+      $v(x) = \sum_n a_n x^n$ \\
+      $V(x) = x + x V^k(x) = x \left(1 + V^k(x)\right) \\$
+      $G(x) = (1+x)^n$ \\
+      $n [x^n] V(x) [x^{n-1}] \left(1 + x^k\right)^n = k [x^{n-1}] \sum_{i=0}^{n} \binom{n}{i} x^{k_i}$; \\
+      $n = ki + 1, i \in \N, a_n = a_{ki+1} = \frac{1}{n} \dots = \frac{1}{ki+1} \binom{ki+1}{i}$.
+    \item Vpeta drevesa v $K_n$. \\
+      $r_n$: število vpetih dreves s korenom v $K_n$. \\
+      $R(x) = \sum_n \frac{r_n}{n!} x^n$ (vozlišča so označena). \\
+      Označimo drevo s korenom = koren + množica blokov, ki jim damo strukturo označenega drevesa s korenom. \\
+      $R(x) = x e^{R(x)}$ \\
+      $G(x) = e^x$ \\
+      $n [x^n] R(x) = [x^{n-1}] e^{nx}$ \\
+      $e^n = \sum_k \frac{n^k x^k}{n!}$ \\
+      $\frac{n r_n}{n!} = \frac{n^{n-1}}{(n-1)!}$ \\
+      $r_n = n^{n-1}$ \\
+      Število vpetih dreves v $K_n$ je $n^{n-2}$. 
+  \end{enumerate}
+\end{ex}
+
+
+\section{Asimptotika koeficientov}
+
+$K = \C$ \\
+$F(x) = \sum_n a_n x^n$ \\
+$F(x) \in \C[[x]]$ ima pozitiven konvergenčni polmer \\
+$R = \frac{1}{\limsup_{n \to \infty} \sqrt[n]{|a_n|}}$. \\
+$F$ je holomorfna v okolici $0$. \\
+Za $\forall \epsilon > 0$:
+\begin{itemize}
+  \item $|a_n| < \frac{1}{R} + \epsilon$ za $\forall n \geq n_0$,
+  \item $|a_n| > \frac{1}{R} - \epsilon$ za neskončno mnogo $n$.
+\end{itemize}
+Npr. $F(z) = \frac{1}{1-z} = 1 + z + z^2 + \dots$ \\
+$R = 1$, \\
+$|a_n| < (1 + \epsilon)^n$ za $\forall n$, \\
+$|a_n| > (1 - \epsilon)^n$ za vse sode $n$. \\
+$R = \infty \implies F(z)$ cela funkcija. \\
+$R < \infty \implies F(z)$ ima singularnost v $z_0$, $|z_0| = R$.
+\begin{defn}
+  $f$ ima v $z_0$ pol reda $r$, če ima $f(z) (z-z_0)^r$ odpravljivo singularnost v $z_0$,
+  $\lim_{z \to z_0} f(z) (z-z_0)^r \neq 0$.
+\end{defn}
+Funkcija je meromorfna, če so vse singularnosti poli in množica polov nima stekališč (oz. je diskretna). \\
+$f(z) (z-z_0)^r = b_0 + b_1(z-z_0) + b_2(z-z_0)^2 + \dots \quad /: (z-z_0)^n$ \\
+V kombinatoriki: $1 - \frac{z}{z_0}$, $b_i \mapsto b_{i-r}$ \\
+$f(z) = b_{-r} + b_{-r+1} \left(1-\frac{z}{z_0}\right) + \dots +
+b_{-1} \left(1-\frac{z}{z_0}\right)^{-1} + b_0 + b_1 \left(1-\frac{z}{z_0}\right) + \dots$ \\
+Glavni del (angl. principal part): \\
+$PP_{f,z_0}(z) = b_{-r} \left(1-\frac{z}{z_0}\right)^r + \dots + b_{-1} \left(1-\frac{z}{z_0}\right)^{-1}$. \\
+Če je $z_0$ edina singularnost na $|z| = R$: \\
+$f(z) - PP_{f,z_0}(z)$ ima konvergenčni polmer $R^{'} > R$. \\
+$[z^n] PP_{f,z_0}(z) = \left(\sum_{i=1}^{r} b_{-i} \binom{n+i-1}{i-1}\right) z_0^n \sim
+\frac{b_{-r} n^{r-1}}{z_0^n (r-1)!}$. \\
+$\forall \epsilon > 0: [z^n] \left|f(z) - PP_{f,z_0}(z)\right| < \left(\frac{1}{R^{'}}+\epsilon\right)^n$
+za $n \geq n_0$. \\
+$\frac{1}{R^{'}} + \epsilon < \frac{1}{R}$ \\
+$\lim_{n \to \infty} \frac{\left(\frac{1}{R^{'}}+\epsilon\right)^n}{\left(\frac{1}{R}\right)^n} = 0$.
+\begin{theorem} \text{} \\
+  $F(z) \in \C[[x]]$, $R \in (0, \infty)$, $z_0$ edina singularnost na $|z_0| = R$, $z_0$ je pol reda $r$.
+  Potem je \\
+  $[z^n] F(z) \sim \frac{b_{-r} n^{r-1}}{z_0^n (r-1)!}$, kjer je \\
+  $b_{-r} = \lim_{z \to z_0} f(z) \left(1-\frac{z}{z_0}\right)^r$.
+\end{theorem}
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic*)]
+    \item $f(z) = \frac{1}{(1-z) (1-2z)}$ \\
+      $R = \frac{1}{2}, z_0 = \frac{1}{2}, r = 1$ \\
+      $\lim_{z \to \frac{1}{2}} \frac{1}{(1-z) (1-2z)} (1-2z) = 2 = b_{-1}$ \\
+      $a_n \sim \frac{2}{\left(\frac{1}{2}\right)^n} = 2^{n+1}$.
+    \item $d_n$: število premestitev v $S_n$ \\
+      $\sum_{n} \frac{d_n}{n!} z^n = \frac{e^{-z}}{1-z}$ \\
+      $z_0 = 1, r = 1$ \\
+      $b_{-1} = \lim_{z \to 1} \frac{e^{-z}}{1-z} (1-z) = e^{-1}$ \\
+      $\frac{d_n}{n!} \sim \frac{e^{-1}}{1 \cdot 1} = \frac{1}{e}$ \\
+      $d_n \sim \frac{n!}{e}$. \\
+      Koliko dober je za približek? \\
+      $\frac{e^{-z}}{1-z} - \frac{e^{-1}}{1-z}$ je cela funkcija. \\
+      $[z^n]$ (cela funkcija) $< \left(\frac{1}{R} + \epsilon \right)^n = \epsilon^n$ za $n \geq n_0$. \\
+      Koeficienti celih funkcij hitro padajo proti $0$. \\
+      Ker je $z_0 = 1$ edini pol in ker je enostaven, je $\frac{b_{-1}}{z_0^n}$ odličen približek. \\
+      $d_n = \left[\frac{n!}{e}\right]$.
+    \item $\tilde{B}(n)$: urejena Bellova števila \\
+      $\tilde{B}(n) = \sum_k k! S(n,k)$ \\
+      $\sum_n \tilde{B}(n) \frac{z^n}{n!} = \frac{1}{1 - (e^z-1)} = \frac{1}{2-e^z}$. \\
+      Poli so $\log 2 + 2 k \pi i, \; k \in \Z$ \\
+      $z_0 = \log 2, r = 1$ \\
+      $b_{-1} = \lim_{z \to \log 2} \frac{1 - \frac{z}{\log 2}}{2 - e} \stackrel{L'H}{=}
+      \lim_{z \to \log 2} \frac{-\frac{1}{\log 2}}{2} = \frac{1}{2 \log 2} = \frac{1}{\log 4}$ \\
+      $\tilde{B}(n) \sim \frac{n!}{2 (\log 2)^{n+1}}$ \\
+      $\tilde{B}(20) = 267 \dots 115$ ($23$ števk) \\
+      $\left[\frac{20!}{2 (\log 2)^{21}}\right] = 267 \dots 088$ \\
+      $\frac{\log 2}{\log 2 + 2 \pi i} \doteq 0.11$.
+    \item $n$ hiš. \\
+      % skica
+      1. družina se vseli v naključno hišo, \\
+      2. družina se vseli v naključno naslednjo hišo, \\
+      $a_n$: pričakovano število zasedenih hiš, $\frac{n}{3} < a_n < \frac{n}{2}$? \\
+      $a_0 = 0, a_1 = 1, a_2 = 1, a_3 = \frac{1}{3} \cdot 1 + \frac{2}{3} \cdot 2 = \frac{5}{3}$. \\
+      % skica
+      $a_n = \frac{1}{n} \sum_{i=1}^{n} (a_{i-2} + a_{n-i-1} + 1) \quad / \cdot n$ \\
+      $n a_n = n + 2(a_0 + a_1 + \dots + a_{n-2})$ \\
+      $F(x) = \sum_n a_n x^n$ \\
+      $x F^{'}(x) + 2 x F(x) + 2 F(x) = \frac{x}{(1-x)^2} + \frac{2 F(x)}{1-x}$ - linearna DE 1. reda. \\
+      $F(x) = \frac{1 - e^{-2x}}{2 (1-x)^2}$ \\
+      $z_0 = 1, r = 2$ \\
+      $b_{-2} = \lim_{z \to 1} \frac{1 - e^{-2z}}{2 (1-z)^2} (1-z)^2 = \frac{1 - e^{-2}}{2 \cdot 1!}$ \\
+      $a_n \sim \left(\frac{1-e^{-2}}{2}\right)^n$ \\
+      $\frac{1-e^{-2}}{2} \doteq 0.423 \in \left(\frac{1}{3}, \frac{1}{2}\right)$.
+  \end{enumerate}
+\end{ex}
+Kaj pa, če imamo več singularnosti na $|z| = R$? \\
+$z_1 \dots z_k$ poli redov $r_1 \dots r_k$ \\
+$[z^n] f(z) = \sum_{i=1}^{k} \frac{b_{-r_i} n^{r_i-1}}{z_i^n (r_i-1)!} +
+O\left(\left(\frac{1}{R^{'}}\right)^n\right)$, $R^{'} > R$.
+\begin{ex} \text{} \\
+  $r(x) = \frac{1}{1-z} + \frac{1}{1+z} + \frac{1}{1-z^2}$ \\
+  $a_n = 1 + (-1)^n + \frac{1}{2^n} \nsim 1 + (-1)^n$.
+\end{ex}
+V praksi štejejo le najvišji poli.
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\alph*)]
+    \item $\sum_n \overline{p_k}(n) x^n = \prod_{i=1}^k \frac{1}{1-x^i}$. \\
+      Racionalna funkcija, poli \\
+      $1$ reda $k$, $-1$ reda $\lfloor\frac{k}{2}\rfloor$, $e^{\pm \frac{2 \pi i}{3}}$ reda
+      $\lfloor\frac{k}{3}\rfloor \dots$ \\
+      $1$ ima najvišji red. \\
+      $z_0 = 1, r = k$ \\
+      $b_{-k} = \lim_{z \to 1} \prod_{i=1}^k \frac{1}{1-z^i} (1-z)^k =
+      \lim_{z \to 1} \prod_{i=1}^k \frac{1}{1 + z + \dots + z^{i-1}} = \frac{1}{k!}$ \\
+      $\overline{p_k}(n) \sim \frac{n^{k-1}}{k! (k-1)!}$ \\
+      $\sum_k p_k(n) x^k = x^k \prod_{i=1}^{k} \frac{1}{1-x^i}$ \\
+      $p_k(n) \sim \frac{n^{k-1}}{k! (k-1)!}$. \\
+      (Šibke) kompozicije $n$ s $k$ členi \\
+      $\binom{n+k-1}{k-1} \sim \frac{n^{k-1}}{(k-1)!}$ \\
+      $\binom{n-1}{k-1} \sim \frac{n^{k-1}}{(k-1)!}$ \\
+      $\sum_n p(n) x^n = \prod_{i=1}^{\infty} \frac{1}{1-x^i}$ - ni racionalna funkcija. \\
+      Singularnosti so bistvene, množica singularnosti ima stekališča.
+  \end{enumerate}
+\end{ex}
+
+
 %\clearpage
 %\phantomsection
 
