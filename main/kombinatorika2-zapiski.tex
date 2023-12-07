@@ -2449,6 +2449,268 @@ tranzitivnost: $x \leq y, y \leq z \implies x \leq z$.
 \end{ex}
 
 
+% 12. predavanje: 7.12.
+
+$x \geq y \leftrightarrow y \leq x$ \\
+$x < y \leftrightarrow x \leq y, x \neq y$ \\
+$x <\cdot y \leftrightarrow x < y, \nexists z: x < z < y$ \\
+$x$ predhodnik $y$, $y$ predhodnik $x$ \\
+$(\N, \leq)$: $i <\cdot i+1$ \\
+$B_n: A \subset\cdot A \cup \{i\}; i \notin A$ \\
+$D: r \mid\cdot s \leftrightarrow \frac{s}{r}$ praštevilo \\
+$L_n(q): U <\cdot V \leftrightarrow U \subseteq V, \dim V - \dim U = 1$ \\
+$\R$: nikoli ne velja $x <\cdot y$. \\
+Hassejev diagram: \\
+graf, \\
+$V = P$, \\
+$xy \in E \iff x <\cdot y$ ali $y <\cdot x$ \\
+$x <\cdot y \; \implies x$ pod $y$. \\
+% skica
+Hassejev diagram $B_n$ je hiperkocka. \\
+% skica
+$x$ maksimalen element, če velja $y \geq x \implies y=x$ (oz $\nexists y: y > x$) \\
+$x$ minimalen element, če velja $y \leq x \implies y=x$ (oz $\nexists y: y < x$). \\
+% skica
+$P$ končna dum $\implies$ $P$ ima maksimalen element. \\
+$x$ največji element: $y \leq x \; \forall y \in P$. \\
+Nima največjega elementa. \\
+$x, y$ največja $\implies \; x \leq y, y \leq x \; \implies \; x = y$. \\
+$\hat{0}:$ najmanjši element (če $\exists$), \\
+$\hat{1}:$ največji element (če $\exists$). \\
+P, Q dum. \\
+$\varphi: P \to Q$ homomorfizem, če $x \leq_P y \; \implies \; \varphi(x) \leq_Q \varphi(y)$. \\
+$\varphi: P \to Q$ izomomorfizem, če je bijektiven homomorfizem in je inverz tudi homomorfizem,
+oz. $\varphi$ bijekcija, $x \leq_P y \; \iff \; \varphi(x) \leq_Q \varphi(y)$. \\
+% skica
+Bijektivni homomorfizem, ni izomorfizem. \\
+$P \cong Q$ ($P,Q$ izomorfna), če obstaja izomorfizem $\varphi: P \to Q$. \\
+$B_3 \cong D_{30}$. \\
+$P, Q$ dum. \\
+$P \times Q$ (množica $P \times Q$), $(x,y) \leq (x^{'},y^{'})$, če $x \leq_P x^{'},
+y \leq_Q y^v, x, x^{'} \in P, y, y^{'} \in Q$ - kartezični produkt. \\
+$P \sqcup Q = P \times \{0\} \cup Q \times \{1\}$. \\
+$P + Q$ (množica $P \sqcup Q$), $x \leq y$ če $(x,y \in P, x \leq_P y)$ ali ($x,y \in Q, x \leq_Q y$)
+- disjunktna unija. \\
+$P \oplus Q$ (množica $P \sqcup Q$), $x \leq y$ če $(x,y \in P, x \leq_P y)$ ali ($x,y \in Q, x \leq_Q y$)
+ali $(x \in P, y \in Q)$ - disjunktna vsota. \\
+$\underline{1} \oplus \dots \oplus \underline{1} \cong \underline{n}$ \\
+$\underline{2} \times \dots \times \underline{2} \cong B_n$ \\
+$\varphi: \underline{2}^n \to B_n$ \\
+$\varphi(\epsilon_1 \dots \epsilon_n) = \{i: \epsilon_i = 2\}$ \\
+$D_n \cong \underline{[0, \alpha_1]} \times \dots \times \underline{[0, \alpha_k]}$ \\
+$n = p_1^{\alpha_1} \dots p_k^{\alpha_k}, \; \alpha_i \geq 1,$ delitelji
+$p_1^{\beta_1} \dots p_k^{\beta_k}, 0 \leq \beta_i \leq \alpha_i$. \\
+Če je $n$ produkt $k$ različnih praštevil, je $D_n \cong B_k$. \\
+Veriga je podmnožica $P$, če sta poljubna elementa primerljiva ($x \leq y$ ali $y \leq x$). \\
+V $B_8: \; \{\emptyset, \{1, 5\}, \{1, 2, 5, 7, 8\}\}$, \\
+v $D_12: \; \{2, 6, 12\}$. \\
+$x_0 < x_1 < \dots < x_k$ veriga dolžine $k$, \\
+$x_0 \leq x_1 \leq \dots < x_k$ multiveriga dolžine $k$. \\
+Antiveriga je podmnožica $P$, v kateri nobena različna elementa nista primerljiva. \\
+$\binom{[n]}{k}$ antiveriga v $B_n$, \\
+$\P$ antiveriga v $D$. \\
+Stopničasta dum (angl. graded) je $P$ z rangom, t.j. \\
+$\rho: P \to \N$, če \\
+$x < y \; \implies \; \rho(x) < \rho(y)$ \\
+$x <\cdot y \; \implies \; \rho(y) = \rho(x) + 1$. \\
+V $\N: \; \rho = id$, \\
+v $B_n: \; \rho(A) = |A|$, \\
+v $D_n: \; \rho\left(p_1^{\alpha_1} \dots p_k^{\alpha_k}\right) = \alpha_1 + \dots + \alpha_k$, \\
+% skica
+ni stopničasta.
+\begin{defn}
+  $P$ je lokalno končna, če je za \\
+  $\forall x \leq y: \; [x,y] := \{z: x \leq z \leq y\}$ končna.
+\end{defn}
+Npr. vsaka končna dum je lokalno končna. \\
+$\N, D$ sta lokalno končni.
+
+
+\section{Incidenčna algebra}
+
+$P$ lokalno končna dum. \\
+$Int(P) := \{[x,y]: x \leq y\}$ \\
+$I(P, K) := \{f: \; Int(P) \to K\}$ incidenčna algebra. \\
+$x \leq y: \; f([x,y]) = f(x,y)$ (krajšamo). \\
+$(f+g)(x,y) = f(x,y) + g(x,y)$ \\
+$(\lambda f)(x,y) = \lambda \cdot f(x,y)$ \\
+$(f \cdot g)(x,y) = \sum_{x \leq z \leq y} f(x,z) \cdot g(z,y)$ - pomembno! \\
+\begin{align*}
+  (f \cdot g) \cdot h(x,y) &= \sum_{x \leq z \leq y} (f \cdot g)(x,z) \cdot h(z,y) \\
+  &= \sum_{x \leq z \leq y} \left(\sum_{x \leq q \leq z} f(x,w) g(w,z)\right) h(z,y) \\
+  &= \sum_{x \leq w \leq z \leq y} f(f,w) g(q,z) h(z,y) \\
+  &= \dots = f \cdot (g \cdot h)(x,y).
+\end{align*}
+(Nekomutativna algebra.) \\
+$P = \underline{n}$. \\
+$I(\underline{n}, k) \cong$ algebra zgornje trikotnih matrik nad $K$. \\
+$f(i,j) \to \left[f(i,j) \text{ če } i \leq j, 0 \text{ sicer}\right]_{i,j=1}^n$ \\
+$1 \leq i \leq j \leq n$ \\
+$(A \cdot B)_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj} = \sum_{k=i}^{j} A_{ik} B_{kj}$ \\
+$\underline{1}(x,y) = \delta_{xy} = \begin{cases}
+  1: x = y \\
+  0: x < y
+\end{cases}$ enota za množenje. \\
+$f: \underline{1}(x,y) = \sum_{x \leq z \leq y} f(x,y) \cdot 1(z,y) = f(x,y)$, ker
+$\underline{1}(z,y) = 0$, razen za $z = y$. \\
+$\underline{1} \cdot f = f$.
+\begin{claim}
+  $f \in I(\underline{n}, K)$ je obrnljiv $\iff \; f(x,x) \neq 0$ za $\forall x \in P$.
+\end{claim}
+\begin{pro} \text{} \\
+  ($\Rightarrow$):
+  \begin{align*}
+    &f \cdot g = \underline{1} \\
+    &(f \cdot g)(x,x) = \sum_{x \leq z \leq x} f(x,z) g(z,x) = f(x,y) \cdot g(x,y) \\
+    &= \underline{1}(x,x) = 1 \\
+    &\implies f(x,x) \neq 0.
+  \end{align*}
+  ($\Leftarrow$):
+  \begin{align*}
+    &\exists \text{ desni inverz:} \\
+    &f \cdot g = \underline{1} \\
+    &(f \cdot g)(x,x) = 1 = f(x,x) \cdot g(x,x) \\
+    &g(x,x) = \frac{1}{f(x,x)}. \\
+  \end{align*}
+  $\quad$ Skonstruiramo rekurzivno glede na $\left|[x,y]\right|$:
+  \begin{align*}
+    &|[x,y]| = 1: \checkmark \\
+    &\text{Imamo } g(x^{'}, y^{'}) \text{ za } |[x^{'}, y^{'}]| < |[x,y]| \\
+    &g(x,y) = \frac{\sum \dots}{f(x,x)}.
+  \end{align*}
+  Podobno za levi inverz, enaka.
+\end{pro}
+$\zeta(x,y) = 1$ za $x \leq y$ \\
+$\zeta^2(x,y) = \sum_{x \leq z \leq y} \zeta(x,z) \zeta(z,y) = \left|[x,y]\right|$ \\
+$\zeta^3(x,y) = \sum_{x \leq w \leq z \leq y} \zeta(x,w) \zeta(w,z) \zeta(z,y) =$
+število multiverig dolžine $3$ med $x$ in $y$ \\
+$\zeta^k(x,y) =$ število multiverig dolžine $k$ med $x$ in $y$. \\
+$(\zeta-1)(x,y) = \begin{cases}
+  1: x < y \\
+  0: x = y
+\end{cases}$ \\
+$(\zeta-1)^2 = \left|(x,y)\right|$ - dolžina odprtega intervala. \\
+$(\zeta-1)^k =$ število (multi?)verig dolžine $k$ med $x$ in $y \;$ $= 0$ od nekega $k$ naprej. \\
+$\underline{1} + (\zeta-1) + (\zeta-1)^2 + \dots$ je dobro definirana (končnost). \\
+$(1 + (\zeta-1) + \dots)(x,y) =$ število verig med $x$ in $y$. \\
+$(1 + (\zeta-1) + \dots) (1-(\zeta-1)) = 1$ \\
+$(2 - \zeta)^{-1}(x,y) =$ število verig med $x$ in $y$. \\
+$\begin{bmatrix}
+  1 & 1 & \dots & 1 \\
+  0 & 1 & \dots & \\
+  \vdots & & \vdots & \\
+  & & & 1
+\end{bmatrix}^{-1} = \begin{bmatrix}
+  1 & 1 & 2 & 4 & \dots & 2^{n-1} \\
+  & & \vdots & & & \vdots \\
+  & & & & & 2 \\
+  & & & & & 1 \\
+  & & & & & 1
+\end{bmatrix}$. \\
+Število verig med $i$ in $j$ je $2^{j-i-1}$ za $j \geq i+1$.
+
+
+\section{Möbius funkcija in Möbiusova inverzija}
+
+$\mu := \zeta^{-1}$: inverz obstaja, ker je $\zeta(x,x) \neq 0$. \\
+$\underline{4}$ \\
+$\zeta \cdot \mu = \underline{1}$ \\
+$x = y: \zeta(x,x) \cdot \mu(x,x) = 1 \implies \mu(x,x) = 1$ \\
+$x < y: \sum_{x \leq z \leq y} \zeta(x,z) \cdot \mu(z, y) = 0$ \\
+$\mu(x,y) = -\sum_{x < z \leq y} \mu(z, y)$ \\
+$\mu \cdot \zeta = \underline{1}$ \\
+$\sum_{x \leq z \leq y} \mu(x, z) = 0$ \\
+$\mu(x,y) = -\sum_{x \leq z < y} \mu(x, z)$ \\
+$\underline{4}$: \\
+$\mu(i, i) = 1$ \\
+$\mu(i, i+1) = -\mu(i, i) = -1$ \\
+$\mu(i, i+2) = -\mu(i, i) - \mu(i, i+1) = 0$ \\
+$\mu(i, i+3) = -\mu(i, i) - \mu(i, i+1) - \mu(i, i+2) = 0$ \\
+$v \; \underline{n}$ in $(\N, \leq)$:
+$\mu(x,y) = \begin{cases}
+  1: i = j \\
+  -1: j = i + 1 \\
+  0: j - i \geq 2
+\end{cases}$ \\
+% skica
+$\mu(a, a) = \mu(b, b ) = \dots = 1$ \\
+$\mu(a, b) = \mu(b, c) = \mu(c, e) = \mu(a, d) = \mu(d, e) = -1$ \\
+$\mu(a, b) = \mu(b, e) = 0$ \\
+$\mu(a, e) = 1$.
+\begin{theorem}[Möbiusova inverzija]
+  $P$ dum, za $\forall x \in P \; \{z \in P: \; z \leq x\}$ je končna ($\implies \; P$ je lokalno končna.) \\
+  $f, g: P \to K$ \\
+  \begin{equation*}
+    g(y) = \sum_{x \leq y} f(x) \iff f(y) = \sum_{x \leq y} \mu(x, y) g(x).
+  \end{equation*}
+  (Dobro definirano, ker je vsota končna.)
+\end{theorem}
+\begin{pro} \text{} \\
+  ($\Rightarrow$):
+  \begin{align*}
+    \sum_{x \leq y} \mu(x, y) g(x) &= \sum_{x \leq y} \mu(x, y) \sum_{z \leq x} f(z) \\
+    &= \sum_{z \leq y} \sum_{z \leq x \leq y} \mu(x, y) f(z) = f(y); \\
+    &\text{ker } \sum_{z \leq x \leq y} \mu(x, y) = \delta_{z, y}.
+  \end{align*}
+  ($\Leftarrow$): podobno.
+\end{pro}
+\begin{ex} \text{} \\
+  $P = \underline{n}$ \\
+  $g(j) = \sum_{i \leq j} \; \iff \; f(j) = \sum_{i=1}^j \mu(i,j) g(i) = g(j) - g(j-1)$ za $j \geq 2$, \\
+  $f(1) = g(1)$.  
+\end{ex}
+Kako izračunati $\mu$ za $B_n, D_n, M_n, L_n(q)?$ \\
+\begin{claim}
+  $P, Q$ lokalno končni $\implies \; P \times Q$ lokalno končen.
+\end{claim}
+$\mu_{P \times Q} \left((x,y), (x^{'}, y^{'})\right) = \mu_P(x,y) \cdot \mu_Q(x^{'}, y^{'})$.
+\begin{pro}
+  \begin{align*}
+    &\left(\zeta_{P \times Q} (\mu_P, \mu_Q)\right) \left((x,y), (x^{'}, y^{'})\right) \\
+    =& \sum_{(x,y) \leq (x^{''},y^{''}) \leq (x^{'},y^{'})} \mu_P(x^{''},x^{'}) \mu_Q(y^{''},y^{'}) \\
+    =& \sum_{x \leq x^{''} \leq x^{'}} \sum_{y \leq y^{''} \leq y^{'}}
+      \mu_P(x^{''}, x^{'}) \cdot \mu_(y^{''}, y^{'}) \\
+    &= \left(\sum_{x \leq x^{''} \leq x^{'}} \mu_P(x^{''}, x^{'})\right) \cdot 
+      \left(\sum_{y \leq y^{''} \leq y^{'}} \mu_P(y^{''}, y^{'})\right) \\
+    &= \delta_{x,x^{'}} \cdot \delta_{y,y^{'}} \\
+    &= \delta_{(x,y), (x^{'},y^{'})}.
+  \end{align*}
+\end{pro}
+\begin{ex} \text{}
+  \begin{enumerate}[label=(\arabic*)]
+    \item $B_n = \underline{2} \times \dots \times \underline{2}$ \\
+      $\mu(S, T) = \mu((\epsilon_1 \dots \epsilon_n), (\varphi_1 \dots \varphi_n))
+        = \mu_{\underline{2}}(\epsilon_1, \varphi_1) \dots \mu_{\underline{2}}(\epsilon_n, \varphi_n)
+        = (-1)^{|T \setminus S|}$ \\
+      $S \subseteq T$ \\
+      $f, g: 2^{[n]} \to K$ \\
+      $g(T) = \sum_{S \subseteq T} f(S) \; \iff \;
+      f(T) = \sum_{S \subseteq T} (-1)^{|T \setminus S|} g(S)$: NVI.
+    \item $D_n = \underline{[0, \alpha_1]} \times \dots \times \underline{[0, \alpha_k]}$ \\
+      $n = p_1^{\alpha_1} \dots p_k^{\alpha_k}$
+      \begin{align*}
+        \mu(r,s) &= \mu((\beta_1 \dots \beta_k), (\gamma_1 \dots \gamma_k)) \\
+        &= \mu(\beta_1, \gamma_1) \dots \mu(\beta_k, \gamma_k) \\
+        &= \begin{cases}
+          (-1)^l: \; \frac{s}{r} \text{produkt $l$ različnih praštevil} \\
+          0: \; p^2 \mid \frac{s}{r}, \; p \text{praštevilo}
+        \end{cases} = \mu\left(\frac{s}{r}\right)
+      \end{align*}
+      $r = p_1^{\beta_1} \dots p_k^{\beta_k}$ \\
+      $s = p_1^{\gamma_1} \dots p_k^{\gamma_k}$ \\
+      $0 \leq \beta_i \leq \gamma_i \leq \alpha_i$ \\
+      $r = p_1^{\gamma_1 - \beta_1} \cdots p_k^{\gamma_k - \beta_k}$ \\
+      $\mu(n) = \begin{cases}
+        (-1)^k: \; n \text{ produkt $k$ različnih praštevil} \\
+        0: \; p^2 \mid n \text{ praštevilo}
+      \end{cases}$ \\
+      $f, g: \N \setminus \{0\} \to K$ \\
+      $g(n) = \sum_{d | n} f(d) \iff
+      f(n) = \sum_{d | n} \mu(d,n) g(d) = \sum_{d | n} \mu\left(\frac{d}{n}\right) g(d)$.
+  \end{enumerate}
+\end{ex}
+
+
 %\clearpage
 %\phantomsection
 
