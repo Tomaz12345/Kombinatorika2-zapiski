@@ -178,7 +178,7 @@
   {\bf erf} & eksponentna rodovna funkcija \\
   {\bf fp} & formalni polinom \\
   {\bf fpv} & formalna potenčna vrsta \\
-
+  {\bf dum} & delno urejena množica \\
 \end{tabular}
 
 %\clearpage
@@ -2289,6 +2289,162 @@ V praksi štejejo le najvišji poli.
       $\binom{n-1}{k-1} \sim \frac{n^{k-1}}{(k-1)!}$ \\
       $\sum_n p(n) x^n = \prod_{i=1}^{\infty} \frac{1}{1-x^i}$ - ni racionalna funkcija. \\
       Singularnosti so bistvene, množica singularnosti ima stekališča.
+  \end{enumerate}
+\end{ex}
+
+
+% 11. predavanje: 5.12.
+
+\begin{lemma} \text{} \\
+  $\alpha \in \R$. \\
+  $\lim_{x \to \infty} \frac{\Gamma(x + \alpha)}{x^{\alpha} \Gamma(x)} = 1$.
+\end{lemma}
+$\Gamma(x) = \int_{0}^{x} t^{x-1} e^{-t} dt$ \\
+$\Gamma(x+1) = x \Gamma(x)$ \\
+$\Gamma(n) = (n-1)! \; n = 1, 2, 3 \dots$ \\
+$\Gamma$ lahko razširimo na $\C \setminus \{0, -1, -2 \dots\}$. \\
+$n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n$ Stirlingova formula. \\
+$\lim_{x \to \infty} \frac{\Gamma(x + \alpha)}{\sqrt{2 \pi x} \left(\frac{x}{e}\right)^x} = 1$.
+\begin{pro}
+  \begin{align*}
+    \lim_{x \to \infty} \frac{\Gamma(x + \alpha)}{x^{\alpha} \Gamma(x)}
+    &= \lim_{x \to \infty} \frac
+      {\sqrt{2 \pi (x+\alpha-1)} \left(\frac{x-\alpha-1}{e}\right)^{x+\alpha-1}}
+      {x^{\alpha} \cdot \sqrt{2 \pi (x-1)} \left(\frac{x-\alpha}{e}\right)^{x-1}} \\
+    &= \lim_{x \to \infty} \frac{1}{e^{\alpha}}
+      \left(\left(1 + \frac{\alpha}{x-1}\right)^{\frac{x-1}{\alpha}}\right)^{\alpha} \\
+    &= \frac{e^{\alpha}}{e^{\alpha}} \\
+    &= 1.
+  \end{align*}
+\end{pro}
+\begin{lemma} \text{} \\
+  $\beta \in \R \setminus \N$. \\
+  $\binom{\beta}{n} \sim \frac{(-1)^n}{\Gamma(-\beta) n^{\beta+1}}$.
+\end{lemma}
+\begin{pro}
+  \begin{align*}
+    &\lim_{n \to \infty} \frac{\beta (\beta-1) \dots (\beta-n+1) \Gamma(-\beta)}{n! (-1)^n} \\
+    =& \lim_{n \to \infty} \frac{n^{\beta+1} \Gamma(-\beta+n)}{\Gamma(n+1)} \\
+    \stackrel{\text{lema}}{=}& 1;
+  \end{align*}
+  $x = n - \beta, \; \alpha = \beta + 1$.
+\end{pro}
+$z_0 \in \R$ \\
+$f(z) = \left(1 - \frac{z}{z_0}\right)^{\beta} g(z)$ \\
+$\beta \in \Z \setminus \N$: pol, \\
+$\beta \notin \Z \setminus \N$: algebraična singularnost. \\
+Tipično: $\beta = \frac{1}{2}$, npr. $f(z) = \sqrt{1-z}$. \\
+$g$ analitična v $0$ s polmerom $> |z_0|$. \\
+\begin{align*}
+  f(z) &= \left(1 - \frac{z}{z_0}\right)^{\beta}
+    \left(b_0 + b_1 \left(1 - \frac{z}{z_0}\right) + \dots\right) \\
+  &= b_0 \left(1 - \frac{z}{z_0}\right)^{\beta} + b_1 \left(1 - \frac{z}{z_0}\right)^{\beta+1} + \dots
+\end{align*}
+$[z^n] f(z) = b_0 \binom{\beta}{n} \frac{(-1)^n}{z_0^n} + b_1 \binom{\beta}{n} \frac{(-1)^n}{z_0^2} + \dots$ \\
+$b_0 \binom{\beta}{n} \frac{(-1)^n}{z_0^n} \sim b_0 \cdot \frac{1}{\Gamma(-\beta) n^{\beta+1} z_0^n}$, \\
+$b_1 \binom{\beta+1}{n} \frac{(-1)^n}{z_0^n} \sim b_0 \cdot \frac{1}{\Gamma(-\beta-1) n^{\beta+2} z_0^n}$. \\
+$\frac{1}{n^{\beta+1}} > \frac{1}{n^{\beta+2}} \; \to$ majhno.
+\begin{theorem} \text{} \\
+  $f(z) = \left(1 - \frac{z}{z_0}\right)^{\beta} g(z)$, $z_0 \in \R$, $\beta \in \R \setminus \N$,
+  $g(z_0) \neq 0$, $g$ holomorfna s konvergenčnim polmerom $> |z_0|$.
+  Potem je
+  \begin{equation*}
+    [z^n] f(z) \sim \frac{g(z_0)}{\Gamma(-\beta) n^{\beta+1} z_0^n}.
+  \end{equation*}
+\end{theorem}
+V posebnem: $b = -r: \; \frac{b_{-r} n^{r-1}}{\Gamma(r) z_0^n}$.
+\begin{ex} \text{}
+  \begin{enumerate}[label=(\arabic*)]
+    \item $F(x) = \sum_n C_n x^n$ \\
+      $F(x) = 1 + x F^2(x)$ \\
+      $F(x) = \frac{1 - \sqrt{1 - 4x}}{2x}$ \\
+      $x F(x) = \frac{1}{2} + \frac{1}{2} \sqrt{1-4x}$ \\
+      $x_0 = \frac{1}{4}, \beta = \frac{1}{2}, g(x) = -\frac{1}{2}$ \\
+      $C_{n-1} \sim \frac{-\frac{1}{2}}{\Gamma\left(-\frac{1}{2}\right)
+      n^{\frac{3}{2}} \left(\frac{1}{4}\right)^n}$ \\
+      $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$ \\
+      $\Gamma\left(-\frac{1}{2}\right) = -\frac{1}{2} \Gamma\left(-\frac{1}{2}\right)$ \\
+      $\Gamma\left(-\frac{1}{2}\right) = - 2 \sqrt{\pi}$ \\
+      $C_{n-1} \sim \frac{-\frac{1}{2} 4^n}{-2 \sqrt{\pi} n^{\frac{3}{2}}}
+      = \frac{4^{n-1}}{\sqrt{\pi} n^{\frac{3}{2}}}$. \\
+      D.N. Dokažite to formulo iz $C_n = \frac{1}{n+1} \binom{2n}{n}$ in Stirlingovo formulo.
+    \item $M(k) = \sum_n M_n x^n$ \\
+      $M(x) = 1 + x M(x) + x^2 M^2(x)$ \\
+      $x^2 M^2 + (x-1) M + 1 = 0$ \\
+      $M(x) = \frac{1 - x - \sqrt{1 - 2x - 3x^2}}{2x^2}$ \\
+      $x^2 M = \frac{1-x}{2} - \frac{1}{2} \sqrt{(1-3x)(1+x)}$ \\
+      $x_0 = \frac{1}{3}, \beta = \frac{1}{2}, g(x) = -\frac{1}{2} \sqrt{1 + x}$ \\
+      $M_{n-2} \sim \frac{-\frac{1}{2} \cdot
+      \sqrt{\frac{4}{3}}}{-2 \sqrt{\pi} n^{\frac{3}{2}} \left(\frac{1}{3}\right)^n}$ \\
+      $M_n \sim \frac{3^{\frac{3}{2}} \cdot 3^n}{2 \sqrt{\pi} n^{\frac{3}{2}}}$.
+  \end{enumerate}
+\end{ex}
+Kaj pa, če je $f(n)$ cela?
+\begin{theorem}[Haymanova metoda]
+  Naj bo $f(z)$ dopustna funkcija (brez definicije), npr. $f(z) = e^{P(z)}$, $P$ polinom,
+  $[z^n] f(z) > 0$ od nekega $n$ naprej (npr. $e^z$, $e^{z + \frac{z^2}{2}}$, ne pa $e^{z^2}$). \\
+  \begin{equation*}
+    \beta(z) := \frac{z f^{'}(z)}{f(z)}.
+  \end{equation*}
+  Potem ima enačba $\beta(z) = n$ natanko eno pozitivno rešitev $z_n$. \\
+  \begin{equation*}
+    [z^n] f(z) \sim \frac{f(z_n)}{z_0^n \sqrt{2 \pi z_n} \beta^{'}(z_n)}.
+  \end{equation*}
+\end{theorem}
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic*)]
+    \item $f(z) = e^z$ \\
+      $\beta(z) = \frac{z e^z}{e^z} = z$ \\
+      $z_n = n$ \\
+      $[z^n] f(z) \sim \frac{e^n}{n^n \sqrt{2 \pi n}}$ - Stirlingova formula.
+    \item $f(z) = e^{z + \frac{z^2}{2}}$ \\
+      $\beta(z) = \frac{z \cdot e^{z + \frac{z^2}{2}} (1 + z)}{e^{z + \frac{z^2}{2}}} = z^2 + z$ \\
+      $z^2 + z + n = 0$ \\
+      $z_n = \frac{-1 + \sqrt{1 + 4n}}{2}$ \\
+      $\frac{i_n}{n!} \sim \frac
+        {e^{\left(\frac{-1 + \sqrt{1 + 4n}}{2}\right)^2 + \frac{-1 + \sqrt{1 + 4n}}{2}}}
+        {\left(\frac{-1 + \sqrt{1 + 4n}}{2}\right)^n
+        \sqrt{2 \pi \frac{-1 + \sqrt{1 + 4n}}{2}} \sqrt{1 + 4n}} \sim \dots$
+  \end{enumerate}
+\end{ex}
+
+
+
+\chapter{Incidenčne algebre in Möbiusova inverzija}
+
+
+\section{Motivacija}
+
+$f, g: \N \to \R$ \\
+$g(n) = f(0) + f(1) + \dots + f(n) \; n \in \N$ \\
+$f(n) = g(n) - g(n-1)$ \\
+$(g(x) = \int_{0}^{x} f(t) dt, \; g^{'}(x) = f(x))$. \\
+$f, g: \N \setminus \{0\} \to \R$ \\
+$g(n) = \sum_{d \mid n} f(d)$ \\
+$f(n) = \sum_{d \mid n} \mu\left(\frac{n}{d}\right) g(d)$ klasična Möbiusova inverzija,
+$\mu$ klasična Möbiusova funkcija, $\mu(n) \in \{-1, 0, 1\}$. \\
+$f, g: 2^{[n]} \to \R$ \\
+$g(T) = \sum_{S \subseteq T} f(S)$ \\
+$f(T) = \sum_{S \subseteq T} (-1)^{|T \setminus S|} g(S)$ - NVI. \\
+
+
+\section{Delno urejene množice}
+
+$(P, \leq)$ je delno urejena množica (dum) (angl. partially ordered set oz. poset); \\
+refleksivnost: $x \leq x$, ansitimetričnost: $x \leq y, y \leq x \implies x = y$,
+tranzitivnost: $x \leq y, y \leq z \implies x \leq z$.
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\arabic*)]
+    \item $([n], \leq) = \underline{n} = \bf{n}$ \\
+      $(\N, \leq)$.
+    \item $(D_n, |) = D_n$ delitelji $n$ \\
+      $(\N \setminus \{0\}, |) = D$.
+    \item $(2^{[n]}, \subseteq) = B_n$ Boolova algebra.
+    \item $(\{\text{razdelitve } [n]\}, \leq)$ \\
+      $\leq$: biti finejša
+      $\pi \leq \sigma$: vsak blok v $\pi$ je vsebovan v bloku v $\sigma$ \\
+      $14-2-378-56 \leq 12456-378$.
+    \item $(\text{podprostori } \F_q^n, \subseteq) = L_n(q)$.
   \end{enumerate}
 \end{ex}
 
