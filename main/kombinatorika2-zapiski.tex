@@ -166,10 +166,10 @@
 \def\z{\hspace{1.9ex}}    %BETWEEN TWO 2-DIGIT NUMBERS
 \stackMath
 
-%\clearpage
-%\phantomsection
+\clearpage
+\phantomsection
 
-%\section*{Seznam uporabljenih kratic}
+\section*{Seznam uporabljenih kratic}
 
 \noindent\begin{tabular}{p{0.1\textwidth}|p{.8\textwidth}}
   {\bf kratica} & izraz \\ \hline
@@ -2709,6 +2709,284 @@ $\mu_{P \times Q} \left((x,y), (x^{'}, y^{'})\right) = \mu_P(x,y) \cdot \mu_Q(x^
       f(n) = \sum_{d | n} \mu(d,n) g(d) = \sum_{d | n} \mu\left(\frac{d}{n}\right) g(d)$.
   \end{enumerate}
 \end{ex}
+
+
+% 13. predavanje: 21.12.
+
+$P$ \\
+$I(P, K) = \{f : Int(P) \to K\}$ \\
+$f \cdot g(x, y) = \sum_{x \leq z \leq y} f(x, z) g(z, y)$ \\
+$\zeta, \mu$.
+\begin{theorem} \text{} \\
+  $P$ dum, $\{y \leq x\}$ končen $\forall x \in P$, \\
+  $f, g: P \to K$. \\
+  $f(x) = \sum_{y \leq x} g(y) \iff g(x) = \sum_{y \leq x} \mu(y, x) f(y)$.
+\end{theorem}
+\begin{theorem} \text{} \\
+  $P$ dum, $\{y \geq x\}$ končen $\forall x \in P$, \\
+  $f, g: P \to K$. \\
+  $f(x) = \sum_{y \geq x} g(y) \iff g(x) = \sum_{y \geq x} \mu(x, y) f(y)$.
+\end{theorem}
+$B_n: \mu(S, T) = (-1)^{|T \setminus S|}$ \\
+$B_n \cong \underline{2} \times \dots \times \underline{2}$ \\
+$\mu_{P \times Q} = \mu_P \cdot \mu_Q$ \\
+$D_n: \mu(r, s) = \begin{cases}
+  (-1)^k: \; \frac{s}{r} \text{ produkt } k \text{ različnih praštevil} \\
+  0: \; p^2 | \frac{s}{r}
+\end{cases}$.
+
+
+\section{Mreže}
+
+\begin{defn}
+  $x \leq y$: \\
+  $y$ zgornja meja za $x$, \\
+  $x$ spodnja meja za $y$. \\
+  $P$ je mreža (angl. lattice?), če imata poljubna elementa najmanjšo zgornjo mejo in največjo spodnjo mejo.
+\end{defn}
+$x \lor y$ spoj (angl, join), \\
+$x \land y$ stik (angl. meet). \\
+$x \land y \leq x, y \leq x \lor y$ \\
+$x, y \leq z \implies x \lor y \leq z$ \\
+$z \leq x, y \implies z \leq x \land y$.
+\begin{ex} \text{} \\
+  \begin{itemize}
+    \item 3 zgornje meje za $x, y$, noben ni $\leq$ od ostalih, \\
+      ni mreža.
+      % skica
+    \item $\underline{n}, \N$: $i \lor j = \max \{i, j\}, \; i \land j = \min \{i, j\}$.
+    \item $B_n: T \lor S = T \cup S, \; T \land S = T \cap S$.
+    \item $D_n, D: r \lor s = l(r, s), \; r \land s = D(r, s)$.
+    \item $L_n(q): U \lor V = U + V, \; U \land V = U \cap V$. \\
+    \item $\Pi_n$ \\
+      $\pi = 135-246, \sigma = 123-46-5$ \\
+      $\pi \land \sigma = \{\text{neprazni preseki bloka $\pi$ in bloka $\sigma$}\}$ \\
+      $\pi \lor \sigma = \{\text{povezane konponente grafa, $V = [n], i \sim j$:
+        $i$ in $j$ v istem bloku $\pi$ ali $\sigma$}\}$
+      % skica
+      $\pi \lor \sigma = 123456$.
+  \end{itemize}
+\end{ex}
+$P$ končna mreža $\implies$ ima največji in najmanjši element. \\
+Največji: spoj vseh elementov $= \hat{1}$, \\
+najmanjši: stik vseh elementov $= \hat{0}$. \\
+$\forall x < y:$ \\
+$\sum_{x \leq z \leq y} \mu(x, z) = 0 \implies \mu(x, y) = - \sum_{x \leq z < y} \mu(x, z)$ ali \\
+$\sum_{x \leq z \leq y} \mu(z, y) = 0 \implies \mu(x, y) = - \sum_{x < z \leq y} \mu(z, y)$.
+\begin{theorem} \text{} \\
+  $P$ končna mreža, \\
+  $a \neq \hat{1}$. \\
+  $\mu(\hat{0}, \hat{1}) = - \sum_{x \neq \hat{0}, \\x \land a = \hat{0}} \mu(x, \land{1})$.
+\end{theorem}
+\begin{rem}
+  Vedno: $\mu(\hat{0}, \hat{1}) = - \sum_{x \neq \hat{0}} \mu(x, \hat{1})$. \\
+  Torej izrek nam omogoča, da $\mu(\hat{0}, \hat{1})$ izračunamo preko vsote z manj členi.
+\end{rem}
+Tipično $a <\cdot \hat{1}$.
+\begin{pro}
+  \begin{align*}
+    \sum_{x \land a = \hat{0}}
+    &= \sum_{x \in P} \mu(x, \hat{1}) \cdot 1(\hat{0}, x \land a) \\
+    &= \sum_{x \in P} \mu(x, \hat{1}) \sum_{y \leq x \land a} \mu(\hat{0}, y) \\
+    &\stackrel{(*)}{=} \sum_{x \in P} \mu(x, \hat{1})
+      \sum_{y \leq x, y \leq a} \mu(\hat{0}, y) \\
+    &= \sum_{y \leq a} \left(\sum_{x \geq y} \mu(x, \hat{1})\right) \mu(\hat{0}, y) = 0;
+  \end{align*}
+  ker $\sum_{x \geq y} \mu(x, \hat{1}) = 1(y, \hat{1}) = 0$, ker $y \leq a \neq \hat{1}$, \\
+  (*): $y \leq x \land a \implies y \leq x \land y \leq a$.
+\end{pro}
+\begin{ex} \text{} \\
+  \begin{enumerate}[label=(\alph*)]
+    \item $B_n$ \\
+      $\mu_n = \mu(0, [n])$ \\
+      $[S, T] \cong B_{|T \setminus S|}$ \\
+      $\left[\{n\}, [n]\right] \cong B_{n-1}$ \\
+      $A = [n-1]$ \\
+      $\mu_n = \sum_{T \neq \emptyset, T \cap [n-1] = \hat{0}} \mu(T, [n])
+      = -\mu(\{n\}, [n]) = -\mu_{n-1}$ \\
+      $\implies \mu_n = (-1)^n$ \\
+      $\mu(S, T) = (-1)^{|T \setminus S|}$.
+    \item $D_n$ \\
+      $n = p_1^{\alpha_1} \dots p_k^{\alpha_k}$ \\
+      $a = p_1^{\alpha_1 - 1} \dots p_k^{\alpha_k}$ \\
+      $\mu(1, n) = -\sum_{d | n, d \neq 1, D(d,a) = 1} \mu(d, n) = \begin{cases}
+        0: \; \alpha_1 \geq 2 \text{ (takega $d$ ni)} \\
+        -\mu(p_1, n): \; \alpha_1 = 1 \; (d = p_1)
+      \end{cases}$ \\
+      $-\mu(p_1, n) = -\mu(1, p_2^{\alpha_2} \dots p_n^{\alpha_n})$: \\
+      rekurzivno, $=0$ če $\alpha_i \geq 2$, $(-1)^k$ sicer.
+    \item $L_n(q)$ \\
+      $\mu_n = \mu(0, \Pi_q^n)$ \\
+      $[U, V] \cong L_{\dim V - \dim U}(q)$ \\
+      $A = \Pi_q^{n-1} \times \{0\}$ \\
+      $\mu_n = -\sum_{U \neq 0, U \cap A = 0} \mu(U, \Pi_q^n) = - q^{n-1} \mu_{n-1}$. \\
+      Linearna algebra: $\dim (U \cap A) + \dim (U + A) = \dim (U) + \dim(A)$: \\
+      $\dim(A) = n-1, \dim(U \cap A) = 0, \dim(U) \geq 1, \dim(U + A) \geq 0$ \\
+      $n \geq \dim(U \cap A), \dim(U) + \dim(A) \geq n$ \\
+      $\implies \dim(U) = 1, U = Lin \{u\};$ zadnja komponenta $\neq 0$, BŠS 1. \\
+      $q^{n-1}$: $q$ možnosti za vsako od $n-1$ preostalih komponent. \\
+      $\mu_n = (-1)^n q^{\binom{n}{2}}$ \\
+      $\mu(U, V) = (-1)^{\dim V - \dim U} q^{\binom{\dim V - \dim U}{2}}$.
+    \item $\Pi_n$ \\
+      $\mu := \mu(1-2-3 \dots -n, 123 \dots n)$ \\
+      $\alpha = 1 2 \dots (n-1)-n$ \\
+      $\mu_n = -\sum_{\pi \neq 1-2 \dots n, \pi \land \alpha = 1-2 \dots -n} \mu(\pi, 12 \dots n) = -(n-1) \mu_{n-1}$ \\
+      $\pi = 1-2- \dots -(i-1)-(in)-(i+1)- \dots -(n-1)$ \\
+      $[\pi, 12 \dots n] \cong \Pi_{n-1}$ \\
+      $\mu_n = (-1)^{n-1} (n-1)!$ (do $\mu_1$, ne $\mu_0$) \\
+      $[\pi, \sigma] \cong \pi_{\alpha_1} \times \dots \times \pi_{\alpha_k}$, \\
+      kjer $i$-ti blok $\sigma$ razpade na $a_i$ blokov v $\pi$ za $i = 1, 2 \dots k$. \\
+      $\pi = 12-3-4-568-7$ \\
+      $\sigma = 1247-56-8-3$ \\
+      $a_1 = 3, a_2 = 2, a_1 = 1$ \\
+      $\Pi_3 \times \Pi_2 \times \Pi_1$ \\
+      $\mu(\pi, \sigma) = (-1)^{a_1} (a_1 - 1)! \cdot (-1)^{a_2} (a_2 - 1)! \cdot (-1)^{a_3} (a_3 - 1)!$.
+  \end{enumerate}
+\end{ex}
+
+
+\section{Reducirane incidenčne algebre in Dirichletove rodovne funkcije}
+
+\begin{ex} \text{} \\
+  \begin{itemize}
+    \item $\underline{n}, \N$ \\
+      $\mu(i, j) = \begin{cases}1: \; i=j \\ -1: \; j = i+1 \\ 0: \; j-i > 1\end{cases}$ - odvisen od $j-i$.
+    \item $B_n, B = \cup_{n=0}^{\infty} B_n = \{\text{končne podmnožice } \{1, 2, 3 \dots\}\}$ \\
+      $\mu(S, T) = (-1)^{|T \setminus S|}$ - odvisen od $|T \setminus S|$.
+    \item $L_n(q), L_q = \cup_{n=0}^{\infty} L_n(q)$ (dodamo $\times \{0\}^i$ na konce?) \\
+      $\mu(U, T) = (-1)^{\dim V - \dim U} \dots$ - odvisen od $\dim V - \dim U$.
+    \item $D_n, D$ \\
+      $\mu(r, s)$ - odvisen od $\frac{s}{r}$.
+  \end{itemize}
+\end{ex}
+Vedno: $\mu(x, y) = \mu(x^{'}, y^{'})$, če je $[x, y] \cong [x^{'}, y^{'}]$. \\
+(Primer zgoraj za $\N, B, L(q)$.) \\
+V $D$: $[1, 14] \cong [1, 15] \cong B_2$, vendar $\frac{14}{1} \neq \frac{15}{1}$.
+\begin{theorem} \text{} \\
+  $P$ lokalno končna dum. \\
+  $I_{\cong}(P, K) = \{f: \; Int(P) \to K: \; [x,y] \cong [x^{'}, y^{'}] \implies f(x,y) = f(x^{'},y^{'})\}$. \\
+  (npr. za $P = \underline{n}$ zgornje trikotne matrike, ki so konstantne na diagonali(ah?)) (1, $\mu, \zeta$). \\
+  Potem velja $f, g \in I_{\cong}(P, I), \lambda \in K \implies
+  f + g, \lambda \cdot f, f \cdot g \in I_{\cong}(P, K)$, \\
+  $f \in I_{\cong}(P, K)$ obrnljiv $\implies \; f^{-1} \in I_{\cong}(P, K)$, \\
+  $I_{\cong}(P, K)$ reducirana incidenčna algebra.
+\end{theorem}
+\begin{pro} \text{} \\
+  $[x, y] \cong [x^{'}, y^{'}]$ \\
+  $(f+g)(x,y) = f(x,y) + g(x,y) = f(x^{'}, y^{'}) + g(x^{'}, y^{'}) = (f+g)(x^{'}, y^{'})$, \\
+  $\lambda \cdot f$: podobno. \\
+  $(f \cdot g) (x, y) = \sum_{x \leq z \leq y} f(x, z) \cdot g(z, y)$ \\
+  $(f \cdot g) (x^{'}, y^{'}) = \sum_{x^{'} \leq z^{'} \leq y^{'}} f(x^{'}, z^{'}) \cdot g(z^{'}, y^{'})$ \\
+  $\phi: [x, y] \to [x^{'}, y^{'}]$ izomorfizem \\
+  $[\phi(z), \phi(w)] \cong [z, w]$ \\
+  $f(x, z) = f(x^{'}, z^{'}), g(z, y) = g(z^{'}, y^{'})$ \\
+  $f^{-1}(x,y) = f^{-1}(x^{'}, y^{'})$ z indukcijo po $\left|[x,y]\right|$. \\
+  $\left|[x,y]\right| = 1$
+  \begin{align*}
+    &x = x^{'}, y = y^{'} \\
+    &f^{-1}(x,y) = \frac{1}{f(x,y)} = \frac{1}{f(x^{'}, y^{'})} = f^{-1}(x^{'}, y^{'})
+  \end{align*}
+  $\left|[x,y]\right| > 1$
+  \begin{align*}
+    &\sum_{x \leq z \leq y} f(x,z) f^{-1}(z,y) = \sum_{x < z \leq y} f(x,z) f^{-1}(z,y) + f(x,x) f^{-1}(x,y) = 0 \\
+    &\sum_{x^{'} \leq z^{'} \leq y^{'}} f(x^{'},z^{'}) f^{-1}(z^{'},y^{'}) =
+      \sum_{x^{'} < z^{'} \leq y^{'}} f(x^{'},z^{'}) f^{-1}(z^{'},y^{'}) + f(x^{'},x^{'}) f^{-1}(x^{'},y^{'}) = 0;
+  \end{align*}
+  $f(x, z) = f(x^{'}, z^{'}), f(x, x) = f(x^{'}, x^{'}), f^{-1}(z,y) \stackrel{IP}{=} f^{-1}(z^{'}, y^{'})$ \\
+  $\implies \; f^{-1}(x,y) = f^{-1}(x^{'}, y^{'})$.
+\end{pro}
+$\tau = \{\text{množica ekvivalenčnih razredov za } \cong\}$: množica tipov. \\
+$\N: \tau \equiv \N$ \\
+$B: \tau \equiv \N$ \\
+$L(q): \tau \equiv \N$ \\
+$[x,y]$ tipa $\alpha$. \\
+$f,g \in I_{\cong}(P, K), f \cdot g(x, y) = \sum_{x \leq z \leq y} f(x, z) g(z, y)$ \\
+$(f \cdot g)(\alpha) = \sum_{\beta, \gamma} \binom{\alpha}{\beta, \gamma} f(\beta) g(\gamma)$ \\
+$(f \cdot g)$ odvisen samo od tipa. \\
+$\binom{\alpha}{\beta, \gamma} :=$ število elementov $z \in [x,y]$; $[x,y]$ tipa $\alpha$,
+da je $[x,z]$ tipa $\beta$, $[z,y]$ tipa $\gamma$. \\
+Torej: $I_{\cong}(P, K)$ je izomorfna algebri preslikav $\tau \to K$ s produktom \\
+$(f \cdot g)(\alpha) = \sum_{\beta, \gamma} \binom{\alpha}{\beta, \gamma} f(\beta) g(\gamma)$. \\
+$\N$
+\begin{itemize}[label={}]
+  \item $\binom{n}{i, j} = \begin{cases}
+      1: \; i+j=n \\
+      0: \text{ sicer}
+    \end{cases}$
+  \item $f \cdot g(n) = \sum_{k=0}^n f(k) g(n-k)$
+  \item $I_{\cong}(\N, K) \cong K[[x]]$
+  \item $f \to \sum_n f(n) x^n$
+\end{itemize}
+$B$
+\begin{itemize}[label={}]
+  \item $\binom{n}{i, j} = \begin{cases}
+      \binom{n}{i}: \; i+j=n \\
+      0: \text{ sicer}
+    \end{cases}$
+  \item $f \cdot g(n) = \sum_{k=0}^n \binom{n}{k} f(k) g(n-k)$
+  \item $I_{\cong}(B, K) \cong K[[x]]$
+  \item $f \to \sum_n \frac{f(n)}{n!} x^n$
+\end{itemize}
+$L_q$
+\begin{itemize}[label={}]
+  \item $\binom{n}{i, j} = \begin{cases}
+      \binom{n}{i}_q: \; i+j=n \\
+      0: \text{ sicer}
+    \end{cases}$
+  \item $f \cdot g(n) = \sum_{k=0}^n \binom{n}{k}_q f(k) g(n-k)$
+  \item $I_{\cong}(L(q), K) \cong K[[x]]$
+  \item $f \to \sum_n \frac{f(n)}{\underline{n!}} x^n$
+\end{itemize}
+$\N$
+\begin{itemize}[label={}]
+  \item $\zeta \to \frac{1}{1-x}$
+  \item $\mu \to \left(\frac{1}{1-x}\right)^{-1} = 1-x$, torej $\mu(0) = 1, \mu(1) = -1, \mu(2) = \mu(3) = \dots = 0$
+  \item $\zeta^k \to \left(\frac{1}{1-x}\right)^k = \sum_n \binom{n+k-1}{k-1} x^n$
+  \item $\zeta^k(n)$: število multiverig dolžine $k$ med $0$ in $n$
+  \item $0 \leq i_1 \leq \dots \leq i_{k-1} \leq n$.
+  \item Kombinacije s ponavljanjem: $\binom{(n+1) + (k-1) - 1}{k-1} = \binom{n+k-1}{k-1}$
+  \item $(\zeta-1)^k \to \left(\frac{x}{1-x}\right)^k = \sum_k \binom{n-1}{k-1} x^n$
+  \item $0 < i_1 < \dots < i_{k-1} < n$
+  \item $\binom{n-1}{k-1}$
+  \item $(2-\zeta)^{-1} \to \left(2-\frac{1}{1-x}\right)^{-1} = \left(\frac{2-2x-1}{1-x}\right)^{-1}
+    = \frac{1-x}{1-2x} = 1 + \sum_{n=1}^{\infty} 2^{n-1} x^n$
+  \item $(2-\zeta)^{-1}(n)$: število vseh verig med 0 in $n$:
+  \item $0 < i_1 < \dots < i_{k-1} < n$
+  \item $2^{n-1}, \; n \geq 1$: izberem ali ne.
+\end{itemize}
+$B$
+\begin{itemize}[label={}]
+  \item $\zeta \to e^x$
+  \item $\mu \to e^{-x}$, torej $\mu(n) = (-1)^n$
+  \item $\zeta^k \to e^{kx} = \sum_n \frac{k^n}{n!} x^n$
+  \item $\zeta^k(n)$: število multiverig $\emptyset \subseteq A_1 \subseteq \dots \subseteq A_{k-1} \subseteq [n]$.
+  \item Za $\forall j = 1, 2 \dots n$ izberemo $A_i$, v katerem se $j$ prvič pojavi; $k$ izbir,
+    $n$-krat izbiramo $\to k^n$
+  \item $(\zeta-1)^k \to (e^x - 1)^k = \sum_n \frac{k! S(n, k)}{n!} x^k$
+  \item $(\zeta-1)^k(n)$: število verig $\emptyset \subseteq A_1 \subset \dots \subset A_{k-1} \subseteq [n]$
+  \item $(A_1, A_2 \setminus A_1, A_3 \setminus A_2 \dots)$ urejena razdelitev na $k$ blokov.
+\end{itemize}
+Spomnimo se: $\mu(r, s) = \mu(r^{'}, s^{'})$, če je $\frac{s}{r} = \frac{s^{'}}{r^{'}}$. \\
+$[r, s] \sim [r^{'}, s^{'}]$, če je $\frac{s}{r} = \frac{s^{'}}{r^{'}}$. \\
+$I_{\sim}(D, K) = \{f: Int(D) \to K: \; [r,s] \sim [r^{'}, s^{'}] \implies f(r, s) = f(r^{'}, s^{'})\}$
+je tudi podlagebra (dokaz podoben). \\
+$\tau \equiv \N \setminus \{0\}$ \\
+$\binom{n}{i,j} = \begin{cases}
+  1: \; i \cdot j = n \\
+  0: \; \text{sicer}
+\end{cases}$ \\
+$f * g(n) = \sum_{i,j} \binom{n}{i,j} f(i) g(j) = \sum_{d | n} f(d) g\left(\frac{n}{d}\right)$
+Dirichletova konvolucija. \\
+Dirichletove rodovne funkcije: \\
+$\{\sum_{n=1}^{\infty} \frac{a_n}{n^s}; \; a_i \in K\}$ \\
+$\sum_{n=1}^{\infty} \frac{a_n}{n^s} \cdot \sum_{n=1}^{\infty} \frac{b_n}{n^s}
+= \sum_{n=1}^{\infty} \frac{\sum_{d | n} a_d b_{\frac{n}{d}}}{n^s}$ \\
+$f \to \sum_n \frac{f(n)}{n^s}$ izomorfizem algeber. \\
+$\zeta \to \zeta(s)$ (Riemmanova) funkcija $\zeta$. \\
+če $\sum_n \frac{a_n}{n^s}$ in $\sum_n \frac{b_n}{n^s}$ konvergirata: \\
+$\left(\frac{a_1}{1^s} + \frac{a_2}{2^s} + \frac{a_3}{3^s} + \dots\right) \cdot
+\left(\frac{b_1}{1^s} + \frac{b_2}{2^s} + \frac{b_3}{3^s} + \dots\right)$ \\
+$\left[\frac{1}{6^s}\right]: a_1 b_6 + a_2 b_3 + a_3 b_2 + a_6 b_1$ (množenje kot dejanske funkcije).
 
 
 %\clearpage
