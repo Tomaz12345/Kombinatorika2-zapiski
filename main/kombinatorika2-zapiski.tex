@@ -2989,6 +2989,252 @@ $\left(\frac{a_1}{1^s} + \frac{a_2}{2^s} + \frac{a_3}{3^s} + \dots\right) \cdot
 $\left[\frac{1}{6^s}\right]: a_1 b_6 + a_2 b_3 + a_3 b_2 + a_6 b_1$ (množenje kot dejanske funkcije).
 
 
+% 14. predavanje: 4.1.
+
+$(P, K)$ \\
+$(r, s) \sim (r^{'}, s^{'}) \iff \frac{s}{r} = \frac{s^{'}}{r^{'}}$ \\
+$I_{\sim} (P, K) = \{f: Int(P) \to K: (r, s) \sim (r^{'}, s^{'}) \implies f(r, s) = f(r^{'}, s^{'})\}$ \\
+$f * g(n) = \sum_{d | n} f(d) g\left(\frac{n}{d}\right)$ - odvisno samo od kvocientov: pišemo en argument. \\
+$\left\{ \sum_{n=1}^{\infty} \frac{a(n)}{n^s}: a(n) \in K\right\}$ Dirichletove rodovne funkcije. \\
+$\sum_{n=1}^{\infty} \frac{a(n)}{n^s} \cdot \sum_{n=1}^{\infty} \frac{b(n)}{n^s} =
+\sum_{n=1}^{\infty} \frac{\sum_{d | n} a(d) b\left(\frac{n}{d}\right)}{n^s}$. \\
+Izomorfizem \\
+$I_{\sim} (P, K) \to$ Dirichletove rodovne funkcije \\
+$Drf: f \mapsto \sum_{n=1}^{\infty} \frac{f(n)}{n^s}$ \\
+$Drf(\zeta) = \zeta(s)$ \\
+$K = \C$ \\
+$\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ konvergira za $s_0 \implies$ konvergira za $\forall s: \; Re \; s > Re \; s_0$. \\
+$\zeta(s)$ konvergira za $Re \; s > 1$.
+\begin{defn} \text{} \\
+  $f: \N \setminus \{0\} \to \C$ je multiplikativna, če je $f(1) = 1$ in $f(ab) = f(a) f(b)$ za $D(a, b) = 1$. \\
+  Ekvivalentno: $f\left(p_1^{\alpha_1} \dots p_k^{\alpha_k}\right) =
+  f\left(p_1^{\alpha_1}\right) \dots f\left(p_k^{\alpha_k}\right)$.
+\end{defn}
+\begin{claim}
+  $f$ multiplikativna $\iff$ $Drf(f) =
+  \prod_{p \text{ prašt.}} \left(1 + \frac{f(p)}{p^2} + \frac{f(p^2)}{p^{2s}} + \dots\right)$.
+\end{claim}
+\begin{pro}
+  Pogledamo $\left[\frac{1}{n^s}\right]$ na obeh straneh.
+\end{pro}
+\begin{ex}
+  $\zeta(s) = \prod_{p \text{ prašt.}} \left(1 + \frac{1}{p^s} + \frac{1}{p^{2s}} + \dots \right)
+  = \prod_{p \text{ prašt.}} \frac{1}{1 - \frac{1}{p^s}}$.
+\end{ex}
+\begin{conseq} \text{} \\
+  $f, g$ multiplikativna $\implies$ $f * g$ multiplikativna, \\
+  $f$ multiplikativna $\implies f^{-1}$ multiplikativna. 
+\end{conseq}
+\begin{pro} \text{} \\
+  DN: direktno iz definicije. \\
+  Preko trditve: \\
+  $Drf(f * g) \stackrel{?}{=} Drf(f) \cdot Drf(g)$ \\
+  $\left(1 + \frac{f(p)}{p^s} + \frac{f(p^2)}{p^{2s}} + \dots \right) \cdot
+  \left(1 + \frac{g(p)}{p^s} + \frac{f(g^2)}{p^{2s}} + \dots \right) =
+  1 + \frac{f(p) + g(p)}{p^{s}} + \frac{f(p^2) + f(p) g(p) + g(p^2)}{p^{2s}} + \dots$ \\
+  $Drf(f^{-1}) = \frac{1}{Drf(f)}$ \\
+  $\frac{1}{1 + \frac{f(p)}{p^s} + \frac{f(p^2)}{p^{2s}} + \dots} =
+  1 - \left(\frac{f(p)}{p^s} + \frac{f(p^2)}{p^{2s}} + \dots\right) -
+  \left(\frac{f(p)}{p^s} + \frac{f(p^2)}{p^{2s}} + \dots\right)^2 + \dots$ \\
+  oboje ustrezne oblike.
+\end{pro}
+\begin{rem}
+  $f, g$ multiplikativni: $f * g\left(p^k\right) = \sum_{i=0}^{k} f\left(p^i\right) g\left(p^{k-i}\right)$.
+\end{rem}
+\begin{ex} \text{} \\
+  $Drf(\mu) = Drg(\zeta^{-1}) = \frac{1}{Drf(\zeta)} = \frac{1}{\zeta(s)} =
+  \prod_{p \text{ prašt.}} \left(1 - \frac{1}{p^s}\right) = \sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}$ \\
+  $\mu\left(p^k\right) = \begin{cases}
+    1: \; k = 0 \\
+    -1: \; k = 1 \\
+    0: \; k \geq 2
+  \end{cases}$. \\
+  $Drf\left(n^k\right) = \sum_{n=0}^{\infty} \frac{n^k}{n^s} = \zeta(s-k); \; Re \; s > k+1$. \\
+  $\zeta^2(s) = ?$ \\
+  $\zeta * \zeta(s) = \sum_{d | n} \zeta(d) \cdot \zeta\left(\frac{n}{d}\right) = \tau(n)$: število deliteljev $n$. \\
+  $\zeta^2(s) = \sum_{n=1}^{\infty} \frac{\tau(s)}{n^s}$ \\
+  $\zeta * \zeta(p^k) = \sum_{i=0}^{k} 1 = k+1$ \\
+  $\zeta * \zeta\left[p_1^{\alpha_1} \cdot p_k^{\alpha_k}\right] = (\alpha_1 + 1) \dots (\alpha_k + 1) = \tau(n)$ \\
+  $\zeta(2s) = \sum_{n=1}^{\infty} \frac{1}{n^{2s}}$ \\
+  $a(n) = \begin{cases}
+    1: \; n = m \\
+    0: \; \text{sicer}
+  \end{cases}$ - multiplikativna funkcija. \\
+  $a(p^k) = \begin{cases}
+    1: \; k \text{ sod} \\
+    0: \; k \text{ lih}
+  \end{cases}$ \\
+  $\frac{1}{\zeta(2s)} = \frac{1}{\prod_{p \text{ prašt.}} \left(1 + \frac{1}{p^{2s}} + \frac{1}{p^{4s}} + \dots\right)} \\
+  \stackrel{\text{geom.}}{=} \prod_{p \text{ prašt.}} \left(1 - \frac{1}{p^{2s}}\right)
+  = \sum_{n=1}^{\infty} \frac{b(n)}{n^s}$ \\
+  $b(p^k) = \begin{cases}
+    1: \; k = 0 \\
+    -1: \; k = 2 \\
+    0: \; \text{sicer}
+  \end{cases}$ \\
+  $\frac{\zeta^2(s)}{\zeta(2s)} = ?$ \\
+  $\sum_{n=0}^{\infty} \frac{c(n)}{n^s}$ \\
+  $k \geq 2:$ \\
+  $c(p^k) = \sum_{i=0}^{k} b(p^i) c(p^{k-i}) = 1 \cdot \tau(p^k) - 1 \cdot \tau(p^{k-2}) = k+1-(k-1) = 2$ \\
+  $k = 1$: \\
+  $c(p) = 1 \cdot \tau(1) = 2$ (potrebno preveriti zarabi $b$) \\
+  $c(p^0) = 1$ \\
+  $c(n) = 2^{\omega(n)}$, $\omega(n)$: število praštevilskih delitevljev. \\
+  $\frac{\zeta^2(s)}{\zeta(2s)} = \sum_{n=1}^{\infty} \frac{2^{\omega(n)}}{n^s}$ \\
+  $\sum_{n=1}^{\infty} \frac{2^{\omega(n)}}{n^2} = \frac{\zeta^2(2)}{\zeta(4)}
+  = \frac{\left(\frac{\pi^2}{6}\right)^2}{\frac{\pi^2}{90}} = \frac{5}{2}$ (konvergira počasi).
+\end{ex}
+
+
+
+\chapter{Upodobitve grup in Polyeva teorija}
+
+
+\section{Permutacijske upodobitve}
+
+\begin{defn} \text{} \\
+  $(G, \circ)$ grupa, $e$ enota. \\
+  Delovanje grupe $G$ na množici $X$ je preslikava $\vartheta: G \times X \to X$, \\
+  $(g, x) \mapsto \vartheta(g, x) = g \cdot x$ (ni množica v grupi), za katero velja:
+  \begin{itemize}
+    \item $\vartheta(e, x) = x \; \forall x \in X \; [e \cdot x = x]$
+    \item $\vartheta(g \circ h, x) = \vartheta(g, \vartheta(h, x)) \; \forall x \in X, g,h \in G \;
+      [(g \cdot h) \cdot x = g \cdot (h \cdot x)]$ (ni asociativnost).
+  \end{itemize}
+\end{defn}
+$\vartheta$ delovanje $G$ na $X$. \\
+$\Theta: G \to S_X$ \\
+$\Theta(g)(x) = \vartheta(g, x)$ \\
+$\Theta(g)$ je bijekcija: inverz je $\Theta(g^{-1})$. \\
+$\Theta(g)(\Theta(g^{-1})(x)) = \Theta(g)(\vartheta(g^{-1}, x)) = \vartheta(g, \vartheta(g^{-1}, x)) \\
+= \vartheta(g \circ g^{-1}, x) = \vartheta(e, x) = x$. \\
+$\Theta$ je homomorfizem: \\
+$\Theta(g \cdot h)(x) = \vartheta(g \cdot h, x)$ \\
+$\Theta(g)(\Theta(h)(x)) = \vartheta(g, \vartheta(h, x))$. \\
+Obratno: $\Theta: G \to S_X$, homomorfizem je \\
+$\vartheta: G \times X \to X$ \\
+$\vartheta(g, x) = \Theta(g)(x)$ delovanje. \\
+Če je $\Theta$ injektiven homomorfizem ($ker \Theta$ trivialno), je delovanje zvesto (angl. faithful). \\
+Torej: $g \cdot x = x \; \forall x \in X \implies g = e$. \\
+V tem primeru je $G \cong \Xi(G)$, BŠS $G \leq S_X, G$ permutacijska grupa. \\
+Zvesto delovanje $\equiv$ permutacijska grupa $\equiv$ zvesta permutacijska upodobitev. \\
+$G \to S_X$ permutacijska upodobitev. \\
+Odslej: $X, G$ končni, delovanje zvesto $(G \leq S_X)$. \\
+$x \sim y$, če $\exists g \in G: \; g \cdot x = y$ ekvivalenčna relacija. \\
+$x \in X: G x = \{g \cdot x: \; g \in G\}$ orbita $x$. \\
+$X / G$ množica orbit. \\
+$g \in G: x^g = \{x \in X: g \cdot x = x\}$ množica negibnih točk $g$. \\
+$x \in X: G_x = \{x \in X: g \cdot x = x\}$ stabilizator $x$. \\
+$G_x \leq G$. \\
+$g, h \in G_x, g \cdot x = x, h \cdot x = x \implies (g \cdot h) \cdot x = g \cdot (h \cdot x) =
+g \cdot x = x \implies g \cdot h \in X$ \\
+$g \in G_x, g \cdot x = x \implies g^{-1} \cdot (g \cdot x) = g^{-1} \cdot x = (g^{-1} \cdot g) \cdot x = x \\
+\implies g^{-1}(x) = x \implies g^{-1} \in G_x$. \\
+V splošnem ni $G_x \triangleleft G$.
+\begin{claim}
+  $\forall x \in X: |G| = |G_x| \cdot |G x|$.
+\end{claim}
+\begin{pro} \text{} \\
+  $H \leq G, G / H = \{g \cdot H: g \in G\}$ kvocientna množica (množica levih odsekov). \\
+  Levi odseki so disjunktni, neprazni in enako močni ($e \cdot H \to g \cdot H, h \cdot g h$ bijekcija). \\
+  $\implies |G / H| = \frac{|G|}{|H|}$. \\
+  $|G / G_x| = \frac{|G|}{|G_x|}$. \\
+  Iščemo bijekcijo $G x \to G / G_x$. \\
+  $\phi(g \cdot x) = g \cdot G_x$. \\
+  Dobra definiranost ($\implies$) in injektivnost ($\Longleftarrow$): \\
+  $g x = h x \iff (h^{-1} g) x = x \iff h^{-1} g \in G_x \iff h^{-1} g G_x = G_x \iff g G_x = h G_x$. \\
+  Sujrektivnost: \\
+  $g \cdot G_x = \phi(g \cdot x)$.
+\end{pro}
+\begin{theorem}[Burnsideova lema]
+  $|X / G| = \frac{1}{|G|} \sum_{g \in G} \left|x^g\right|$. \\
+  Število orbit = povprečno število negibnih točk.
+\end{theorem}
+\begin{pro}
+  \begin{align*}
+    \sum_{g \in G} \left|x^g\right| &= \sum_{g \in G} \sum_{x \in x^g} 1 \\
+    &= \sum_{x \in X} \sum_{g \in G, gx = x} 1 \\
+    &= \sum_{x \in X} |G_x| \\
+    &\stackrel{\text{trd.}}{=} \sum_{x \in X} \frac{|G|}{|G x|} \\
+    &= |G| \sum_{\sigma \in X / G} \frac{1}{|\sigma|} \\
+    &= |G| \cdot |X / G|.
+  \end{align*}
+  $\sigma$: orbita.
+  % skica
+\end{pro}
+
+
+\section{Polyeva teorija}
+
+Polya. \\
+$x = [n], G = C_n = \{(1 2 \dots n)^i: \; 0 \leq i \leq n-1\}$ \\
+$n = 4: C_4 = \{(1 2 3 4), (1 3) (2 4), (1 4 3 2), id\}$ \\
+$\vartheta: \Z_4 \times [4] \to [4]$ \\
+$\vartheta(i, x) = x + i (\text{mod } 4)$ \\
+$0 \cdot x = x, 1 \cdot x = x+1, 2 \cdot x = x+2, 3 \cdot x = x+3$ \\
+$\Theta: Z_4 \to S_4$ \\
+$i \mapsto (x \mapsto x+i)$ \\
+$0 \mapsto id, 1 \mapsto (1 2 3 4), 2 \mapsto (1 3) (2 4), 3 \mapsto (1 4 3 2)$ \\
+$\Theta(Z_4) = C_4$ \\
+% skica
+$G$ zvesto delovanje na $X$, $\vartheta$. \\
+$R$ množica barv, $|R| = r$. \\
+Barvanje $b: X \to R$.
+\begin{claim} \text{} \\
+  $\widehat{\vartheta}(g,b)(x) = b(\vartheta(g^{-1}, x))$ oz. $(\hat{g} \cdot b)(x) = b(g^{-1} x)$. \\
+  % skica
+  Delovanje na $R^X$ (množica barvanj na $X$). \\
+  Če je $r > 1$, je to delovanje zvesto. \\
+\end{claim}
+\begin{pro} \text{} \\
+  $\widehat{\vartheta}(e,b)(x) = b(\vartheta(e^{-1},x)) = b(x) \implies \widehat{\vartheta}(e,b) = b$ \\
+  $\widehat{\vartheta}(g \circ h, b)(x) = b(\vartheta((g \circ h)^{-1}, x)) = b(\vartheta(h^{-1}, \vartheta(g^{-1}, x)))$ \\
+  $\widehat{\vartheta}(g, \widehat{\vartheta}(h, b))(x) = \widehat{\vartheta}(h, b)(\vartheta(g^{-1}, x)) =
+  b(\vartheta(h^{-1}, \vartheta(g^{-1}, x)))$ \\
+  $\widehat{\vartheta}(g, b) = b$ za $\forall b \in R^X$. \\
+  $1, 2 \in R$. \\
+  Izberemo $x_0 \in X$. \\
+  $b(x) = \begin{cases}
+    1: \; x = x_0 \\
+    2: \; x \neq x_0
+  \end{cases}$ \\
+  $\widehat{\vartheta}(g, b)(x) = b(x) \; \forall x \in X$ \\
+  $b(\vartheta(g^{-1}, x)) = b(x) \; \forall x \in X$ \\
+  $x = \vartheta(g, x)$ \\
+  $b(x_0) = b(\vartheta(g, x_0)) = 1 \implies \vartheta(g, x_0) = x_0 \stackrel{\vartheta \text{ zvesto}}{\implies} g = e$.
+\end{pro}
+Torej za $r > 1$ lahko uporabimo Burnsideovo lemo za $\widehat{\vartheta}$. \\
+Število orbit = število neekvivalentnih barvanj. \\
+% skica
+$g \in G$, kaj so negibna barvanja? \\
+$g =$ rotacija $\pi/4$: vse točke iste barve: $r$ negibnih barvanj. \\
+$g =$ rotacija $\pi/2$: cikla vsak iste barve: $r^2$ negibnih barvanj. \\
+$\widehat{\vartheta}(g, b) = b$ \\
+$b(g^{-1}(x)) = b(x) \; \forall x \in X$. \\
+Za $\forall x \in X$ sta $x$ in $g^{-1} x$ iste barve. \\
+Za $\forall x \in X$ sta $x$ in $g x$ iste barve. \\
+Za $\forall x \in X$ sta $g x$ in $g^{2} x$ iste barve. \\
+$x, g x, g^2 x, g^3 x \dots$ iste barve. \\
+Vsi elementi v elem ciklu $g \in S_X$ iste barve $\implies \; b$ negibno barvanje za $g$.
+\begin{theorem}[Polyev] \text{} \\
+  $G$ zvesto delovanje na $X$, \\
+  $R$ množica barv, $r = |R|$. \\
+  Število neekvivalentnih barvanj $X$ z barvami iz $R$ je $\frac{1}{|G|} \sum_{g \in G} r^{c(G)}$,
+  kjer je $c(g)$ število ciklov $g$ kot elementov $S_X$ (torej število ciklov $\Theta(g)$)
+  (tudi za $r=1$ (nezvesto)).
+\end{theorem}
+\begin{ex} \text{} \\
+  $C_4$ \\
+  $\frac{1}{4} \left(r^4 + r^2 + 2r\right)$ \\
+  $D_4$ diedrska grupa \\
+  $D_4 = C_4 \cup \{(1 4) (2 3), (1 2) (3 4), (1 3), (2 4)\}$ \\
+  $\frac{1}{8} \left(r^4 + r^2 + 2r + 2r^2 + 2r^3\right) = \frac{1}{8} \left(r^4 + 2r^3 + 3r^2 + 2r\right)$. \\
+  $r = 2$: \\
+  % skica
+  $\frac{1}{8} (16 + 16 + 12 + 4) = 6$.
+\end{ex}
+
+
 %\clearpage
 %\phantomsection
 
