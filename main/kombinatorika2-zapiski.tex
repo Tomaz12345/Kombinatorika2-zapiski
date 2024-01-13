@@ -3235,6 +3235,246 @@ Vsi elementi v elem ciklu $g \in S_X$ iste barve $\implies \; b$ negibno barvanj
 \end{ex}
 
 
+% 15. predavanje: 11.1.
+
+$G$ zvesto deluje na $X$. \\
+$G \leq S_X$. \\
+Polya: število neekvivalentnih barvanj je $\frac{1}{|G|} \sum_{g \in G} r^{c(G)}$.
+\begin{ex} \text{} \\
+  $S_n$ deluje na $[n]$. \\
+  $\pi \cdot i = \pi(i)$ \\
+  $\frac{1}{n!} \sum_{\pi \in S_n} r^{c(\pi)} = \frac{1}{n!} \sum_k c(n, k) r^k$. \\
+  $b_1$ in $b_2$ sta neekvivalentni barvanji $\iff \; \left|b_1^{-1}(i)\right| = \left|b_2^{-1}(i)\right|$
+  za $\forall i = 1, 2 \dots r$. \\
+  ($\Rightarrow$ velja vedno.) \\
+  $\lambda_i$: število točk barve $i$, $\lambda_i \geq 0$. \\
+  $\lambda_1 + \dots + \lambda_r = n \; \implies$ šibke kompozicije. \\
+  $\binom{n+r-1}{r-1} = \frac{(n+r-1)!}{(r-1)! n!} = \frac{1}{n!} \sum_k c(n, k) r^k$.
+\end{ex}
+\begin{defn} \text{} \\
+  $G \leq S_X$, $|X| = n$. \\
+  $Z_G(t_1 \dots t_n) = \frac{1}{|G|} \sum_{g \in G} \prod_{c \text{ cikel G}} t_{|c|}$:
+  ciklični indeks permutacijske grupe.
+\end{defn}
+$X = [4]$ \\
+$G = C_4$ \\
+$Z_{C_4}(t_1, t_2, t_3, t_4) = \frac{1}{4} \left(t_1^4 + t_2^2 + 2 t^4\right)$. \\
+Polya: število neekvivalentnih barvanj = $Z_G(r, r \dots r)$.
+\begin{theorem}[Posplošitev Polyevega izreka]
+  $B(\beta_1 \dots \beta_r)$: število neekvivalentnih barvanj, pri čemer je $\beta_i$ elementov $X$ barve $i$. \\
+  $\sum_{(\beta_1 \dots \beta_r)} B(\beta_1 \dots \beta_r) u_1^{\beta_1} \dots u_r^{\beta_r}
+  = Z_G(u_1 + \dots + u_r, u_1^2 + \dots + u_r^2, \dots u_1^n + \dots + u_r^n)$.
+\end{theorem}
+\begin{ex} \text{} \\
+  Od prej, $r=2$.
+  \begin{align*}
+    _{C_4}(u_1 + u_2, u_1^2 + u_2^2, u_1^3 + u_2^3, u_1^4 + u_2^4)
+    &= \frac{1}{4} \left((u_1+u_2)^4 + 2(u_1^4+u_2^4) + (u_1+u_2)^2\right) \\
+    &= u_1^4 + u_2^4 + u_1^3 u_2 + 2 u_1^2 u_2^2 + u_1 u_2^3 + u_2^4.
+  \end{align*}
+  % skica
+\end{ex}
+\begin{pro} \text{} \\
+  $G$ zvesto deluje na $\{b: X \to R: \left|b^{-1}(i)\right| = \beta_i\}$. \\
+  Burnsideova lema: $B(\beta_1 \dots \beta_r) = \frac{1}{|G|} \sum_{g \in G}$ število neekvivalentnih barvanj za $g$. \\
+  Še vedno: elementi enega cikla $g$ so iste barve. \\
+  Vsota dolžin ciklov barve $i$ mora biti $\beta_i$.
+  \begin{equation*}
+    \left[u_1^{\beta_1} \dots u_r^{\beta_r}\right] Z_G(u_1 + \dots + u_r, \dots u_1^n + \dots + u_r^n) \\
+    = \left[u_1^{\beta_1} \dots u_r^{\beta_r}\right] \frac{1}{|G|} \sum_{g \in G} \prod_{c \text{ cikel } g}
+      \left(u_1^{|c|} + \dots + u_r^{|c|}\right).
+  \end{equation*}
+  Isto (distributivnost, vsota $\dots$). \\
+  Za vsak cikel izberem $u_i$. \\
+  Vsota dolžin z izbranim $u_i$ mora biti $\beta_i$.
+\end{pro}
+\begin{rem} \text{} \\
+  $\left|X^g\right| = \left|X^{g^{'}}\right|$ \\
+  $g, g^{'} \in G$, $g^{'} = h g h^{-1}$ za nek $h \in G: g, g^{'}$ konjugirana. \\
+  $g \cdot x = x$ \\
+  $g^{'} (h x) = h g h^{-1} (h x) = h x$ \\
+  $x \mapsto h \cdot x$ je bijekcija iz $X^g$ v $X^{g^{'}}$. \\
+  (Inverz je $x \mapsto h^{-1} x$.) \\
+  Število negibnih točk je konstantno na konjugiranostnih razredih. \\
+  V $S_n$: permutaciji sta konjugirani $\iff$ imata iste dolžine ciklov. \\
+  $\pi = \dots (i \; \pi(i) \; \pi^2(i) \dots)$ \\
+  $\tau \pi \tau^{-1} = \dots (\pi(i) \; \tau(\pi(i)) \; \tau\left(\pi^2(i)\right) \dots)$.
+\end{rem}
+Upodobitev grupe $G$ je homomorfizem. \\
+$G \to GL_d$ \\
+$GL_d$: grupa obrnljivih matrik velikosti $d \times d$. \\
+Karakter upodobitve $\rho$ je $\Xi(g) = sl_{\rho}(g)$, $sl$: sled. \\
+Izkaže se: do izomorfizma natančno določa upodobitev \\
+$\Xi\left(h g h^{-1}\right) = sl_{\rho}\left(h g h^{-1}\right) = sl_{\rho}(h) \cdot sl_{\rho}(g) \cdot sl_{\rho}(h^{-1})
+= sl_{\rho}(g)$; \\
+$sl\left(A B A^{-1}\right) = sl\left(A^{-1} A B\right) = sl(B)$. \\
+Permutacijska upodobitev: \\
+$G \to S_n \to GL_n$ \\
+$3 \; 1 \; 2 \mapsto
+\begin{bmatrix}
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+  1 & 0 & 0
+\end{bmatrix}$ \\
+$\pi \mapsto A$ \\
+$A_{ij} = \begin{cases}
+  1: \; i = \pi(j) \\
+  0: \text{sicer}
+\end{cases}$. \\
+Karakter te upodobitve je število negibnih točk.
+
+
+\section{Primeri}
+
+$G$ zvesto deluje na $X$. \\
+$|G| = |Gx| \cdot |G_x|$ \\
+$G$ grupa rotacij $\R^3$, ki ohranja kocko. \\
+$G$ zvesto deluje na $X = \{\text{ploskve kocke}\}$. \\
+$|Gx| = G$: vse ploskve. \\
+$|G_x| = 4$: rotacija. \\
+% skica
+\begin{center}
+  \begin{tabular}{c | c}
+    id & 1 \\
+    $90^{\circ}$, ploskev & 6 \\
+    $180^{\circ}$, ploskev & 3 \\
+    $180^{\circ}$, robova & 6 \\
+    $180^{\circ}$, oglišči & 8
+  \end{tabular}
+\end{center}
+$G \cong S_4$ \\
+$G$ deluje na dolgih diagonalah
+(dobimo vse permutacije teh).
+\begin{defn} \text{} \\
+  $x = x_1 \dots x_n \in [n]^n$ je parkirna funkcija, če velja $y_i \leq i; i = 1, 2 \dots n$,
+  kjer je $y_1 \dots y_n$ šibko naraščajoča permutacija $x$. \\
+  $PF_n = \{\text{parkirne funkcije dolžine } n\}$.
+\end{defn}
+$PF_1 = \{1\}$, \\
+$PF_2 = \{11, 12, 21\}$ \\
+$PF_3 = \{111, 112, 121, 211, 122, 212, 221, 113, 131, 311, 123, 132, 213, 231, 312, 321\}$. \\
+$n$ avtov, $n$ označenih parkirnih mest, vsak voznik ima izbrano parkirno mesto,
+vsak se zapelje do želenega in parkira na 1. prostem mestu. \\
+$121 \quad \underline{1} \; \_ \; \underline{3}$ \\
+$311 \quad \underline{2} \; \underline{3} \; \underline{1}$ \\
+$313 \quad \underline{2} \; \_ \; \underline{1}$: ne gre.
+\begin{claim}
+  $x \in [n]^n$ je parkirna funkcija $\iff$ vsi avtomobili parkirajo.
+\end{claim}
+\begin{pro} \text{} \\
+  $(\Leftarrow)$ \\
+  Če je $y_i > i$, je $y_i, y_{i+1} \dots y_n \geq i+1$ \\
+  Voznikov: $n-i+1$, mest: $n-i$, za vsaj enega voznika zmanjka parkirnih mest. \\
+  $(\Rightarrow)$ z indukcijo. \\
+  $x_1 = k$ \\
+  $\_ \; \_ \; \_ \; \underline{x} \; \_ \; \_$ \\
+  $x_i^{'} := \begin{cases}
+    x_{i+1}: \; x_{i+1} \leq k \\
+    x_{i+1} - 1: \; x_{i+1} > k
+  \end{cases}$ \\
+  $i \leftarrow i+1$: se zamakne. \\
+  $x_i^{'}$ je tudi parkirna funkcija. \\
+  % skica
+  $y_i \leq i \iff y_{i}-1 \leq i-1$. \\
+  Po indukciji lahko tudi ostali parkirajo.
+\end{pro}
+\begin{theorem} \text{} \\
+  $|PF_n| = (n+1)^{n-1}$ \\
+  $\psi: PF_n \to \Z_{n+1}^{n-1}$ bijekcija \\
+  $x \mapsto (x_2 - x_1, x_3 - x_2 \dots x_n - x_{n-1})$ (mod $n+1$).
+\end{theorem}
+$1 1 \to 0$ \\
+$1 2 \to 1$ \\
+$2 1 \to 2$
+\begin{pro} \text{} \\
+  Dodamo še parkirno mesto $0$, avto se lahko vrne na začetek, izbere $\Z_{n+1}^n$. \\
+  $0 0 \quad \underline{1} \; \underline{2} \; \_$ \\
+  $0 1 \quad \underline{1} \; \underline{2} \; \_$ \\
+  $0 2 \quad \underline{1} \; \_ \; \underline{2}$ \\
+  $1 0 \quad \underline{2} \; \underline{1} \; \_$ \\
+  $1 1 \quad \_ \; \underline{1} \; \underline{2}$ \\
+  $1 2 \quad \_ \; \underline{1} \; \underline{2}$ \\
+  $2 0 \quad \underline{2} \; \_ \; \underline{1}$ \\
+  $2 1 \quad \_ \; \underline{2} \; \underline{1}$ \\
+  $2 2 \quad \underline{2} \; \_ \; \underline{1}$ \\
+  Vsi lahko parkirajo, eno mesto je prosto. \\
+  $x$ in $x + (k, k \dots k)$: zamaknjeno na $k$ mest. \\
+  $V$ vsakem (levem) odseku podgrupe, generirane z $(1, 1 \dots )$ je natanko en element v $FP_n$ \\
+  $\implies \; |FP_n| = \frac{\left|Z_{n+1}^n\right|}{n+1} = (n+1)^{n-1}$. \\
+  Inverz of $\psi:$ \\
+  $\Z_{n+1}^{n-1} \to PF_n$ \\
+  $(a_1, a_2 \dots a_{n-1}) \mapsto (x_1, x_1+a_1, x_1+a_1+a_2 \dots)$. \\
+  Obstaja natanko en $x_1$, da je to parkirna funkcija. 
+\end{pro}
+Delovanje $S_n$ na $FP_n$. \\
+$\pi \cdot x_1 \dots x_n = x_{\pi^{-1}(1)} \dots x_{\pi^{-1}(n)}$ \\
+zvesto: \checkmark \\
+Koliko je negibnih točk $\pi$? \\
+BŠS: $\pi = (1 \; 2 \dots \lambda_1) (\lambda_1 + 1 \dots \lambda_1 + \lambda_2) \dots$ \\
+$\pi = (1 \; 2 \; 3 \; 4) (5 \; 6 \; 6) (8)$ \\
+$\pi \cdot x = x$ \\
+$\pi \cdot x_1 \dots x_8 = x_3 x_1 x_2 x_3 \, x_7 x_5 x_6 \, x_8$. \\
+Če $x_1 = x_2 = x_3 = x_4$ in $x_5 = x_6 = x_7$. \\
+$\psi(x_1 \dots x_8) = (0, 0, 0, -, 0, 0, -)$ \\
+$|PF_n(\pi)| = (n+1)^{c(\pi)-1}$. \\
+Burnsideova lema:
+\begin{align*}
+  \text{število orbit} &= \frac{1}{n!} \sum_{\pi \in S_n} (n+1)^{c(\pi)-1} \\
+  &= \frac{1}{n! (n+1)} \sum_k c(n, k) (n+1)^n \\
+  &= \frac{1}{n! (n+1)} (n+1)^{\overline{n}} \\
+  &= \frac{(n+1) (n+2) \dots 2n}{n! (n+1)} \cdot \frac{n!}{n!} \\
+  &= \frac{1}{n+1} \binom{2n}{n} = c_n.
+\end{align*}
+Predstavniki orbit za $n=3$. \\
+% skica
+Zarotirane Dyckove poti. \\
+Ciklični indeks za kocko: \\
+$x = \{\text{oglišča kocke}\}$ \\
+$Z_G(t_1 \dots t_8) = \frac{1}{24} \left(t_1^8 + 6 t_4^2 + 3 t_2^4 + 6 t_2^4 + 8 t_1^2 t_3^2\right)$. \\
+Pobarvamo z $r$ barvami: \\
+$\frac{1}{24} \left(r^8 + 17r^4 + 6r^2\right)$. \\
+Ciklični indeks za $C_n$: \\
+$C_n = \{(1 \; 2 \dots n)^i \; 1 \leq i \leq n\}$ \\
+$(1 2 3 4 5 6)^2 = (1 3 5) (2 4 6)$ \\
+$(1 2 3 4 5 6)^3 = (1 4) (2 5) (3 6)$ \\
+$(1 2 \dots n)^i D(n, i = 1) \implies$ cikel dolžine $n$. \\
+$(1 2 \dots n)^d = (1 \; d+1 \dots) (2 \; d+2 \dots)$ \\
+$d$ ciklov dolžine $n$. \\
+$(1 2 \dots n)^i = \left( (1 2 \dots n)^d \right)^i$ \\
+$d = D(n, i)$ \\
+$n = n^{'} d$ \\
+$i = i^{'} d$ \\
+$D(n^{'}, i^{'}) = 1$ \\
+$(1 2 \dots n)^d$: $d$ ciklov dolžine $n^{'}$. \\
+$Z_{C_n}(t_1 \dots t_n) = \frac{1}{n!} \sum_{d \mid n} \phi\left(\frac{n}{d}\right) t_{\frac{n}{d}}^d$. \\
+Za dane $d$ in $\frac{n}{d}$: koliko je $i \in [n]$, da je $D(n, i) = d$ \\
+$i = i^{'} \cdot d, \; 1 \leq i^{'} \leq \frac{n}{d} = n^{'}$ \\
+$n = n^{'} \cdot d$ \\
+$D(i, n) = D(i^{'} \cdot d, n^{'} \cdot d) = d = d \cdot D(n^{'}, i^{'})$. \\
+Torej: koliko je $i^{'} \in \left[\frac{n}{d}\right]$, da je $D(n^{'}, i^{'}) = 1$: \\
+$\phi\left(\frac{n}{d}\right)$.
+\begin{theorem} \text{} \\
+  $Z_{C_n}(t_1 \dots t_n) = \frac{1}{n} \sum_{d \mid n} \phi(d) t_d^{\frac{n}{d}}$ \\
+  $Z_{D_n}(t_1 \dots t_n) = \frac{1}{n} \sum_{d \mid n} \phi(d) t_d^{\frac{n}{d}}
+  + \begin{cases}
+    \frac{1}{2} t_1 t_2^{\frac{n-1}{2}}: \; n \text{ lih} \\
+    \frac{1}{4} t_1^2 t_2^{\frac{n}{2}-1} + \frac{1}{4} t_2^{\frac{n}{2}}: \; n \text{ sod}
+  \end{cases}$ \\
+\end{theorem}
+\begin{ex} \text{} \\
+  Ogrlice: % skica
+  iste, če eno iz druge dobim z rotacijo. \\
+  $\frac{1}{n} \sum_{d \mid n} \phi(d) r^{\frac{n}{d}}$. \\
+  Zapostnice: % skica
+  iste, če eno iz druge dobim z rotacijo ali zrcaljenjem. \\
+  $\frac{1}{n} \sum_{d \mid n} \phi(d) r^{\frac{d}{d}}
+  + \begin{cases}
+    \frac{1}{2} r^{\frac{n-1}{2}}: \; n \text{ lih} \\
+    \frac{1}{4} r^{\frac{n}{2}-1} + \frac{1}{4} r^{\frac{n}{2}}: \; n \text{ sod}
+  \end{cases}$
+\end{ex}
+
+
 %\clearpage
 %\phantomsection
 
