@@ -214,9 +214,9 @@ Kaj je odgovor?
     $[n] = \{1, 2 \dots n\}$. \\
     $S_n = 2^{[n]} = P([n])$. \\
     $|S_n| = 2^n$. \\
-    $S_n = \{$permutacije n elementov$\}$. \\
-    $|S_n| = n! = 1 \cdot 2 \cdots n$ \sn{n fakulteta} \sn{n factorial}. \\
-    $S_n = \{$kompozicije n s členi 1 ali 2$\}$, npr. 5 = 1+2+1. \\
+    $S_n = \{$permutacije $n$ elementov$\}$. \\
+    $|S_n| = n! = 1 \cdot 2 \ldots n$ \sn{n fakulteta}, \sn{n factorial}. \\
+    $S_n = \{$kompozicije $n$ s členi 1 ali 2$\}$, npr. 5 = 1+2+1. \\
     $|S_5| = 8$. \\
     $1, 1, 2, 3, 5, 8 \dots$ \\
     $|S_n| = F_n$ - Fibonaccijevo zaporedje.
@@ -227,13 +227,14 @@ Kaj je odgovor?
   \item Z rekurzijo. \\
     $S_n = 2^{[n]}$. \\
     $a_n = |S_n|, a_n = 2a_{n-1}; \; n \geq 1, \; a_0 = 1$. \\
-    $S_n = \{$kompozicije s členi 1 ali 2$\}$. \\
+    $S_n = \{$kompozicije s členi 1 in 2$\}$. \\
     $S_n = F_n, F_n = F_{n-1} + F_{n-2}; \; n \geq 2, \; F_0 = F_1 = 1$. \\
-    $F_{n-1}$ - kompozicije, ki se končajo z 1, $F_{n-2}$ - končajo z 2.
+    $F_{n-1}$ - kompozicije, ki se končajo z 1, \\
+    $F_{n-2}$ - končajo z 2.
   \item Z rodovno funkcijo (generating function). \\
     $(a_n)_{n \in \N}$ zaporedje. \\
     $a_0 + a_1 x + a_2 x^2 + \dots = \sum_{n=0}^{\infty} a_n x^n = \sum_n a_n x^n$
-      običajna (ordinary) rodovna funkcija - ORF. \\
+      običajna (ordinary) rodovna funkcija - orf. \\
     $a_n = 2^n$, $\sum_{n=0}^{\infty} 2^n x^n = \frac{1}{1-2x}$. \\
     $\sum_n F_n x^n = \frac{1}{1-x-x^2}$. \\
     $\sum_n n! x^n$ //. \\
@@ -247,11 +248,13 @@ Kaj je odgovor?
 \begin{itemize}[label={--}]
   \item Rodovna funkcija je velikokrat \sn{lepa}, tudi če ni lepe formule za zaporedje. \\
     $i_n \dots$ \# involucij z $n$ elementi ($\pi^2 = $ id). \\
-    ni enostavnejše formule za $i_n$. \\
+    Ni enostavnejše formule za $i_n$. \\
     $\sum_{n=0}^{\infty} \frac{i_n}{n!} x^n = e^{x + \frac{x^2}{2}}$
   \item Do rodovne funkcije lahko pogosto pridemo neposredno s kombinatoričnim premislekom. \\
     Involucija = permutacija s cikli dolžine 1 ali 2. \\
-    $\sum F_n x^n = \frac{1}{1-x-x^2};$ $x$ - cikli dolžine 1, $x^2$ - cikli dolžine 2.
+    $\sum F_n x^n = \frac{1}{1-x-x^2};$ \\
+    $x$ - cikli dolžine 1, \\
+    $x^2$ - cikli dolžine 2.
   \item V rodovni funkciji so \sn{skrite} (1)-(3).
 \end{itemize}
 
@@ -262,15 +265,15 @@ $\N = \{0, 1, 2 \dots\}$. \\
 $[n] = \{1, 2 \dots n\}$. \\
 $2^A = P(A) = \{B \subseteq A\}$. \\
 $\binom{A}{k} = \{B \subseteq A: |B| = k\}$ \sn{A nad k} (angl. \sn{A choose k}). \\
-$\binom{[4]}{2} = \{\{1,2\}, \{1,3\} \dots \{3,4\}\}$. \\
+$\binom{[4]}{2} = \{\{1,2\}, \{1,3\} \ldots \{3,4\}\}$. \\
 $Y^X = \{f: X \to Y\}$. \\
 Statistika na množici $S$ je preslikava $S \to \N$. \\
 $S = 2^A$. \\
 Moč je statistika. \\
 $S$ končna množica, $f$ statistika na $S$. \\
 Pogosto gledamo polinom $\sum_{s \in S} x^{f(s)}$ (enumeration). \\
-$|.|$ na $2^{[3]}: 1 + 3 x + 3 x^2 + x^3 = (1+x)^3$. \\
-$S_n = \{$permutacije $[n]\} = \{f: [n] \to [n]: f $ bijektivna$\}$. \\
+$|\cdot|$ na $2^{[3]}: 1 + 3 x + 3 x^2 + x^3 = (1+x)^3$. \\
+$S_n = \{$permutacije $[n]\} = \{f: [n] \to [n] \mid f $ bijektivna$\}$. \\
 % slikica
 %s puščicami \\
 $\begin{pmatrix}1 & 2 & 3 \\ 2 & 1 & 3\end{pmatrix}$ - dvovrstična notacija. \\
@@ -286,7 +289,7 @@ Disjunktni cikli komutirajo. \\
 Zapis: enoličen do vrstnega reda ciklov in ciklične ureditve ciklov. \\
 Cikel dolžine 1 = negibna točka. \\
 Cikel dolžine 2 = transpozicija. \\
-$(S_n \cdot)$ simetrična grupa. \\
+$(S_n, \cdot)$ simetrična grupa. \\
 $e = id = 1 \; 2 \dots n$. \\
 $\pi^{-1}$ inverz (kot preslikava). \\
 $3 \; 8 \; 2 \; 4 \; 1 \; 7 \; 6 \; 5^{-1} = 5 \; 3 \; 1 \; 4 \; 8 \; 7 \; 6 \; 2$. \\
@@ -295,13 +298,13 @@ Statistika: \# ciklov = $c(\pi)$ (štejemo tudi cikle dolžine 1). \\
 $n=3: x^3 + 3 x^2 + 2 x = x(x+1)(x+2)$. \\
 $\sum_{\pi \in S_n} x^{c(\pi)} = \sum_k |\{\pi \in S_n: c(\pi) = n\}| x^k$. \\
 $|\{\pi \in S_n: c(\pi) = n\}| =: c(n,k)$ - Stirlingovo število 1. vrste. \\
-$\sum_{B \subseteq [n]} x^{|B|} = \sum_k |\binom{[n]}{k}| x^k$. \\
-$|\binom{[n]}{k}| =: \binom{n}{k}$ - binomski koeficient. \\
+$\sum_{B \subseteq [n]} x^{|B|} = \sum_k \left|\binom{[n]}{k}\right| x^k$. \\
+$\left|\binom{[n]}{k}\right| =: \binom{n}{k}$ - binomski koeficient. \\
 %
 %
 % 2. predavanje: 5.10.
 %
-Inverzija $\pi \in S_n$ je $(i,j)$, da je za $i < j$ $\pi_i > \pi_j$. \\
+Inverzija $\pi \in S_n$ je $(i,j)$, da je za $i < j \;$ $\pi_i > \pi_j$. \\
 $inv(\pi) = $ \# inverzij $\pi$. \\
 $inv(4 \; 1 \; 6 \; 2 \; 5 \; 3) = 7$. \\
 $0 \leq inv(\pi) \leq \binom{n}{2}$. \\
@@ -312,34 +315,34 @@ $det A = \sum_{\pi \in S_n} (-1)^{inv(\pi)} a_{1,\pi(1)} \cdots a_{n,\pi(n)}$. \
 Izraz brez $(-1)^{inv(\pi)}$: permanenta. \\
 $n=3:$ \\
 $1 + 2 x + 2 x^2 + x^3 = 1 + x^2 + x^3 + x + x^2 + x^3 = (1+x)(1+x^2)$. \\
-$\sum_{\pi in S_n} x^{inv(\pi)} = 1 \cdot (1+x) (1+x^2) \cdots (1+x^{n-1})$ - kasneje. \\
+$\sum_{\pi \in S_n} x^{inv(\pi)} = 1 \cdot (1+x) (1+x^2) \cdots (1+x^{n-1})$ - kasneje. \\
 \# permutacij v $S_n$ s k inverzijami: ni standardne oznake. \\
-spust/padec (descent) $i: \pi_i > \pi_{i+1}$. \\
+Spust/padec (descent) $i: \pi_i > \pi_{i+1}$. \\
 $des(4 \; 1 \; 6 \; 2 \; 5 \; 3) = 3$. \\
 $0 \leq des(\pi) \leq n-1$. \\
 \# permutacij v $S_n$ s $k-1$ spusti $= A(n,k)$ - Eulersko število ($k-1$ iz zgodovinskih razlogov). \\
 $\sum_k A(n,k) x^k = \sum_{\pi \in S_n} x^{1+des(\pi)} = A_n(x)$ - eulerski polinom. \\
 $n=3:$ \\
 $x + 4x^2 + x^3$. \\
-razdelitev/razbitje (angl. set partition) $A$ je $\{B_1, B_2 \dots B_n\}, da velja:$
+Razdelitev/razbitje (angl. set partition) $A$ je $\{B_1, B_2 \dots B_n\},$ da velja:
 \begin{itemize}[label={--}]
-  \item $B_i \neq \emptyset \; i = 1 \dots k$,
-  \item $B_i \cap B_j = \emptyset \; 1 \leq i < j \leq k$,
+  \item $B_i \neq \emptyset$ za $i = 1 \dots k$,
+  \item $B_i \cap B_j = \emptyset$ za $1 \leq i < j \leq k$,
   \item $\cup_{i=1}^k B_i = A$.
 \end{itemize}
 $B_i$: bloki razdelitve, \\
-\# blokov, \\
+$k$ \# blokov, \\
 \# razdelitev $[n]$ s $k$ bloki $= S(n,k)$ - Stirlingovo število druge vrste. \\
-$A = [3] \quad \{\{1\}, \{2\}, \{3\}\}, \{\{1,2\}, \{3\}\} \dots \{\{1,2,3\}\}$. \\
+$A = [3]: \quad \{\{1\}, \{2\}, \{3\}\}, \{\{1,2\}, \{3\}\} \dots \{\{1,2,3\}\}$. \\
 $x + 3 x^2 + x^3$. \\
 $S(4,2) = 4 + 3 = 7$. \\
 Kompozicija \# n je $\lambda = (\lambda_1 \dots \lambda_l), \lambda_i > 0$ člen kompozicije,
 $\lambda_i \in \N, \\
 \sum_{i=1}^{l} \lambda_i = n$. \\
-$l(\lambda)$ \# členov - dolžina. \\
+$l(\lambda)$: \# členov - dolžina. \\
 $\lambda \models n$ - $\lambda$ je kompozicija $n$. \\
 Razčlenitev \# n je $\lambda = (\lambda_1 \dots \lambda_l), \lambda_i > 0, \lambda_i \in \N$. \\
-$\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_l, \sum_{i=1}^{l} = n$ \\
+$\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_l, \sum_{i=1}^{l} \lambda_i = n$ \\
 (angl. integer partition). \\
 $p(n)$ - \# razčlenitev $n$. \\
 $p_k(n)$ - \# razčlenitev $n$ s $k$ členi. \\
@@ -349,7 +352,7 @@ $4, 31, 22, 221, 1111$ - 5 razčlenitev. \\
 $p(4) = 5, p_2(4) = 2$. \\
 $B(n) = \sum_k S(n,k)$ - \# razčlenitev $[n]$, Bellovo število. \\
 $B(3) = 5$. \\
-$L(n,k)$ - razdelitev $[n]$ na $k$ linearno urejenih blokov. \\
+$L(n,k)$ - \# razdelitev $[n]$ na $k$ linearno urejenih blokov. \\
 $L(4,2) = 4 \cdot 6 + 3 \cdot 2 \cdot 2 = 36$ - Lahovo število. \\
 $E_n =$ \# alternirajočih permutacij v $S_n$ - Eulerjevo število (Euler number). \\
 $\pi_1 > \pi_2 < \pi_3 > \pi_4 \dots$ \\
@@ -379,7 +382,7 @@ Dvojiška drevesa: vsako vozlišče ima $2$ ali $0$ naslednikov.
 
 Načelo vsote: $A \cap B = \emptyset \implies |A \cap B| = |A| + |B|$. \\
 $i \neq j: A_i \cap A_j = \emptyset \implies |\cup_{i=1}^{n} A_i| = \sum_{i=1}^n |A_i|$. \\
-Načelo produkta: $|A \times B| = |A| \cdot |B|, |\prod_{i=1}^n A_i| = \prod_{i=1}^{n} |A_i|$. \\
+Načelo produkta: $|A \times B| = |A| \cdot |B|, \; |\prod_{i=1}^n A_i| = \prod_{i=1}^{n} |A_i|$. \\
 Kombinatorično:
 \begin{itemize}[label={}]
   \item 2 možnosti, izberemo eno ali drugo (ne pa obe) $\implies$ \# načinov je vsota \# načinov,
@@ -409,7 +412,7 @@ Kombinatorično:
     \item $|S_n| = n (n-1) \dots 1 = n!$.
   \end{enumerate}
 \end{claim}
-oznake: \\
+Oznake: \\
 $n^{\underline{k}} = n (n-1) \dots (n-k+1)$: $n$ na $k$ padajoče. \\
 $n^{\overline{k}} = n (n+1) \dots (n+k-1)$: $n$ na $k$ naraščajoče.
 \begin{rem}
@@ -421,7 +424,7 @@ $\phi: X \to Y$ injektivna $\implies |X| \leq |Y|$. \\
 \begin{ex} \text{}
   \begin{enumerate}[label=(\arabic{*})]
     \item $n$ ljudi, med njimi sta dva, ki poznata enako mnogo ljudi. \\
-      $X =$ljudje, $f=$ \# znanstev. \\
+      $X =$ ljudje, $f=$ \# znanstev. \\
       $n$ kroglic, $n$ škatel, ampak škatli $0$ in $n-1$ ne moreta biti obe neprazni.
     \item $X \subseteq [2n], |X| = n+1$. \\
       Obstajata $x,y \in X, x \neq y, x|y$. \\
@@ -434,8 +437,8 @@ $\phi: X \to Y$ injektivna $\implies |X| \leq |Y|$. \\
 
 \section{Binomski koeficienti}
 
-$\binom{n}{k} = \left|\binom{[n]}{k}\right|$ = število k-elementnih podmnoživ v $[n]$
-= število izbir k elementov izmed $n$ elementov. \\
+$\binom{n}{k} = \left|\binom{[n]}{k}\right|$ = število $k$-elementnih podmnožic v $[n]$
+= število izbir $k$ elementov izmed $n$ elementov. \\
 $\binom{4}{2} = 6, \binom{5}{0} = 1, \binom{8}{-2} = 0, \binom{8}{9} = 0$. \\
 $\binom{n}{0} = 1, \binom{n}{n} = 1, \binom{n}{1} = n$. \\
 $\binom{n}{n-k} = \binom{n}{k}$. \\
@@ -468,13 +471,13 @@ n=5\qquad\ \\
     0 \quad k > n
   \end{cases}$
 \end{claim}
-\begin{pro}
+\begin{pro} \text{} \\
   Izberemo $1$ element na $n$ načinov, $2$ na $n-1 \dots \implies n^{\underline{k}}$ načinov,
   vsak izbor smo šteli $k!$-krat. \\
   Ali: preštejemo urejene izbire $k$ različnih elementov iz $[n]$; \\
   $n^{\underline{k}} = \binom{n}{k} \cdot k!$. \\
   $\binom{n}{k}$: najprej izberemo k elementov. \\
-  $k$: nato jih uredimo.
+  $k!$: nato jih uredimo.
   \qed
 \end{pro}
 \begin{theorem}[Binomski izrek]
@@ -519,7 +522,7 @@ $1 \leq j_1 < j_2 < \dots < j_k \leq n+k-1$.
 \begin{claim}
   Število kompozicij $n$ je $2^{n-1} \; (n \geq 1)$, število kompozicij s $k$ členi je $\binom{n-1}{k-1} \; (n \geq 1)$.
 \end{claim}
-\begin{pro}
+\begin{pro} \text{} \\
   $n$ kroglic $\quad \circ | \circ \circ \circ | \circ \circ: \; 6 = 1 + 3 + 2$. \\
   $k-1$ pregrad, $n-1$ mest za pregrade.
   \qed
@@ -548,7 +551,7 @@ $\lambda_1 + \dots + \lambda_n = k, \; \lambda_i \geq 0$. \\
     L(n,k) = \frac{n!}{k!} \binom{n-1}{k-1}.
   \end{equation*}
 \end{claim}
-\begin{pro}
+\begin{pro} \text{} \\
   Koliko je urejenih razdelitev na linearno urejene bloke:
   \begin{equation*}
     k! \cdot L(n,k) = n! \cdot \binom{n-1}{k-1}.
@@ -560,6 +563,7 @@ $\lambda_1 + \dots + \lambda_n = k, \; \lambda_i \geq 0$. \\
     \item $n!$: permutacije,
     \item $\binom{n-1}{k-1}$: šibke kompozicije.
   \end{itemize}
+  \qed
 \end{pro}
 % skica
 Poti iz $(0,0)$ v $(n,m)$, premikamo se gor ali desno. \\
@@ -573,8 +577,13 @@ Od tam naprej, kjer 1. doseže $y=-1$, prezrcalimo pot preko $y=-1$. \\
 Konča se v $y=-2$. \\
 Število slabih poti = število poti od $(0,0)$ do $(2n,-2)$. \\
 Teh je $\binom{2n}{n-1}$: $(n-1)$-krat gor, $(n+1)$-krat dol. \\
-$C_n =$ število Dyckovih poti doižine $n$ = $\binom{2n}{n} - \binom{2n}{n-1}$ \\
-$= \frac{(2n!)}{n!n!} - \frac{(2n)!}{(n-1)!(n+1)!} = \binom{2n}{n}(1 - \frac{n}{n+1}) = \frac{1}{n+1} \binom{2n}{n}$. \\
+\begin{align*}
+  c_n &= \text{število Dyckovih poti doižine } n \\
+  &= \binom{2n}{n} - \binom{2n}{n-1} \\
+  &= \frac{(2n!)}{n! \, n!} - \frac{(2n)!}{(n-1)!(n+1)!} \\
+  &= \binom{2n}{n}(1 - \frac{n}{n+1}) \\
+  &= \frac{1}{n+1} \binom{2n}{n}.
+\end{align*}
 Multinomski koeficienti: \\
 $\alpha_1 \times 1, \alpha_2 \times 2 \dots \alpha_k \times k: \; 11..12..2..k$. \\
 Na koliko načinov lahko premešamo:
@@ -602,22 +611,27 @@ Formalno je multimnožica $(S,f)$, kjer je $S$ množica, $f: S \to \N$ šteje ko
 
 \section{Dvanajstera pot}
 
-$n$ kroglic, $k$ škatel; na koliko načinov lahko damo kroglice v škatle.
+$n$ kroglic, $k$ škatel; na koliko načinov lahko damo kroglice v škatle. \\
+$N$: ne ločimo, \\
+$K$: ločimo.
 \begin{center}
   \begin{tabular}{c | c | c | c | c}
     $N \setminus K$ & vse & injekcije & surjekcije & \\
     \hline
     L L & $k^n$ & $k^{\underline{n}}$ & $k! S(n,k)$ & \\
-    N L & $\binom{n+k-1}{k-1}$ & $\binom{k}{n}$ & $\binom{n-1}{k-1}$ & \sn{kompozicije} \\
+    N L & $\binom{n+k-1}{k-1}$ & $\binom{k}{n}$ & $\binom{n-1}{k-1}$ & \\
     L N & $\sum_i S(n,i)$ & $\begin{cases}1 \; k \geq n \\ 0 \text{ sicer} \end{cases}$ & $S(n,k)$ & razdelitve \\
     N N & $\overline{p_k(n)}$ & $\begin{cases}1 \; k \geq n \\ 0 \text{ sicer} \end{cases}$ & $p_k(n)$ & razčlenitve
   \end{tabular}
 \end{center}
+$\binom{n+k-1}{k-1}$ - šibke kompozicije, \\
+$\binom{k}{n}$ - neprazne škatle, \\
+$\binom{n-1}{k-1}$ - kompozicije. \\
 Vpeljemo ekvivalenčne relacije
 \begin{itemize}
   \item $f \sim_N g: \; \exists \pi \in S_n: \; f \circ \pi = g$
   \item $f \sim_K g: \; \exists \sigma \in S_k: \; \sigma \circ f = g$
-  \item $f \sim_{N,k} g: \; \exists \pi \in S_n, \sigma \in S_k: \; \sigma \circ f \circ \pi = g$.
+  \item $f \sim_{N,K} g: \; \exists \pi \in S_n, \sigma \in S_k: \; \sigma \circ f \circ \pi = g$.
 \end{itemize}
 
 
@@ -625,24 +639,33 @@ Vpeljemo ekvivalenčne relacije
 
 $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$. \\
 $c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k)$; \\
-$c(n-1,k-1)$: $n$ negibna, $(n-1)$: za kateri element vstavimo. \\
+$c(n-1,k-1)$: $n$ negibna, \\
+$(n-1)$: za kateri element vstavimo. \\
 $S(n,k) = S(n-1,k-1) + k S(n-1,k)$; \\
-$S(n-1,k-1)$: $n$ v svojem bloku, $k$: v kateri blok vstavimo. \\
+$S(n-1,k-1)$: $n$ v svojem bloku, \\
+$k$: v kateri blok vstavimo. \\
 $L(n,k) = L(n-1,k-1) + (n+k-1) L(n-1,k)$; \\
-$L(n-1,k-1)$: $n$ v svojem bloku, $(n+k-1)$: kam vstavimo. \\
+$L(n-1,k-1)$: $n$ v svojem bloku, \\
+$(n+k-1)$: kam vstavimo. \\
 $B(n+1) = \sum_{k=0}^{n} \binom{n}{k} B(n-k) = \sum_{k=0}^{n} \binom{n}{k} B(k)$; \\
-odstranimo blok, v katerem je $n+1$, $k$: število elementov v bloku skupaj z $n+1$,
-$\binom{n}{k}$: kateri elementi v bloku skupaj z $n+1$, $B(n-k)$: razdelimo ostale. \\
+odstranimo blok, v katerem je $n+1$, \\
+$k$: število elementov v bloku skupaj z $n+1$, \\
+$\binom{n}{k}$: kateri elementi v bloku skupaj z $n+1$, \\
+$B(n-k)$: razdelimo ostale. \\
 $p_k(n) = p_{k-1}(n-1) + p_k(n-k)$; \\
-$p_{k-1}(n-1)$: $\lambda_l = 1$, $p_k(n-k)$: $\lambda_l \geq 2$ (odstranimo 1. stolpec v Ferrersovem diagramu). \\
-$A(n,k) = (n+1-k) A(n-1,k-1) + k A(n-1,k)$.
-ostranimo $n$, $k$: n damo na konec ali za spust, $(n+1-k)$: $n$ damo na začetek ali za vzpon.
+$p_{k-1}(n-1)$: $\lambda_l = 1$, \\
+$p_k(n-k)$: $\lambda_l \geq 2$ (odstranimo 1. stolpec v Ferrersovem diagramu). \\
+$A(n,k) = (n+1-k) A(n-1,k-1) + k A(n-1,k)$; \\
+ostranimo $n$, \\
+$k$: $n$ damo na konec ali za spust, \\
+$(n+1-k)$: $n$ damo na začetek ali za vzpon.
 V $S_n$ velja še: števio spustov + število vzponov = $n-1$. \\
 $2 E_{n+1} = \sum_{k=0}^{n} \binom{n}{k} E_k E_{n-k} \; n \geq 1$; \\
 % skica
-$k$: koliko elementov je pred $n+1$, število obratno alternirajočih = število alternirajočih ($i \to n+1-i$),
+$k$: koliko elementov je pred $n+1$, \\
+število obratno alternirajočih = število alternirajočih ($i \to n+1-i$), \\
 $E_k$: pred $n+1$, $E_{n-k}$: za $n+1$, štejemo in alternirajoče in obratno alternirajoče permutacije. \\
-$C_{n+1} = \sum_{k=0}^{n} C_k C_{n-k}$; \\
+$c_{n+1} = \sum_{k=0}^{n} c_k c_{n-k}$; \\
 % skica
 $k$: ko 1. pridemo v $y=0$: pred in za tem sta Dyckovi poti. \\
 $p(n) = p(n-1) + p(n-2) - p(n-5) - p(n-7) + p(n-12) + p(n-15) - \dots$ \\
@@ -651,7 +674,7 @@ Eulerjev petkotniški izrek (dokaz kasneje) (pentagonal).
 
 \section{Načelo vklučitev in izključitev (NVI)}
 
-(Principle of inclusion and exclusion). \\
+(Principle of inclusion and exclusion.) \\
 $|A \cup B| = |A| + |B| - |A \cap B|$. \\
 $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|$.
 \begin{theorem}[NVI]
@@ -674,6 +697,7 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
     &= 1 - \left(\binom{m}{0} - \binom{m}{1} + \binom{m}{2} - \dots + (-1)^{m-1} \binom{m}{m}\right) \\
     &= 1 - (1-1)^m = 1.
   \end{align*}
+  \qed
 \end{pro}
 \begin{claim}[NVI, 2. verzija]
   \begin{equation*}
@@ -688,11 +712,12 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
     &= \sum_{S \subseteq [n]} |A_S|,
   \end{align*}
   kjer velja še $A_{\emptyset} = A$.
+  \qed
 \end{pro}
-
-
+%
+%
 % 4. predavanje: 19.10.
-
+%
 \begin{ex}
   \begin{enumerate}[label=(\arabic{*})] \text{}
     \item Koliko je $k$-elementnih antiverig v $B_n$? \\
@@ -726,7 +751,7 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
         &= \sum_{k=0}^{n} \binom{n}{k} (-1)^k (n-k)! \\
         &= n! \sum_{k=0}^{n} \frac{(-1)^k}{k!}.
       \end{align*}
-      $P$(število premestitev) $= \sum_{k=0}^{n} \frac{(-1)^k}{k!} \stackrel{n \to \infty}{\to} e^{-1}$.
+      $P$($\pi$ premestitev) $= \sum_{k=0}^{n} \frac{(-1)^k}{k!} \stackrel{n \to \infty}{\longrightarrow} e^{-1}$.
     \item Število surjekcij iz $[n]$ v $[k]$.
       \begin{align*}
         &A = [k]^{[n]} \\
@@ -746,7 +771,7 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
       \end{equation*}
       \begin{align*}
         &A = \{\text{razčlenitve }n\} \\
-        &A_i = \{\text{razčlenitve }n \text{, ki vsebujejo }i \text{ za člen}\} \; i = 1,2 \dots n \\
+        &A_i = \{\text{razčlenitve }n \text{, ki vsebujejo }i \text{ za člen}\}, \; i = 1,2 \dots n \\
         &|A_i| = p(n-i) \\
         &|A_i \cap A_j| = p(n-k-j) \\
         &|A_I| = p(n - \sum_{i \in I} i) \\
@@ -758,7 +783,7 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
       Franklinova bijekcija: \\
       $p(n) = \sum_{m=1}^{\infty} (\alpha(m) - \beta(m)) p(n-m)$; m - razčlenitve z različnimi členi, \\
       $\alpha(m) = $ število razčlenitev $m$ z liho mnogo različnimi členi, \\
-      $\beta(m) = $ število razčlenitev $m$ z sodo mnogo različnimi členi, \\
+      $\beta(m) = $ število razčlenitev $m$ z sodo mnogo različnimi členi. \\
       Bijekcija
       \begin{align*}
         \Phi: & \{\text{razčlenitev }m \text{ z liho mnogo različnimi členi}\} (\setminus \{\dots\}) \\
@@ -809,13 +834,13 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
     = \binom{n}{t_1,t_2-t_1 \dots t_k-t_{k-1}, n-t_k}$ \\
   $\_ < \_ < \_ < \underline{t_i} \lessgtr \_$: zaradi $\subseteq$: tam lahko spust ali pa ne. \\
   // če lastnosti točno določene: težko ($f_n(T)$), če \sn{vsebovano} ($g_n(T)$): lažje \\
-  $g_n(T) = \sum_{S \subseteq T} f_n(S)$ \\
+  $g_n(T) = \sum_{S \subseteq T} f_n(S)$.
   \begin{align*}
     f_n(T) &= \sum_{S \subseteq T} (-1)^{|T \setminus S|} g_n(S) \\
     &= \sum_{S \subseteq T} (-1)^{|T \setminus S|} \binom{n}{s_1, s_2-s_1 \dots n-s_k} \\
     &\stackrel{\text{vaje}}{=} det\left[\binom{n-t_i}{t_{j+1}-t_j}\right]_{i,j=0}^{|T|}.
   \end{align*}
-  npr. $n=8$, $T=\{1,5\}, t_0=0, t_{|T|}=n+1=9$
+  Npr. $n=8$, $T=\{1,5\}, t_0=0, t_{|T|}=n+1=9$.
   \begin{equation*}
     f_8(\{1,5\}) = \begin{vmatrix}
       \binom{8}{1} & \binom{8}{5} & \binom{8}{8} \\
@@ -841,12 +866,13 @@ $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A
       0: U \subset T
     \end{cases}
   \end{equation*}
+  \qed
 \end{pro}
 
 
 \section{Polinomske enkosti}
 
-$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$
+$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$.
 \begin{theorem} \text{}
   \begin{enumerate}[label={(\alph*)}]
     \item $\sum_k c(n,k) x^k = x^{\overline{n}}$
@@ -867,10 +893,12 @@ $(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$
       $n=0$: 1=1 \\
       $n-1\to n$:
         \begin{align*}
-          x^{\overline{n}} &= x^{\overline{n-1}}(x+n-1) \stackrel{\text{IP}}{=} (x+n-1) \sum_k c(n-1,k) x^k \\
-          &= \sum_k c(n-1,k-1) x^k + (n-1) \sum_k c(n-1,k) x^k = \sum_k c(n,k) x^k,
+          x^{\overline{n}} &= x^{\overline{n-1}}(x+n-1) \\
+          &\stackrel{\text{IP}}{=} (x+n-1) \sum_k c(n-1,k) x^k \\
+          &= \sum_k c(n-1,k-1) x^k + (n-1) \sum_k c(n-1,k) x^k \\
+          &= \sum_k c(n,k) x^k.
         \end{align*}
-    \item[(b)] $x \to -x$ v (a),
+    \item[(b)] $x \to -x$ v (a).
     \item[(c)] Preslikava = razdelitev + injekcija, \\
       število preslikav iz $[n]$ v $[k] = \sum_k S(n,k) x^{\underline{k}}$, kjer predstavljajo
       \begin{itemize}
@@ -879,8 +907,9 @@ $(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$
         \item $x^{\underline{k}}$: injekcija $[k] \to [x]$.
       \end{itemize}
       Dokazali smo za $x \in \N \implies$ polinoma sta enaka (ujemanje v $\infty$ točkah).
-    \item[(e)] Z indukcijo DN.
+    \item[(e)] Z indukcijo (DN).
   \end{enumerate}
+  \qed
 \end{pro}
 $\pi = 4\;2\;5\;1\;6\;3$ \\
 $inv(\pi) = 7$ \\
@@ -908,6 +937,7 @@ inverz: $9 \to 9 \; 8 \to 7 \; 9 \; 8 \to 7 \; 9 \; 6 \; 8 \to 7 \; 9 \; 6 \; 8 
   Skonstruiramo inverz: \\
   $(a_1 \dots a_n), \; 0 \leq a_i \leq n-i$. \\
   Vpisujemo $n, n-1 \dots 1$: $i$ pišemo za $a_i$ elementi.
+  \qed
 \end{pro}
 \begin{pro} posledice. \\
   $\sum_{\pi \in S_n} q^{inv(\pi)} = n!_q = \underline{n!} = \underline{n} \underline{(n-1)} \dots 1$ - q fakulteta,
@@ -917,8 +947,9 @@ inverz: $9 \to 9 \; 8 \to 7 \; 9 \; 8 \to 7 \; 9 \; 6 \; 8 \to 7 \; 9 \; 6 \; 8 
     &= \sum_{0 \leq a_i \leq n-i} q^{a_1} q^{a_2} \dots q^{a_n} \\
     &\stackrel{\text{trditev}}{=} \sum_{\pi \in S_n} q^{inv(\pi)}.
   \end{align*}
+  \qed
 \end{pro}
-\begin{rem}
+\begin{rem} \text{} \\
   $maj(\pi) = \sum_{i \text{ spust } \pi} i$ oz. $\sum_{i \in D(\pi)} i$ - majorski indeks \\
   $maj(4 \; 2 \; 5 \; 1 \; 3) = 1 + 3 = 4$ \\
   $\sum_{\pi \in S_n} q^{maj(\pi)} = \sum_{\pi \in S_n} q^{inv(\pi)} = \underline{n!}$.
@@ -941,15 +972,18 @@ $q = 1: \binom{\underline{n}}{\underline{k}} = \binom{n}{k}$.
 \end{claim}
 \begin{pro}
   \begin{align*}
-    &q^{n-1} \frac{\underline{(n-1)!}}{\underline{(k-1)!} \underline{(n-k)!}} + \frac{\underline{(n-1)!}}{\underline{(k)!} \underline{(n-1-k)!}} \\
-    &= \frac{\underline{n!}}{\underline{k!} \underline{(n-k)!}} (q^{n-k} \underline{k!} + \underline{n-k}) \\
+    &q^{n-k} \frac{\underline{(n-1)!}}{\underline{(k-1)!} \cdot \underline{(n-k)!}} +
+      \frac{\underline{(n-1)!}}{\underline{(k)!} \cdot \underline{(n-1-k)!}} \\
+    &= \frac{\underline{(n-1)!}}{\underline{k!} \underline{(n-k)!}} (q^{n-k} \underline{k!} + \underline{n-k}) \\
     &= \frac{\underline{n!}}{\underline{k!} \underline{(n-k)!}} \\
     &= \binom{\underline{n}}{\underline{k}},
   \end{align*}
   kjer je
   \begin{equation*}
-    q^{n-k} \underline{k!} + \underline{n-k} = q^{n-k} + \dots + q^n + 1 + \dots + q^{n-k-1} = 1 + q + \dots + q^n.
+    q^{n-k} \underline{k!} + \underline{n-k} = q^{n-k} + \dots + q^n + 1 + \dots + q^{n-k-1} = 1 + q + \dots + q^n
+    = \underline{n}.
   \end{equation*}
+  \qed
 \end{pro}
 \begin{conseq}
   $\binom{\underline{n}}{\underline{k}}$ je polinom v $q$.
@@ -971,14 +1005,15 @@ $q = 1: \binom{\underline{n}}{\underline{k}} = \binom{n}{k}$.
       q^{\binom{k-1}{2}+n-1-\binom{k}{2}} \binom{\underline{n-1}}{\underline{k-1}}\right) x^k.
   \end{align*}
   Upoštevali smo $\binom{k-1}{2} - \binom{k}{2} = - \binom{k-1}{1}$.
+  \qed
 \end{pro}
-$\Z_p, p$ praštevilo končen obseg.
-\begin{theorem}
-  Obseg moči $n \in \N$ obstaja $\iff$ $n = p^k$ $p$ praštevilo.
+$\Z_p, \; p$ praštevilo - končen obseg.
+\begin{theorem} \text{} \\
+  Obseg moči $n \in \N$ obstaja $\iff$ $n = p^k$; $p$ praštevilo.
   Obseg je do izomorfizma natančno določen. \\
   $\F_q$ - oznaka.
 \end{theorem}
-\begin{theorem}
+\begin{theorem} \text{} \\
   V $\F_q^n$ je $\binom{\underline{n}}{\underline{k}}$ $k$-dimenzionalnih podprostorov.
 \end{theorem}
 \begin{ex}
@@ -998,6 +1033,7 @@ $\Z_p, p$ praštevilo končen obseg.
     X = \frac{q^{\binom{k}{2}} (q-1)^k \underline{n} \underline{(n-1)} \dots \underline{(n-k+1)}}
       {q^{\binom{k}{2}} (q-1)^k \underline{k!}} = \binom{\underline{n}}{\underline{k}}.
   \end{equation*}
+  \qed
 \end{pro}
 \begin{defn}[q-multinomski koeficient]
   \begin{align*}
@@ -1008,9 +1044,9 @@ $\Z_p, p$ praštevilo končen obseg.
   \end{align*}
   $\implies$ je polinom (produkt polinomov).
 \end{defn}
-$x_1 \dots x_n$ permutacija multimnožice $\{1^{a_1}, 2^{a_2} \dots n^{a_n}\}$ \\
-inverzija: $(i,j): i < j, x_i > x_j$ \\
-$inv$: število inverzij \\
+$x_1 \dots x_n$ permutacija multimnožice $\{1^{a_1}, 2^{a_2} \dots n^{a_n}\}$. \\
+Inverzija: $(i,j): i < j, x_i > x_j$. \\
+$inv$: število inverzij, \\
 $inv(1 \; 2 \; 1 \; 1 \; 2 \; 3) = 2$.
 \begin{theorem}
   $M = \{1^{a_1}, 2^{a_2} \dots n^{a_n}\}$
@@ -1035,13 +1071,14 @@ $inv(1 \; 2 \; 1 \; 1 \; 2 \; 3) = 2$.
     &S(M) S_{a_1} \dots S_{a_n} \mapsto S_{a_1 + \dots + a_n}.
   \end{align*}
   $M = \{1^4, 2^2, 3^3\}$ \\
-  $(1 \; 2 \; 2 \; 1 \; 3 \; 1 \; 3 \; 3 \; 1, 2 \; 4 \; 1 \; 3, 2 \; 1, 1 \; 3 \; 2)$ \\
+  $(1 \; 2 \; 2 \; 1 \; 3 \; 1 \; 3 \; 3 \; 1, 2 \; 4 \; 1 \; 3, 2 \; 1, 1 \; 3 \; 2)$
   $\mapsto 2 \; 6 \; 5 \; 4 \; 7 \; 1 \; 9 \; 8 \; 3$. \\
   V $\pi_0$ enke spremenimo v $1 \dots a_1$ v vrstnem redu, ki ga določa $\pi_1$,
   v $\pi_0$ dvojke spremenimo v $a_1+1 \dots a_2$ v vrstnem redu, ki ga določa $\pi_2$, itn. \\
   $inv(\pi_0) + \dots + inv(\pi_n) = inv(\Phi(\pi_0 \dots \pi_n))$. \\
   Vsaka inverzija $\Phi(\pi_0 \dots \pi_n)$ prihaja bodisi od inverzije $\pi_i$ bodisi od inverzije $\pi_0$
   (glede na \sn{indeks} v $\pi_0$) $\implies$ vsota enaka.
+  \qed
 \end{pro}
 
 
@@ -1066,7 +1103,10 @@ Konvergira za $|x| < R$ - konvergenčni polmer:
     = \frac{(n+1)!}{n!} = \infty$ \\
   $\sum_{n=0}^{\infty} n! x^n: R = 0$ \\
   $\sum_{n=0}^{\infty} n!^2 x^n = \sum_{n=0}^{\infty} n! x^n$ - definirana samo v $0$, obe z vrednostjo $1$ tam. \\
-  $F(x) = \begin{cases}e^{-\frac{1}{x^2}} x \neq 0 \\ 0 \; x = 0 \end{cases}: \R \to \R$ \\
+  $F(x) = \begin{cases}
+    e^{-\frac{1}{x^2}}; \; x \neq 0 \\
+    0; \; x = 0
+  \end{cases}: \R \to \R$. \\
   $F^{(n)}(0) = 0 \; \forall n \geq 0 \implies F(x) = 0 + 0x + 0x^2 + \dots$
 \end{ex}
 Potenčne vrste niso \sn{najboljše} za študij zaporedij.
@@ -1078,7 +1118,7 @@ $K$ komutativni obseg s karakteristiko $0: 1 + 1 + \dots + 1 \neq 0 \; \forall n
 $\Q, \R, \C$ \\
 $\frac{1}{n!}$ je definirano \\
 $K[[x]] = \{(a_n)_n: a_n \in K\} = K^{\N}$ - množica formalnih potenčnih vrst (FPV) = zaporedje \\
-$K[x] = \{(a_n)_n: a_n \in K, a_n = 0 \forall n \geq n_0\}$ - množica polinomov. \\
+$K[x] = \{(a_n)_n: a_n \in K, a_n = 0 \; \forall n \geq n_0\}$ - množica polinomov. \\
 V $K[[x]]$ vpeljemo operacije:
 \begin{itemize}[label={}]
   \item $(a_n)_n + (b_n)_n = (a_n + b_n)_n$,
@@ -1102,7 +1142,7 @@ Oznake:
   $(\Longrightarrow):$
   \begin{align*}
     &F(x) G(x) = 1 \\
-    &F(0) G(0) = 1\; \implies F(0) = 0
+    &F(0) G(0) = 1\; \implies F(0) \neq 0
   \end{align*}
   $(\Longleftarrow):$
   \begin{align*}
@@ -1114,6 +1154,7 @@ Oznake:
     &a_0 b_2 + a_1 b_1 + a_2 b_0 = 0 \implies b_2 = \frac{-a_1 b_1 - a_2 b_0}{a_0} \\
     &\vdots
   \end{align*}
+  \qed
 \end{pro}
 \begin{rem}
   $K$ komutativen kolobar s karakteristiko $0$. \\
@@ -1123,11 +1164,11 @@ $v(F(x)) = \begin{cases}
   \min n: [x^n]F(x) \neq 0 &F(x) \neq 0 \\
   \infty &F(x) = 0
 \end{cases}$ - valuacija. \\
-$v(F(x) G(x)) = v(F(x)) v(G(x))$ ($\implies$ ni deliteljev niča) \\
+$v(F(x) G(x)) = v(F(x)) + v(G(x))$ ($\implies$ ni deliteljev niča) \\
 $v(F(X) + G(x)) \geq \min \{v(F(x)), v(G(x))\}$ \\
 $v(\lambda F(x)) = \begin{cases}
-  v(F(x)) \; \lambda \neq 0 \\
-  \infty \; \lambda = 0
+  v(F(x)); \; \lambda \neq 0 \\
+  \infty; \; \lambda = 0
 \end{cases}$ \\
 $d(F(x), G(x)) = 2^{-v(F(x) - G(x))}$ - metrika \\
 $d(F(x), G(x)) = 2^{-k} \iff [x^n] F(x) = [x^n] G(x) \; \forall n \leq k$.
@@ -1144,6 +1185,7 @@ $d(F(x), G(x)) = 2^{-k} \iff [x^n] F(x) = [x^n] G(x) \; \forall n \leq k$.
     &= \max \{d(F(x), G(x)), d(G(x), H(x))\} \\
     &\leq d(F(x), G(x)) + d(G(x), H(x)).
   \end{align*}
+  \qed
 \end{pro}
 $F_m(x) = \sum_n a_n^{(m)} x^n$ Cauchyjevo zaporedje \\
 $\forall k \exists M: \; M_1, M_2 \geq M \implies d(F_{M_1}(x), F_{M_2}(x)) < 2^{-k}$ \\
@@ -1151,9 +1193,9 @@ oz. $[x^n] F_{M_1} (x) = [x^n] F_{M_2} (x) \; \forall n \leq k$. \\
 Torej za vsak $[x^n] F_n(x)$ konstantni od nekod naprej in enaki npr. $a_n$. \\
 $F(x) = \sum_n a_n x^n$ je limita $(F_n(x))_m$.
 \begin{ex} \text{} \\
-  $(\sum_n x^n) (1-x) = 1$ \\
+  $\left(\sum_n x^n\right) (1-x) = 1$ \\
   $c_n = 1 \cdot (-1) + 1 \cdot 1 = 0 \; \forall n \geq 1$ \\
-  $c_0 = 1$.
+  $c_0 = 1$. \\
   Torej $\sum_n x^n = \frac{1}{1-x} \implies 1-x$ inverz od $\sum_n x^n$. \\
   $\lim_{N \to \infty} \sum_{n=0}^{N} x^n = \frac{1}{1-x}$. \\
   % dodaj tabelco
@@ -1186,7 +1228,7 @@ $L = \sum_{k=0}^{n} \frac{\lambda^k}{k!} \frac{\mu^{n-k}}{(n-k)!} \stackrel{?}{=
 Binomski izrek v $K$: enakost velja. \\
 $F^{'}(x) = \frac{1}{1-x}, \; F(0) = 0$ \\
 $(n+1) a_{n+1} = 1$ \\
-$a_n = \frac{a_0}{n}$ \\
+$a_n = \frac{1}{n}$ \\
 $\log \frac{1}{1-x} := \sum_{n=1}^{\infty} \frac{x^n}{n!}$ \\
 $e^{\log \frac{1}{1-x}} \stackrel{?}{=} \frac{1}{1-x}$. \\
 Najprej definicija kompozituma, dokaz enakosti kasneje. \\
@@ -1196,7 +1238,7 @@ $\log (F(x) G(x)) = \log F(x) + \log G(x)$: DN. \\
 Binomska vrsta: \\
 $\lambda \in K, n \in \N, \; \binom{\lambda}{n} := \frac{\lambda^{\underline{n}}}{n!}$ posplošen binomski koeficient. \\
 $B_{\lambda}(x) = \sum_{n=0}^{\infty} \binom{\lambda}{n} x^n$ \\
-$n \in \N: \; B_n(x) = \sum_{k=0}^{\infty} \binom{n}{k} x^n = (1+x)^n$. \\
+$n \in \N: \; B_n(x) = \sum_{k=0}^{\infty} \binom{n}{k} x^n = (1+x)^n$.
 \begin{claim} \text{} \\
   $B_{\lambda}(x) \cdot B_{\mu}(x) = B_{\lambda + \mu}(x)$.
 \end{claim}
@@ -1205,6 +1247,7 @@ $n \in \N: \; B_n(x) = \sum_{k=0}^{\infty} \binom{n}{k} x^n = (1+x)^n$. \\
     \sum_{k=0}^{n}\frac{\lambda^{\underline{k}}}{k!} \frac{\mu^{\underline{n-k}}}{(n-k)!} = L$ \\
   $\sum_{k=0}^{n} \binom{n}{k} \lambda^{\underline{k}} \mu^{\underline{n-k}} = (\lambda + \mu)^{\underline{n}}$. \\
   Indukcija: DN.
+  \qed
 \end{pro}
 $B_{\lambda}(x) := (1+x)^{\lambda}$ \\
 $n \in \N: \; B_n(x) \cdot B_{-n}(x) = 1$ \\
@@ -1217,18 +1260,18 @@ $(1+x)^{-n} = \sum_k \binom{-n}{k} x^n$ \\
 \end{align*}
 \begin{align*}
   (1-x)^{-k} &= \frac{1}{1-x} \dots \frac{1}{1-x} \\
-  &= \sum_{n=0}^{\infty} \left(\sum_{n_i \geq 0, \sum n_i = k} 1 \right) x^n \\
+  &= \sum_{n=0}^{\infty} \left(\sum_{n_i \geq 0, \sum_{i=1}^k n_i = n} 1 \right) x^n \\
   &= \sum_n (\text{število šibkih kompozicij } n \text{ s } k \text{ členi}) x^n \\
   &= \sum_n \binom{n+k-1}{k-1} x^n
 \end{align*}
 $F(x) G(x) H(x) = \sum_{n=0}^{\infty} \left(\sum_{n_1, n_2, n_3 \geq 0, n_1 + n_2 + n_3 = n} a_{n_1} b_{n_2} c_{n_3}\right) x^n$ \\
 $\binom{-1}{n} = (-1)^n \binom{n}{0} = (-1)^n$ \\
-$(1+x)^{\frac{1}{2}} = 1 + \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2^{2n-1}} \binom{2n-2}{n-1} x^n$ \\
+$(1+x)^{\frac{1}{2}} = 1 + \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2^{2n-1}} \binom{2n-2}{n-1} x^n$; \\
 \begin{align*}
-  \binom{\frac{1}{2}}{n} &= \frac{\frac{1}{2} \left(-\frac{1}{2}\right) \cdot \left(\frac{1}{2}-n+1\right)}{n!} \\
+  \binom{\frac{1}{2}}{n} &= \frac{\frac{1}{2} \left(-\frac{1}{2}\right) \dots \left(\frac{1}{2}-n+1\right)}{n!} \\
   &= \frac{(-1)^{n-1} (2n-3)!!}{2^n \cdot n!} \cdot \frac{(2n-2)!!}{(2n-2)!!} \\
   &= \frac{(-1)^{n-1} (2n-2)!}{2^n \cdot n! \cdot 2^{n-1} \cdot (n-1)!} \\
-  &= \frac{(-1)^{n-1}}{2^{2n-1} n} \binom{2n-2}{n-1} \; n \geq 1.
+  &= \frac{(-1)^{n-1}}{2^{2n-1} \cdot n} \binom{2n-2}{n-1}; \; n \geq 1.
 \end{align*}
 
 
@@ -1258,6 +1301,7 @@ Kdaj ta limita obstaja?
     &\leq \max \{2^{-v(F_{M+1}(x))} \dots 2^{-v(F_N(x))}\} \\
     &\leq 2^{-k}.
   \end{align*}
+  \qed
 \end{pro}
 \begin{align*}
   F \circ G(x) \text{ obstaja } &\iff \lim_{n \to \infty} v\left(a_n G^n(x)\right) = \infty \\
@@ -1265,8 +1309,8 @@ Kdaj ta limita obstaja?
   &\iff F \text{ polinom ali } G(0) = 0.
 \end{align*}
 Velja $v\left(a_n G^n(x)\right) = \begin{cases}
-  n \cdot v(G(x)) \; a_n \neq 0 \\
-  \infty \qquad a_n = 0
+  n \cdot v(G(x)); \; a_n \neq 0 \\
+  \infty; \; a_n = 0
 \end{cases}$
 \begin{ex} \text{} \\
   $F(x) = x^2 - 3x + 1$ \\
@@ -1279,7 +1323,7 @@ Velja $v\left(a_n G^n(x)\right) = \begin{cases}
 \end{ex}
 \begin{rem} \text{} \\
   $F(x) = \sum_n a_n x^n$ \\
-  $G(x) = \sum_n b_n x^n \; b_0 = 0$ \\
+  $G(x) = \sum_n b_n x^n, \; b_0 = 0$ \\
   $a_0 + a_1(b_1 x + b_2 x^2 + \dots) + a_2(b_1 x + b_2 x^2 + \dots)^2 + \dots$ \\
   Za izračun koeficienta pri $x^5$ izračunamo končno vsoto. \\
   Enota za kompozitum: $x = 0 + 1 \cdot x + 0 \cdot x^2 + \dots$ \\
@@ -1309,24 +1353,24 @@ $F^{<-1>}$ - inverz za kompozitum.
     &2. a_0 = b_0 = 0 \\
     &\quad v(F \circ G) = v(F) \cdot v(G) = 1 \\
     &\quad \implies v(F) = v(G) = 1 \\
-    &\quad \implies F(x) = a_1 x + a_2 x^2 + \dots \; a_1 \neq 0.
+    &\quad \implies F(x) = a_1 x + a_2 x^2 + \dots; \; a_1 \neq 0.
   \end{align*}
   $(\Longleftarrow)$:
   \begin{align*}
-    &F(x) = a_0 + a_1 x \; a_1 \neq 0 \\
+    &F(x) = a_0 + a_1 x; \; a_1 \neq 0 \\
     &a_0 + a_1 y = x \implies y = \dots \\
     &F^{<-1>}(x) = -\frac{a_0}{a_1} + \frac{x}{a_1} \\
-    &F(x) = a_1 x + a_2 x^2 + \dots a_1 \neq 0 \\
-    &\text{levi inverz: } G_1(x) = b_0 + b_1 x + \dots \\
+    &F(x) = a_1 x + a_2 x^2 + \dots; a_1 \neq 0. \\
+    &\text{Levi inverz: } G_1(x) = b_0 + b_1 x + \dots \\
     &\quad G_1 \circ F = x \\
     &\quad b_0 + b_1 (a_1 x + \dots) + b_2 (a_1 x + \dots)^2 + \dots = x \\
     &\quad [x^0]: b_0 = 0 \\
     &\quad [x^1]: a_1 b_1 = 0 \implies b_1 = \frac{1}{a_1} \\
     &\quad [x^2]: b_1 a_2 + b_1 a_1^2 = 0 \implies b_2 = -\frac{b_1 a_2}{a_1^2} \\
     &\quad [x^3]: b_1 a_3 + 2 b_2 a_1 a_2 + b_3 a_1^3 = 0 \implies b_3 = \dots \frac{..}{a_1^3} \\
-    &\quad [x^n]: \dots + b_n a_1^n = 0 \; n \geq 1\\
-    &\quad b_n = \dots \text{ rekurzivno} \\
-    &\text{desni inverz: } G_2(x) = c_0 + c_1 x + \dots, \; c_0 = 0 \\
+    &\quad [x^n]: \dots + b_n a_1^n = 0; \; n \geq 1. \\
+    &\quad b_n = \dots \text{ rekurzivno.} \\
+    &\text{Desni inverz: } G_2(x) = c_0 + c_1 x + \dots, \; c_0 = 0 \\
     &\quad F \circ G_2 = x \\
     &\quad a_1 (c_1 x + \dots) + a_2 (c_1 x + \dots)^2 + \dots = x \\
     &\quad [x^0]: 0 = 0 \\
@@ -1410,7 +1454,7 @@ Iz asociativnosti (ki je nismo dokazali) sledi $G_1 = G_2 = F^{<-1>}$.
         &= \frac{\frac{1}{1-\frac{y_2}{y_1}}}{1-y_1 x} + \frac{\frac{1}{1-\frac{y_1}{y_2}}}{1-y_2 x} \\&= 
         \frac{1}{y_1 - y_2} \left(\frac{y_1}{1-y_1 x} - \frac{y_2}{1-y_2 x}\right) \\
         &y_1 - y_2 = 5 \\
-        \implies &F_n = \frac{1}{\sqrt{5}} \left(\left(\frac{1+\sqrt{5}}{2}\right)^{n-1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1}\right).
+        \implies &F_n = \frac{1}{\sqrt{5}} \left(\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1}\right).
       \end{align*}
   \end{enumerate}
 \end{ex}
@@ -1426,7 +1470,7 @@ Iz asociativnosti (ki je nismo dokazali) sledi $G_1 = G_2 = F^{<-1>}$.
 \begin{pro} \text{} \\
   $(1) \Longrightarrow (2)$:
   \begin{align*}
-    &c_d a_n + c_{d-1} a_{n-1} + \dots + c_n a_{n-d} = 0 \qquad / \cdot x^n \sum_{n=d}^{\infty} \\
+    &c_d a_n + c_{d-1} a_{n-1} + \dots + c_0 a_{n-d} = 0 \qquad / \cdot x^n \sum_{n=d}^{\infty} \\
     &c_d (F(x) - a_0 - \dots - a_{d-1} x^{d-1}) \\
     +& c_{d-1} (F(x) - a_0 - \dots - a_{d-2} x^{d-2}) \\
     +& \dots + c_0 x^d F(x) = 0 \\
@@ -1443,9 +1487,10 @@ Iz asociativnosti (ki je nismo dokazali) sledi $G_1 = G_2 = F^{<-1>}$.
     &\stackrel{\text{parc}}{=} \sum_{i=1}^{k} \sum_{j=1}^{\alpha_i} \frac{A_{ij}}{(1-\lambda_i x)^{j}} \\
     \frac{1}{(1-x)^d} &= \sum_n \binom{n+d-1}{d-1} x^n \\
     a_n &= \sum_{i=1}^{k} \left(\sum_{j=1}^{\alpha_i} A_{ij} \cdot \binom{n+j-1}{j-1}\right) \lambda_i^n, \\
-    \binom{n+j-1}{j-1} &\text{binom v $n$ stopnje } j-1 < \alpha_i.
+    \binom{n+j-1}{j-1} &\text{ polinom v $n$ stopnje } j-1 < \alpha_i.
   \end{align*}
   $(3) \Longrightarrow (2)$: podobno: $p_i(n)$ zapišemo v bazi $\binom{n+j-1}{j-1}$.
+  \qed
 \end{pro}
 \begin{ex} \text{} \\
   $a_n - 7 a_{n-1} + 18 a_{n-2} - 12 a_{n-3} = 0$, $a_0, a_1, a_2$ dani. \\
@@ -1479,15 +1524,15 @@ $D F(x) := F^{'}(x)$, $D$: operator odvajanja. \\
 $(x D)^2 F(x) \stackrel{\text{orf}}{\longleftrightarrow} (n^2 a_n)_n$ \\
 $p(x D) F(x) \stackrel{\text{orf}}{\longleftrightarrow} (p(n) a_n)_n, \quad p$ polinom.
 \begin{ex} \text{} \\
-  $\sum_j j^2$ \\
+  $\sum_{j=0}^n j^2$ \\
   $\frac{1}{1-x} \stackrel{\text{orf}}{\longleftrightarrow} (1)_n$ \\
-  $(x D)^2 \frac{1}{1-x} \stackrel{\text{orf}}{\longleftrightarrow} \left(\sum_{j=0}^n a_j\right)_n$ \\
-  $x \cdot \left(\frac{x}{(1-x)^2}\right)^{'} = \dots = \frac{x(1+x)}{(1-x)^3}$ - samo členi.
+  $(x D)^2 \frac{1}{1-x} \stackrel{\text{orf}}{\longleftrightarrow} \left( n^2 \right)_n$ \\
+  $x \cdot \left(\frac{x}{(1-x)^2}\right)^{'} = \dots = \frac{x(1+x)}{(1-x)^3} = F(x)$ - samo členi. \\
   $F(x) \stackrel{\text{orf}}{\longleftrightarrow} (a_n)_n$ \\
   $F(x) \cdot \frac{1}{1-x} \stackrel{\text{orf}}{\longleftrightarrow} \left(\sum_{j=0}^{n} a_j\right)_n$
-    - konvolucija z $(1)_n$. \\
+    - vsota je konvolucija z $(1)_n$. \\
   \begin{align*}
-    [X^n] \left(F(x) \cdot \frac{1}{1-x}\right) &= [x^n] \left(\frac{x^2}{(1-x)^4} + \frac{x^2}{(1-x)^4}\right) \\
+    [x^n] \left(F(x) \cdot \frac{1}{1-x}\right) &= [x^n] \left(\frac{x}{(1-x)^4} + \frac{x^2}{(1-x)^4}\right) \\
     &= \binom{n+2}{3} + \binom{n+1}{3} \\
     &= \frac{n(n+1)(2n+1)}{6}.
   \end{align*}
@@ -1539,21 +1584,21 @@ $\sum_{k=0}^n a_k b_{n-k}$.
       $k \dots k \dots 3 2 \dots 2 1 \dots 1$ % ali skica
       \begin{align*}
         \sum_n p_n(n) x^n &= \lim_{k \to \infty} \sum_n \overline{p_k}(n) \\
-        &= \lim_{n \to \infty} \frac{1}{\prod_{j=1}^{n}} \\
+        &= \lim_{n \to \infty} \frac{1}{\prod_{j=1}^{n} (1-x^i)} \\
         &= \prod_{i=1}^{\infty} \frac{1}{1-x^i}.
       \end{align*}
       $d(n)$: število razčlenitev $n$ z različnimi členi \\
-      $\sum_n d(n) x^n = \prod_{i=1}^{\infty} (1-x^i)$ ($0$ ali $1$-krat vedno) \\
+      $\sum_n d(n) x^n = \prod_{i=1}^{\infty} (1+x^i)$ ($0$ ali $1$-krat vedno) \\
       $o(n)$ = število razčlenitev $n$ z lihimi členi \\
       $\sum_n o(n) x^n = \prod_{i=0}^{\infty} \frac{1}{1-x^{2i + 1}}$ \\
       $\prod_i (1+x^i) \cdot \frac{1-x^i}{1+x^i} = \prod_{i} \frac{1-1^{2i}}{1-x} = \prod_i \frac{1}{1-x^{2i+1}}$ \\
       $\Longrightarrow o(n) = d(n)$. \\
       DN: bijekcija.
-    \item $c_n$: Dyckove poti dolžine $n$ \\
+    \item $c_n$: Dyckove poti dolžine $n$. \\
       % skica
       $c_{n+1} = \prod_{k=0}^n c_k \cdot c_{n-k} \qquad / \cdot x^{n+1} \sum_n$ \\
       % skica
-      $F(x) - 1 = x \cdot \sum_{n=0}^{\infty} \left(\sum_{k=0}^{n} c_k c{n-k}\right) x^n = x \cdot F^2(x)$ \\
+      $F(x) - 1 = x \cdot \sum_{n=0}^{\infty} \left(\sum_{k=0}^{n} c_k c_{n-k}\right) x^n = x \cdot F^2(x)$ \\
       $F(x) = 1 + x F^2(x)$: \\
       $1$: prazna, $xF^2(x)$: dolžine $n$, $2n$ korakov \\
       Motzkinova pot: v smeri $(1,1), (1,-1), (1,0)$ \\
@@ -1568,24 +1613,28 @@ $\sum_{k=0}^n a_k b_{n-k}$.
       $\frac{1-\sqrt{1-4x}}{2x} = \sum_{n=0}^{\infty} \frac{1}{n+1} \binom{2n}{n} x^n$. \\
       Druga utemeljitev: \\
       $4 x^2 F^2 - 4 x F + 4 x = 0$ \\
-      $(2xF - \left(1-\sqrt{1-4x}\right)) (2xF - \left(1+\sqrt{1-4x}\right)) = 0$ v $K[[x]]$. \\
+      $\left(2xF - \left(1-\sqrt{1-4x}\right)\right) \left(2xF - \left(1+\sqrt{1-4x}\right)\right) = 0$ v $K[[x]]$. \\
       $2xF - \left(1+\sqrt{1-4x}\right) \neq 0$ (konstantni koeficient nima $0$) \\
       $\Longrightarrow \; 2 x F = 1 - \sqrt{1-4x}$.
   \end{enumerate}
 \end{ex}
 $F^k(x)$: razdelimo na $k$ delov, vsakemu damo strukturo $F$. \\
-$\sum_{k=0}^{\infty} F^k(x) = \frac{1}{1-F^k(x)}$: razdelimo na poljubno mnogo delov, vsakemu $F$.
+$\sum_{k=0}^{\infty} F^k(x) = \frac{1}{1-F(x)}$: razdelimo na poljubno mnogo delov, vsakemu $F$.
 \begin{ex} \text{} \\
   \begin{enumerate}[label=(\arabic*)]
     \item Kompozicije $n$. \\
-      $\frac{1}{1-\frac{x}{1-x}} = \frac{1-x}{1-2x} = \begin{cases}2^{n-1} \; n > 0 \\ 0 \; n = 0\end{cases}$ \\
+      $\frac{1}{1-\frac{x}{1-x}} = \frac{1-x}{1-2x} =
+      \begin{cases}
+        2^{n-1}; \; n > 0 \\
+        0; \; n = 0
+      \end{cases}$ \\
       kompozicije s členi $1$ in $2$ \\
       $\frac{1}{1-(x+x^2)}$.
     \item $2 \times n$ plošča, domine $2 \times 1$. \\
       % skica
       Primitivni tlakovanji \\
       $\frac{1}{1-x-x^2}$ \\
-      Domini $1 \times 1$ in $2 \times 1$ \\
+      Domini $1 \times 1$ in $2 \times 1$. \\
       $n = 1$: 1 možnost, \\
       $n = 2$: 3, \\
       $n = 3$: 2, \\
@@ -1596,7 +1645,7 @@ $\sum_{k=0}^{\infty} F^k(x) = \frac{1}{1-F^k(x)}$: razdelimo na poljubno mnogo d
     \item Primitivna Dyckova pot: se ne dotakne x osi. \\
       % skica
       $F(x) = \frac{1}{1 - x F(x)}$, \\
-      $M(x) = \frac{1}{1 - x - x^2 F(x)}$. \\
+      $M(x) = \frac{1}{1 - x - x^2 M(F?)(x)}$. \\
       Levi faktor Dyckove poti: % skica
       $L(x) = \frac{F(x^2)}{1 - x - x^2 F(x)} = \dots = \frac{2}{1 - 2 x + \sqrt{1-4x^2}}$ \\
       $F(x^2)$: Dyckova pot (na začetku), $x F(x^2)$: korak + Dyckova pot. \\
@@ -1681,7 +1730,7 @@ $p(xD) F(x) \stackrel{\text{erf}}{\longleftrightarrow} (p(n) a_n)_n$.
       $I(x) = \sum_{n} \frac{i_n}{n!} x^n$ \\
       $I^{''} - I^{'} - (xI^{'} + I) = 0$ \\
       $I^{''} - (x+1)I^{'} - I = 0$ \\
-      $(I^{'} - (x+1)I^{'})^{'} = 0$ \\
+      $(I^{'} - (x+1)I)^{'} = 0$ \\
       $I^{'} - (x+1)I = c$ \\
       $x=0:\; 1 - 1 = 0 = c$ \\
       $I^{'} = (x+1)I$ \\
@@ -1736,7 +1785,7 @@ Predpostavimo $F(0) = 0$!!
 \end{align*}
 \begin{theorem} \text{} \\
   $F(0) = 0$. \\
-  $\frac{1}{k!} F^k(x)$ je erf za strukturo: izberemo razdelitev in vsakemu bloku damo strukturo $F$.
+  $\frac{1}{k!} F^k(x)$ je erf za strukturo: izberemo razdelitev na $k$ blokov in vsakemu bloku damo strukturo $F$.
 \end{theorem}
 \begin{ex} \text{} \\
   $\sum_n S(n,k) \frac{x^n}{n!} = \frac{1}{k!} (e^k-1)^k$ \\
@@ -1750,10 +1799,11 @@ Predpostavimo $F(0) = 0$!!
 \end{ex}
 \begin{theorem}[Eksponentna formula] \text{} \\
   $F(0) = 0$. \\
-  $e^{F(x)}$ je erf za strukturo: izberemo razdelitev, vsakemu (bloku) damo strukturo $F$.
+  $e^{F(x)}$ je erf za strukturo: izberemo razdelitev, vsakemu bloku damo strukturo $F$.
 \end{theorem}
 \begin{pro}
   $\sum_{k=0}^{\infty} \frac{1}{k!} F^k(x) = e^{F(x)}$.
+  \qed
 \end{pro}
 \begin{ex} \text{} \\
   \begin{enumerate}[label=(\arabic*)]
@@ -1766,7 +1816,7 @@ Predpostavimo $F(0) = 0$!!
       $\sum_n \frac{a_n}{n!} x^n = e^{x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^6}{6}}$ \\
       $\sum_n \frac{d_n}{n!} x^n = e^{\sum_{n \geq 2} \frac{x^n}{n}} = e^{\log \frac{1}{1-x} - x} = \frac{e^{-x}}{1-x}$.
     \item $\sum_n \frac{B(n)}{n!} x^n = e^{e^x-1}$.
-    \item $a_n$: število $2$-regularnih grafov $(deg v = 2\; \forall v \in V(G))$, \\
+    \item $a_n$: število $2$-regularnih grafov $(deg \, v = 2\; \forall v \in V(G))$, \\
       $F:$ moč množice neusmerjenih ciklov dolžime $\geq 3$: $a_n = \frac{(n-1)!}{2}; \; n \geq 3$ \\
       $\sum_n \frac{a_n}{n!} x^n = e^{\sum_{n \geq 3} \frac{(n-1)!}{2} \frac{x^n}{n}} =
         e^{\frac{1}{2} \left(\log \frac{1}{1-x} - x - \frac{x^2}{2}\right)} =
@@ -1782,22 +1832,22 @@ $(F \circ G)(x) = \sum_k \frac{a_k}{k!} G^k(x)$.
 \end{theorem}
 \begin{ex} \text{} \\
   \begin{enumerate}[label=(\arabic*)]
-    \item $\tilde{B(n)}$: urejena Bellova števila = število urejenih razdelitev množice $[n]$. \\
-      $\tilde{B(2)} = 3: \; \{1,2\}; \{1\},\{2\}; \{2\},\{1\}$ \\
-      $\tilde{B(n)} = \sum_k S(n,k)$. \\
-      $\tilde{B(n)}$: število vseh surjekcij iz $[n]$. \\
-      $\sum_n \frac{\tilde{B(n)}}{n!} x^n = \frac{1}{1-(e^x-1)} = \frac{1}{2-e^x}$ \\
+    \item $\widetilde{B(n)}$: urejena Bellova števila = število urejenih razdelitev množice $[n]$. \\
+      $\widetilde{B(2)} = 3: \; \{1,2\}; \{1\},\{2\}; \{2\},\{1\}$ \\
+      $\widetilde{B(n)} = \sum_k S(n,k) k!$. \\
+      $\widetilde{B(n)}$: število vseh surjekcij iz $[n]$. \\
+      $\sum_n \frac{\widetilde{B(n)}}{n!} x^n = \frac{1}{1-(e^x-1)} = \frac{1}{2-e^x}$ \\
       $G(x) = e^x-1$ \\
       $F(x) = \frac{1}{1-x}$.
     \item Permutacije z lihim številom ciklov \\
       $\sum_n a_n \frac{x^n}{n!} = \frac{e^{\log \frac{1}{1-x}} - e^{-\log \frac{1}{1-x}}}{2} =
         \frac{1}{2} \left(\frac{1}{1-x} - (1-x)\right)$. \\
       $G(x) = \log \frac{1}{1-x}$ \\
-      $F(x) = \frac{e^x - e^{-x}}{2} \qquad (F(x)-F(-X):$ lihi $)$ \\
+      $F(x) = \frac{e^x - e^{-x}}{2} \qquad (F(x)-F(-x):$ lihi$)$ \\
       $a_n = \begin{cases}
-        0 \; n = 0 \\
-        1 \; n = 1 \\
-        \frac{n}{2} \; n \geq 2
+        0; \; n = 0 \\
+        1; \; n = 1 \\
+        \frac{n}{2}; \; n \geq 2
       \end{cases}$
   \end{enumerate}  
 \end{ex}
@@ -1835,7 +1885,7 @@ $D: \begin{cases}
 \end{cases}$
 \begin{defn} \text{} \\
   $F(x) \in K[[x]]$ je algebraična reda $d$, če \\
-  $Q_d(x) F^d(x) + Q_{d-1}(x) F^{d-1}(x) + \dots + Q_0(x) = 0$ za $Q_0 \cdot Q_d \in K[X]$,
+  $Q_d(x) F^d(x) + Q_{d-1}(x) F^{d-1}(x) + \dots + Q_0(x) = 0$ za $Q_0, Q_d \in K[X]$,
   $Q_0, Q_0 \neq 0$, ne obstaja taka enačba stopnje $< d$.
 \end{defn}
 Algebraična reda $d$ = racionalna fpv (formalna potenčna vrsta). \\
@@ -1845,7 +1895,7 @@ $F(x) = \sum_n F_n x^n, \; M(x) = \sum_n M_n x^n$ algebraični reda 2. \\
 % 9. predavanje: 23.11.
 %
 $Q_d(x) F^d(x) + \dots + Q_0(x) = 0$ za $Q_0, Q_d \neq 0$ \\
-$C_n: x F(x)^2 - F(x) + 1 = 0$ \\
+$c_n: x F(x)^2 - F(x) + 1 = 0$ \\
 $M_n: x^2 F(x)^2 + x F(x) + 1 = 0$. \\
 $S$-drevo: \\
 $S \subseteq \{1, 2, 3 \dots\}$. \\
@@ -1862,23 +1912,23 @@ $x$: 1 vozlišče. \\
 $V(t) = t + v^2(t) + v^3(t)$: \\
 koren ne prispeva k številu listov. \\
 $U(x) = x + \sum_{k \in S} x U^k(x)$ \\
-$V(t) = t + \sum_{k \in S} t V^k(t)$, $1 \notin S$. \\
+$V(t) = t + \sum_{k \in S} V^k(t)$, $1 \notin S$. \\
 $S$ končna $\implies \; S$ algebraična. \\
 Če $S$ neskončna, sta $U$ in $V$ vseeno lahko algebraični. \\
 \begin{ex} \text{} \\
   \begin{itemize}
     \item $S = \{2\}$ - dvojiška drevesa. \\
       $v = t + v^2$ \\
-      $v^2 - v + t = 0 \implies v = \frac{1-\sqrt{1-4t}}{2} = \sum_{n=1}^{\infty} C_{n-1} t^n$ \\
-      $C_n$: število dvojiških dreves z $n+1$ listi. \\
+      $v^2 - v + t = 0 \implies v = \frac{1-\sqrt{1-4t}}{2} = \sum_{n=1}^{\infty} c_{n-1} t^n$ \\
+      $c_n$: število dvojiških dreves z $n+1$ listi. \\
       % skica
     \item $S = \{k\}$ \\
       $v = t + v^k$ - Lagrangeeva inverzija (kasneje). \\
     \item $S = \{1, 2, 3, 4 \dots\}$ \\
       $U = x + x \sum_{k=1}^{\infty} U^k = x + x \frac{U}{1-U}$ \\
       $U - U^2 = x - xU + xU = x$ \\
-      $U^2 - U + x = 0 \implies U = \frac{1-\sqrt{1-4x}}{2} = \sum_{n=1}^{\infty} C_{n-1} x^n$ \\
-      $C_n$: število ravninskih dreves z $n+1$ vozlišči. \\
+      $U^2 - U + x = 0 \implies U = \frac{1-\sqrt{1-4x}}{2} = \sum_{n=1}^{\infty} c_{n-1} x^n$ \\
+      $c_n$: število ravninskih dreves z $n+1$ vozlišči. \\
       % skica
   \end{itemize}
   Izkaže se: $U,V$ algebraični $\iff \; S$ se za končno množico razlikuje od končne unije aritmetičnih zaporedij.
@@ -1892,14 +1942,14 @@ $F^{'} = \frac{F^2}{1 - 2 x F} \stackrel{?}{=} a + bF; \; a, b \in K(x)$ \\
 $F^2 = a + b F - 2 a x F - 2 b x F^2$ \\
 $(1 - 2 b x) F^2 + (2 a x - b) F - a x = 0$ \\
 $(1 - 2 b x + (2 a b - x)) F - 1 - 2 b x - a x = 0$ \\
-$\to$: 2 enačbi, 2 neznanki. \\
+$\to$: 2 enačbi (pri $[F]$ in $[F^0]$), 2 neznanki ($a, b$). \\
 $a = \frac{1}{x (1-4x)}$ \\
 $b = \frac{2x-1}{x (1-4x)}$ \\
 $F^{'} - \frac{1}{x (1-4x)} - \frac{2x-1}{x (1-4x)} F = 0$ \\
 $x (1-4x) F^{'} - 1 - (2x-1) F = 0$ \\
-$F^{'} = \sum_n n C_n x^{n+1}$ \\
-$[x^n]: n C_n - 4 (n-1) C_{n-1} + 2 C_{n-1} + C_n$ za $n > 1$ \\
-$C_n = \frac{2 (n-1)}{n+1} C_{n-1} \implies \dots C_n = \frac{1}{n+1} \binom{2n}{n}$.
+$F^{'} = \sum_n n c_n x^{n+1}$ \\
+$[x^n]: n c_n - 4 (n-1) c_{n-1} + 2 c_{n-1} + c_n$ za $n > 1$ \\
+$c_n = \frac{2 (n-1)}{n+1} c_{n-1} \implies \dots c_n = \frac{1}{n+1} \binom{2n}{n}$.
 \begin{defn} \text{} \\
   $F(x) \in K[[x]]$ je $D$-končna, če je \\
   $R_n(x) F^{(d)}(x) + \dots + R_1 F^{'}(x) + R_0 = 0$ za $R_i(x) \in K[x]$. \\
@@ -1935,6 +1985,7 @@ Torej: za $P$-rekurzivno zaporedje lahko člene hitro izračunamo.
   $K[u] = K(x, F(x))$. \\
   Torej: $K(x, F(x))$ je končno razsežen VP nad $K(x)$, torej so $1, F, F^{'} \dots$ linearno neodvisni
   $\implies$ $F$ je $D$-končna.
+  \qed
 \end{pro}
 
 
@@ -1959,10 +2010,10 @@ $\tan \left(\frac{x}{2} + \frac{\pi}{4}\right) = \frac{\tan \frac{x}{2} + 1}{1 -
 \begin{rem} \text{} \\
   Bernoullijeva števila. \\
   $B_n = \begin{cases}
-    1 \; n = 0 \\
-    \frac{1}{2} \; n = 1 \\
-    0 \; n > 1, n \text{ lih} \\
-    \frac{(-1)^{\frac{n}{2} + 1} E_{n-1}}{2^n (2^n - 1)} \; n > 0, n \text{ sod}
+    1; \; n = 0 \\
+    \frac{1}{2}; \; n = 1 \\
+    0; \; n > 1, n \text{ lih} \\
+    \frac{(-1)^{\frac{n}{2} + 1} E_{n-1}}{2^n (2^n - 1)}; \; n > 0, n \text{ sod}
   \end{cases}$ \\
   $\sum_n B_n \frac{x^n}{n!} = \frac{x e^x}{e^x - 1}$ \\
   $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$ \\
@@ -1973,7 +2024,7 @@ $\tan \left(\frac{x}{2} + \frac{\pi}{4}\right) = \frac{\tan \frac{x}{2} + 1}{1 -
   $\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}$ za $Re \; s > 1$. \\
   % skica
   Z analitičnim nadaljevanjem lahko $\zeta$ definiramo na $\C \setminus \{1\}$. \\
-  $\zeta(-n) = \frac{B_{n+1}}{n+1}$ - soda negativna števila so ničle - trivialne ničle. \\
+  $\zeta(-n) = \frac{B_{n+1}}{n+1}$ - (soda?) negativna števila so ničle - trivialne ničle. \\
   Riemmanova hipoteza: \\
   $Re \; z = \frac{1}{2}$ za vsako netrivialno ničlo $z$ funkcije $\zeta$. \\
   $\zeta(-1) = -\frac{B_2}{2} = -\frac{1}{12}$ \\
@@ -1982,9 +2033,9 @@ $\tan \left(\frac{x}{2} + \frac{\pi}{4}\right) = \frac{\tan \frac{x}{2} + 1}{1 -
   $\sum_{i=1}^{n} i = \frac{n (n+1)}{2} = \frac{n^2}{2} + \frac{n}{2}$ \\
   $\sum_{i=1}^{n} i^2 = \frac{n (n+1) (2n+1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}$ \\
   $\sum_{i=1}^{n} i^3 = \frac{n^2 (n+1)^2}{4} = \frac{n^4}{4} + \frac{n^3}{2} + \frac{n^2}{4}$ \\
-  $\sum_{i=1}^{n} i^k = \frac{1}{k+1} \sum_{l=0}^{k} \binom{k+1}{l} B_l n^{k+1-l} \\
+  $\sum_{i=1}^{n} i^k = \frac{1}{k+1} \sum_{l=0}^{k} \binom{k+1}{l} B_l \cdot n^{k+1-l} \\
   = \frac{n^{k+1}}{k+1} + \frac{n^k}{2} + \sum_{l=1}^{\lfloor\frac{k}{2}\rfloor}
-  \frac{(-1)^{l+1} \binom{k}{2l-1}}{2^{2l} (2^{2l}-1)} E_{2l-1} n^{k-1-2l} \\
+  \frac{(-1)^{l+1} \binom{k}{2l-1}}{2^{2l} (2^{2l}-1)} E_{2l-1} \cdot n^{k-1-2l} \\
   = \log n + \gamma + \frac{1}{2n} - \sum_{k=1}^{\infty} \frac{B_{2k}}{2k \cdot n^{2k}} \\
   = \log n + \gamma + \frac{1}{2n} - \sum_{k=1}^{\infty} \frac{(-1)^k E_{2k-1}}{2^{2k} (2^{2k} - 1) n^{2k}}$, \\
   kjer je $H_n = 1 + \frac{1}{2} + \dots + \frac{1}{n}$ $n$-to harmoično število.
@@ -1998,7 +2049,7 @@ $\frac{x+x^2}{(1-x)^3} = x + 4x^2 + 9x^3 + \dots \quad /^{'} / \cdot x$ \\
 $\frac{x+4x^2+x^3}{(1-x)^4} = x + 8x^2 + 27x^3 + \dots$ \\
 $A_n(x) = \sum_k A(n,k) x^k$ eulerski polinom.
 \begin{theorem} \text{} \\
-  $\sum_m m^n x^m = \frac{A_n(x)}{(1-x)^{n-1}}$.
+  $\sum_m m^n x^m = \frac{A_n(x)}{(1-x)^{n+1}}$.
 \end{theorem}
 \begin{pro} \text{} \\
   Indukcija: \\
@@ -2012,18 +2063,20 @@ $A_n(x) = \sum_k A(n,k) x^k$ eulerski polinom.
     \item $A_{n-1}(x) = \sum_k A(n-1,k) x^k$
     \item $A_{n-1}^{'}(x) = \sum_k k A(n-1,k) x^{k-1}$.
   \end{enumerate}
+  \qed
 \end{pro}
 \begin{theorem} \text{} \\
-  $\sum_{n,k} A(n,k) x^k \frac{y^n}{n!} = \frac{1-x}{1-x e^{xy(1-y)}}$ -
+  $\sum_{n,k} A(n,k) x^k \frac{y^n}{n!} = \frac{1-x}{1-x e^{y(1-x)}}$ -
   mešana rodovna funkcija (običajna v $x$, eksponentna v $y$).
 \end{theorem}
 \begin{pro} \text{} \\
   $\sum_{n,k} A(n,k) x^k \frac{y^n}{n!} $ \\
-  $= (1-x) \left( \sum_k \frac{A_n(x)}{(1-x)^{n+1}} \cdot \frac{y^n}{n!} (1-x)^n\right)$ \\
+  $= (1-x) \left( \sum_n \frac{A_n(x)}{(1-x)^{n+1}} \cdot \frac{y^n}{n!} (1-x)^n\right)$ \\
   $= (1-x)\sum_n \left( \sum_m m^n x^m \right) \frac{y^n (1-x)^n}{n!}$ \\
-  $= (1-x) \sum_m \left( \sum_n \frac{m^n y^n (1-x)^n}{n!} \right) x^n$ \\
-  $= (1-x) \sum_m e^{xy(1-x)} x^m$ \\
-  $= \frac{1-x}{1 - e^{xy(1-x)}}$.
+  $= (1-x) \sum_m \left( \sum_n \frac{m^n y^n (1-x)^n}{n!} \right) x^m$ \\
+  $= (1-x) \sum_m e^{y(1-x)} x^m$ \\
+  $= \frac{1-x}{1 - e^{y(1-x)}}$.
+  \qed
 \end{pro}
 
 
@@ -2080,14 +2133,14 @@ $K[[x]]$ algebra formalnih potenčnih vrst, \\
 $K((x)) = \{\sum_{n \geq n_0} a_n x^n; \; n_0 \in \Z, a_i \in K\}$ obseg formalnih Laurentovih vrst (obseg ulomkov $K[[x]]$). \\
 $\frac{F(x)}{G(x)} = \frac{F(x)}{x^m H(x)}, \frac{F(x)}{H(x)} \in K[[x]], H(0) \neq 0$. \\
 Seštevanje, množenje, odvod, kompozitum, valuacija $(\in \Z)$. \\
-$res F(x) = [x^{-1}] F(x)$ residuum.
+$res \, F(x) = [x^{-1}] F(x)$ residuum.
 \begin{lemma}
-  $res F(x) = 0 \leftrightarrow F(x) = G^{'}(x)$ za $K((x))$.
+  $res \, F(x) = 0 \leftrightarrow F(x) = G^{'}(x)$ za $K((x))$.
 \end{lemma}
 \begin{pro} \text{} \\
   $(\Longleftarrow)$
   \begin{align*}
-    &F(x) = \left(\sum_{n \geq n_0} b_n x^n \right) = \left(\sum_{n \geq n_0} n b_n x^{n-1} \right) \\
+    &F(x) = \left(\sum_{n \geq n_0} b_n x^n \right)^{'} = \left(\sum_{n \geq n_0} n b_n x^{n-1} \right) \\
     &[x^{-1}] F(x) = 0 \cdot b_0 = 0.
   \end{align*}
   $(\Longrightarrow)$
@@ -2096,10 +2149,11 @@ $res F(x) = [x^{-1}] F(x)$ residuum.
     &G(x) = \sum_{n \geq n_0} \frac{a_{n-1} x^n}{n} \\
     &a_{-1} = 0.
   \end{align*}
+  \qed
 \end{pro}
 \begin{lemma} \text{} \\
   $F(x) \in K((x)), F(x) \neq 0$,
-  $res \frac{F^{'}(x)}{F(x)} = v(F(x))$.
+  $res \, \frac{F^{'}(x)}{F(x)} = v(F(x))$.
 \end{lemma}
 \begin{pro} \text{} \\
   $F(x) = x^{n_0} G(x)$ \\
@@ -2107,13 +2161,14 @@ $res F(x) = [x^{-1}] F(x)$ residuum.
   $G(x) \in K[[x]], G(0) \neq 0$ \\
   $\frac{F^{'}(x)}{F(x)} = \frac{n_0 x^{n_0 - 1} G(x) + x^{n_0} x^{n_0} G^{'}(x)}{x^{n_0} G(x)} = \frac{n_0}{x} + \frac{G^{'}(x)}{G(x)}$ \\
   $\frac{G^{'}(x)}{G(x)} \in K[[x]]$.
+  \qed
 \end{pro}
 Lagrangeeva inverzija (1. verzija): \\
 $F \in K[[x]]$ \\
 $v(F(x)) = 1$ \\
 $n \cdot [x^n] \left(F^{<-1>}(x)\right)^k = k \cdot [x^{-k}] F^{-n}(x)$; \\
 $F^{-n}(x) \in K((x))$. \\
-Torej: $n \cdot [x^n] F^{<-1>}(x) = res F^{-1}(x)$.
+Torej: $n \cdot [x^n] F^{<-1>}(x) = res \, F^{-1}(x)$.
 \begin{pro}
   $\left(F^{<-1>}(x)\right)^k = \sum_{m \geq k} c_m x^m$ \\
   $x \leftrightarrow F(x)$ \\
@@ -2122,7 +2177,7 @@ Torej: $n \cdot [x^n] F^{<-1>}(x) = res F^{-1}(x)$.
   $\frac{k x^{k-1}}{F^n(x)} = \sum_{m \geq k} m c_m F^{m-n-1}(x) F^{'}(x) \quad / res$ \\
   $[x^{-1}] \frac{k x^{k-1}}{F^n(x)} = [x^{-k}] \frac{k}{F^n(x)}$ \\
   $F^{m-n-1}(x) F^{'}(x) = \frac{\left(F^{m-n}(x)\right)^{'}}{m-n}$; $m \neq n$ \\
-  $res \left(F^{m-n-1}(x) F^{'}(x)\right) = 0$ če $m \neq n$ in $1$ sicer (lemi) \\
+  $res \, \left(F^{m-n-1}(x) F^{'}(x)\right) = 0$ če $m \neq n$ in $1$ sicer (lemi) \\
   $\to n \cdot a_n \cdot 1$ (leva stran).
   \qed
 \end{pro}
@@ -2146,6 +2201,7 @@ $[x^k] F(k)^k = k [x^{n-k}] G(x)^n$.
   $f(F(x)) = \frac{F(x)}{G(F(x))} = 1 \to$ ima levi inverz, tudi desni. \\
   $n [x^n] F(x)^k = k [x^n] \left(f^{<-1>}(x)\right)^k$ \\
   $= k [x^{-k}] f^{-k}(x) = k [x^{-k}] x^{-n} G^n(x)$.
+  \qed
 \end{pro}
 \begin{ex} \text{} \\
   \begin{enumerate}[label=(\alph*)]
@@ -2155,7 +2211,7 @@ $[x^k] F(k)^k = k [x^{n-k}] G(x)^n$.
       $v(x) = \sum_n a_n x^n$ \\
       $V(x) = x + x V^k(x) = x \left(1 + V^k(x)\right) \\$
       $G(x) = (1+x)^n$ \\
-      $n [x^n] V(x) [x^{n-1}] \left(1 + x^k\right)^n = k [x^{n-1}] \sum_{i=0}^{n} \binom{n}{i} x^{k_i}$; \\
+      $n [x^n] V(x) [x^{n-1}] \left(1 + x^k\right)^n = k [x^{n-1}] \sum_{i=0}^{n} \binom{n}{i} x^{ki}$; \\
       $n = ki + 1, i \in \N, a_n = a_{ki+1} = \frac{1}{n} \dots = \frac{1}{ki+1} \binom{ki+1}{i}$.
     \item Vpeta drevesa v $K_n$. \\
       $r_n$: število vpetih dreves s korenom v $K_n$. \\
@@ -2233,15 +2289,15 @@ $\lim_{n \to \infty} \frac{\left(\frac{1}{R^{'}}+\epsilon\right)^n}{\left(\frac{
       Koeficienti celih funkcij hitro padajo proti $0$. \\
       Ker je $z_0 = 1$ edini pol in ker je enostaven, je $\frac{b_{-1}}{z_0^n}$ odličen približek. \\
       $d_n = \left[\frac{n!}{e}\right]$.
-    \item $\tilde{B}(n)$: urejena Bellova števila \\
-      $\tilde{B}(n) = \sum_k k! S(n,k)$ \\
-      $\sum_n \tilde{B}(n) \frac{z^n}{n!} = \frac{1}{1 - (e^z-1)} = \frac{1}{2-e^z}$. \\
+    \item $\widetilde{B}(n)$: urejena Bellova števila \\
+      $\widetilde{B}(n) = \sum_k k! S(n,k)$ \\
+      $\sum_n \widetilde{B}(n) \frac{z^n}{n!} = \frac{1}{1 - (e^z-1)} = \frac{1}{2-e^z}$. \\
       Poli so $\log 2 + 2 k \pi i, \; k \in \Z$ \\
       $z_0 = \log 2, r = 1$ \\
       $b_{-1} = \lim_{z \to \log 2} \frac{1 - \frac{z}{\log 2}}{2 - e} \stackrel{L'H}{=}
       \lim_{z \to \log 2} \frac{-\frac{1}{\log 2}}{2} = \frac{1}{2 \log 2} = \frac{1}{\log 4}$ \\
-      $\tilde{B}(n) \sim \frac{n!}{2 (\log 2)^{n+1}}$ \\
-      $\tilde{B}(20) = 267 \dots 115$ ($23$ števk) \\
+      $\widetilde{B}(n) \sim \frac{n!}{2 (\log 2)^{n+1}}$ \\
+      $\widetilde{B}(20) = 267 \dots 115$ ($23$ števk) \\
       $\left[\frac{20!}{2 (\log 2)^{21}}\right] = 267 \dots 088$ \\
       $\frac{\log 2}{\log 2 + 2 \pi i} \doteq 0.11$.
     \item $n$ hiš. \\
@@ -2316,6 +2372,7 @@ $\lim_{x \to \infty} \frac{\Gamma(x + \alpha)}{\sqrt{2 \pi x} \left(\frac{x}{e}\
     &= \frac{e^{\alpha}}{e^{\alpha}} \\
     &= 1.
   \end{align*}
+  \qed
 \end{pro}
 \begin{lemma} \text{} \\
   $\beta \in \R \setminus \N$. \\
@@ -2328,6 +2385,7 @@ $\lim_{x \to \infty} \frac{\Gamma(x + \alpha)}{\sqrt{2 \pi x} \left(\frac{x}{e}\
     \stackrel{\text{lema}}{=}& 1;
   \end{align*}
   $x = n - \beta, \; \alpha = \beta + 1$.
+  \qed
 \end{pro}
 $z_0 \in \R$ \\
 $f(z) = \left(1 - \frac{z}{z_0}\right)^{\beta} g(z)$ \\
@@ -2352,7 +2410,7 @@ $\frac{1}{n^{\beta+1}} > \frac{1}{n^{\beta+2}} \; \to$ majhno.
     [z^n] f(z) \sim \frac{g(z_0)}{\Gamma(-\beta) n^{\beta+1} z_0^n}.
   \end{equation*}
 \end{theorem}
-V posebnem: $b = -r: \; \frac{b_{-r} n^{r-1}}{\Gamma(r) z_0^n}$.
+V posebnem: $b = -r: \; \frac{b_{-r} \cdot n^{r-1}}{\Gamma(r) z_0^n}$.
 \begin{ex} \text{}
   \begin{enumerate}[label=(\arabic*)]
     \item $F(x) = \sum_n C_n x^n$ \\
@@ -2508,7 +2566,7 @@ $x_0 < x_1 < \dots < x_k$ veriga dolžine $k$, \\
 $x_0 \leq x_1 \leq \dots < x_k$ multiveriga dolžine $k$. \\
 Antiveriga je podmnožica $P$, v kateri nobena različna elementa nista primerljiva. \\
 $\binom{[n]}{k}$ antiveriga v $B_n$, \\
-$\P$ antiveriga v $D$. \\
+$P$ antiveriga v $D$. \\
 Stopničasta dum (angl. graded) je $P$ z rangom, t.j. \\
 $\rho: P \to \N$, če \\
 $x < y \; \implies \; \rho(x) < \rho(y)$ \\
@@ -2579,6 +2637,7 @@ $\underline{1} \cdot f = f$.
     &g(x,y) = \frac{\sum \dots}{f(x,x)}.
   \end{align*}
   Podobno za levi inverz, enaka.
+  \qed
 \end{pro}
 $\zeta(x,y) = 1$ za $x \leq y$ \\
 $\zeta^2(x,y) = \sum_{x \leq z \leq y} \zeta(x,z) \zeta(z,y) = \left|[x,y]\right|$ \\
@@ -2590,7 +2649,7 @@ $(\zeta-1)(x,y) = \begin{cases}
   0: x = y
 \end{cases}$ \\
 $(\zeta-1)^2 = \left|(x,y)\right|$ - dolžina odprtega intervala. \\
-$(\zeta-1)^k =$ število (multi?)verig dolžine $k$ med $x$ in $y \;$ $= 0$ od nekega $k$ naprej. \\
+$(\zeta-1)^k =$ število verig dolžine $k$ med $x$ in $y \;$ $= 0$ od nekega $k$ naprej. \\
 $\underline{1} + (\zeta-1) + (\zeta-1)^2 + \dots$ je dobro definirana (končnost). \\
 $(1 + (\zeta-1) + \dots)(x,y) =$ število verig med $x$ in $y$. \\
 $(1 + (\zeta-1) + \dots) (1-(\zeta-1)) = 1$ \\
@@ -2653,28 +2712,30 @@ $\mu(a, e) = 1$.
     &\text{ker } \sum_{z \leq x \leq y} \mu(x, y) = \delta_{z, y}.
   \end{align*}
   ($\Leftarrow$): podobno.
+  \qed
 \end{pro}
 \begin{ex} \text{} \\
   $P = \underline{n}$ \\
-  $g(j) = \sum_{i \leq j} \; \iff \; f(j) = \sum_{i=1}^j \mu(i,j) g(i) = g(j) - g(j-1)$ za $j \geq 2$, \\
+  $g(j) = \sum_{i \leq j} f(i) \; \iff \; f(j) = \sum_{i=1}^j \mu(i,j) g(i) = g(j) - g(j-1)$ za $j \geq 2$, \\
   $f(1) = g(1)$.  
 \end{ex}
 Kako izračunati $\mu$ za $B_n, D_n, M_n, L_n(q)?$ \\
-\begin{claim}
+\begin{claim} \text{} \\
   $P, Q$ lokalno končni $\implies \; P \times Q$ lokalno končen.
 \end{claim}
 $\mu_{P \times Q} \left((x,y), (x^{'}, y^{'})\right) = \mu_P(x,y) \cdot \mu_Q(x^{'}, y^{'})$.
 \begin{pro}
   \begin{align*}
-    &\left(\zeta_{P \times Q} (\mu_P, \mu_Q)\right) \left((x,y), (x^{'}, y^{'})\right) \\
+    &\left(\mu_{P \times Q} (\mu_P, \mu_Q)\right) \left((x,y), (x^{'}, y^{'})\right) \\
     =& \sum_{(x,y) \leq (x^{''},y^{''}) \leq (x^{'},y^{'})} \mu_P(x^{''},x^{'}) \mu_Q(y^{''},y^{'}) \\
     =& \sum_{x \leq x^{''} \leq x^{'}} \sum_{y \leq y^{''} \leq y^{'}}
-      \mu_P(x^{''}, x^{'}) \cdot \mu_(y^{''}, y^{'}) \\
+      \mu_P(x^{''}, x^{'}) \cdot \mu_Q(y^{''}, y^{'}) \\
     &= \left(\sum_{x \leq x^{''} \leq x^{'}} \mu_P(x^{''}, x^{'})\right) \cdot 
       \left(\sum_{y \leq y^{''} \leq y^{'}} \mu_P(y^{''}, y^{'})\right) \\
     &= \delta_{x,x^{'}} \cdot \delta_{y,y^{'}} \\
     &= \delta_{(x,y), (x^{'},y^{'})}.
   \end{align*}
+  \qed
 \end{pro}
 \begin{ex} \text{}
   \begin{enumerate}[label=(\arabic*)]
@@ -2693,8 +2754,9 @@ $\mu_{P \times Q} \left((x,y), (x^{'}, y^{'})\right) = \mu_P(x,y) \cdot \mu_Q(x^
         &= \mu(\beta_1, \gamma_1) \dots \mu(\beta_k, \gamma_k) \\
         &= \begin{cases}
           (-1)^l: \; \frac{s}{r} \text{produkt $l$ različnih praštevil} \\
-          0: \; p^2 \mid \frac{s}{r}, \; p \text{praštevilo}
-        \end{cases} = \mu\left(\frac{s}{r}\right)
+          0: \; p^2 \mid \frac{s}{r}, \; p \text{ praštevilo}
+        \end{cases} \\
+        &= \mu\left(\frac{s}{r}\right)
       \end{align*}
       $r = p_1^{\beta_1} \dots p_k^{\beta_k}$ \\
       $s = p_1^{\gamma_1} \dots p_k^{\gamma_k}$ \\
@@ -2706,7 +2768,7 @@ $\mu_{P \times Q} \left((x,y), (x^{'}, y^{'})\right) = \mu_P(x,y) \cdot \mu_Q(x^
       \end{cases}$ \\
       $f, g: \N \setminus \{0\} \to K$ \\
       $g(n) = \sum_{d | n} f(d) \iff
-      f(n) = \sum_{d | n} \mu(d,n) g(d) = \sum_{d | n} \mu\left(\frac{d}{n}\right) g(d)$.
+      f(n) = \sum_{d | n} \mu(d,n) g(d) = \sum_{d | n} \mu\left(\frac{n}{d}\right) g(d)$.
   \end{enumerate}
 \end{ex}
 
@@ -2738,7 +2800,7 @@ $D_n: \mu(r, s) = \begin{cases}
 
 \section{Mreže}
 
-\begin{defn}
+\begin{defn} \text{} \\
   $x \leq y$: \\
   $y$ zgornja meja za $x$, \\
   $x$ spodnja meja za $y$. \\
@@ -2757,7 +2819,7 @@ $z \leq x, y \implies z \leq x \land y$.
     \item $\underline{n}, \N$: $i \lor j = \max \{i, j\}, \; i \land j = \min \{i, j\}$.
     \item $B_n: T \lor S = T \cup S, \; T \land S = T \cap S$.
     \item $D_n, D: r \lor s = l(r, s), \; r \land s = D(r, s)$.
-    \item $L_n(q): U \lor V = U + V, \; U \land V = U \cap V$. \\
+    \item $L_n(q): U \lor V = U + V, \; U \land V = U \cap V$.
     \item $\Pi_n$ \\
       $\pi = 135-246, \sigma = 123-46-5$ \\
       $\pi \land \sigma = \{\text{neprazni preseki bloka $\pi$ in bloka $\sigma$}\}$ \\
@@ -2776,7 +2838,7 @@ $\sum_{x \leq z \leq y} \mu(z, y) = 0 \implies \mu(x, y) = - \sum_{x < z \leq y}
 \begin{theorem} \text{} \\
   $P$ končna mreža, \\
   $a \neq \hat{1}$. \\
-  $\mu(\hat{0}, \hat{1}) = - \sum_{x \neq \hat{0}, \\x \land a = \hat{0}} \mu(x, \land{1})$.
+  $\mu(\hat{0}, \hat{1}) = - \sum_{x \neq \hat{0}, \\x \land a = \hat{0}} \mu(x, \hat{1})$.
 \end{theorem}
 \begin{rem}
   Vedno: $\mu(\hat{0}, \hat{1}) = - \sum_{x \neq \hat{0}} \mu(x, \hat{1})$. \\
@@ -2785,15 +2847,15 @@ $\sum_{x \leq z \leq y} \mu(z, y) = 0 \implies \mu(x, y) = - \sum_{x < z \leq y}
 Tipično $a <\cdot \hat{1}$.
 \begin{pro}
   \begin{align*}
-    \sum_{x \land a = \hat{0}}
-    &= \sum_{x \in P} \mu(x, \hat{1}) \cdot 1(\hat{0}, x \land a) \\
+    \sum_{x \land a = \hat{0}} \mu(x, \hat{1}) &= \sum_{x \in P} \mu(x, \hat{1}) \cdot 1(\hat{0}, x \land a) \\
     &= \sum_{x \in P} \mu(x, \hat{1}) \sum_{y \leq x \land a} \mu(\hat{0}, y) \\
     &\stackrel{(*)}{=} \sum_{x \in P} \mu(x, \hat{1})
       \sum_{y \leq x, y \leq a} \mu(\hat{0}, y) \\
     &= \sum_{y \leq a} \left(\sum_{x \geq y} \mu(x, \hat{1})\right) \mu(\hat{0}, y) = 0;
   \end{align*}
-  ker $\sum_{x \geq y} \mu(x, \hat{1}) = 1(y, \hat{1}) = 0$, ker $y \leq a \neq \hat{1}$, \\
+  ker $\sum_{x \geq y} \mu(x, \hat{1}) = 1(y, \hat{1}) = 0$, ker $y \leq a \neq \hat{1}$, oz. $y < \hat{1}$\\
   (*): $y \leq x \land a \implies y \leq x \land y \leq a$.
+  \qed
 \end{pro}
 \begin{ex} \text{} \\
   \begin{enumerate}[label=(\alph*)]
@@ -2809,14 +2871,15 @@ Tipično $a <\cdot \hat{1}$.
     \item $D_n$ \\
       $n = p_1^{\alpha_1} \dots p_k^{\alpha_k}$ \\
       $a = p_1^{\alpha_1 - 1} \dots p_k^{\alpha_k}$ \\
-      $\mu(1, n) = -\sum_{d | n, d \neq 1, D(d,a) = 1} \mu(d, n) = \begin{cases}
+      $\mu(1, n) = -\sum_{d | n, d \neq 1, D(d,a) = 1} \mu(d, n) \\
+      = \begin{cases}
         0: \; \alpha_1 \geq 2 \text{ (takega $d$ ni)} \\
         -\mu(p_1, n): \; \alpha_1 = 1 \; (d = p_1)
       \end{cases}$ \\
       $-\mu(p_1, n) = -\mu(1, p_2^{\alpha_2} \dots p_n^{\alpha_n})$: \\
       rekurzivno, $=0$ če $\alpha_i \geq 2$, $(-1)^k$ sicer.
     \item $L_n(q)$ \\
-      $\mu_n = \mu(0, \Pi_q^n)$ \\
+      $\mu_n = \mu(0, \F_q^n)$ \\
       $[U, V] \cong L_{\dim V - \dim U}(q)$ \\
       $A = \Pi_q^{n-1} \times \{0\}$ \\
       $\mu_n = -\sum_{U \neq 0, U \cap A = 0} \mu(U, \Pi_q^n) = - q^{n-1} \mu_{n-1}$. \\
@@ -2853,7 +2916,7 @@ Tipično $a <\cdot \hat{1}$.
       $\mu(i, j) = \begin{cases}1: \; i=j \\ -1: \; j = i+1 \\ 0: \; j-i > 1\end{cases}$ - odvisen od $j-i$.
     \item $B_n, B = \cup_{n=0}^{\infty} B_n = \{\text{končne podmnožice } \{1, 2, 3 \dots\}\}$ \\
       $\mu(S, T) = (-1)^{|T \setminus S|}$ - odvisen od $|T \setminus S|$.
-    \item $L_n(q), L_q = \cup_{n=0}^{\infty} L_n(q)$ (dodamo $\times \{0\}^i$ na konce?) \\
+    \item $L_n(q), L_q = \cup_{n=0}^{\infty} L_n(q)$ (dodamo $\times \{0\}^i$ na konec?) \\
       $\mu(U, T) = (-1)^{\dim V - \dim U} \dots$ - odvisen od $\dim V - \dim U$.
     \item $D_n, D$ \\
       $\mu(r, s)$ - odvisen od $\frac{s}{r}$.
@@ -2892,8 +2955,11 @@ V $D$: $[1, 14] \cong [1, 15] \cong B_2$, vendar $\frac{14}{1} \neq \frac{15}{1}
     &\sum_{x^{'} \leq z^{'} \leq y^{'}} f(x^{'},z^{'}) f^{-1}(z^{'},y^{'}) =
       \sum_{x^{'} < z^{'} \leq y^{'}} f(x^{'},z^{'}) f^{-1}(z^{'},y^{'}) + f(x^{'},x^{'}) f^{-1}(x^{'},y^{'}) = 0;
   \end{align*}
-  $f(x, z) = f(x^{'}, z^{'}), f(x, x) = f(x^{'}, x^{'}), f^{-1}(z,y) \stackrel{IP}{=} f^{-1}(z^{'}, y^{'})$ \\
+  $f(x, z) = f(x^{'}, z^{'}), \\
+  f(x, x) = f(x^{'}, x^{'}), \\
+  f^{-1}(z,y) \stackrel{IP}{=} f^{-1}(z^{'}, y^{'})$ \\
   $\implies \; f^{-1}(x,y) = f^{-1}(x^{'}, y^{'})$.
+  \qed
 \end{pro}
 $\tau = \{\text{množica ekvivalenčnih razredov za } \cong\}$: množica tipov. \\
 $\N: \tau \equiv \N$ \\
@@ -3016,6 +3082,7 @@ $\zeta(s)$ konvergira za $Re \; s > 1$.
 \end{claim}
 \begin{pro}
   Pogledamo $\left[\frac{1}{n^s}\right]$ na obeh straneh.
+  \qed
 \end{pro}
 \begin{ex}
   $\zeta(s) = \prod_{p \text{ prašt.}} \left(1 + \frac{1}{p^s} + \frac{1}{p^{2s}} + \dots \right)
@@ -3036,13 +3103,14 @@ $\zeta(s)$ konvergira za $Re \; s > 1$.
   $\frac{1}{1 + \frac{f(p)}{p^s} + \frac{f(p^2)}{p^{2s}} + \dots} =
   1 - \left(\frac{f(p)}{p^s} + \frac{f(p^2)}{p^{2s}} + \dots\right) -
   \left(\frac{f(p)}{p^s} + \frac{f(p^2)}{p^{2s}} + \dots\right)^2 + \dots$ \\
-  oboje ustrezne oblike.
+  Oboje ustrezne oblike.
+  \qed
 \end{pro}
 \begin{rem}
   $f, g$ multiplikativni: $f * g\left(p^k\right) = \sum_{i=0}^{k} f\left(p^i\right) g\left(p^{k-i}\right)$.
 \end{rem}
 \begin{ex} \text{} \\
-  $Drf(\mu) = Drg(\zeta^{-1}) = \frac{1}{Drf(\zeta)} = \frac{1}{\zeta(s)} =
+  $Drf(\mu) = Drf(\zeta^{-1}) = \frac{1}{Drf(\zeta)} = \frac{1}{\zeta(s)} =
   \prod_{p \text{ prašt.}} \left(1 - \frac{1}{p^s}\right) = \sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}$ \\
   $\mu\left(p^k\right) = \begin{cases}
     1: \; k = 0 \\
@@ -3057,7 +3125,7 @@ $\zeta(s)$ konvergira za $Re \; s > 1$.
   $\zeta * \zeta\left[p_1^{\alpha_1} \cdot p_k^{\alpha_k}\right] = (\alpha_1 + 1) \dots (\alpha_k + 1) = \tau(n)$ \\
   $\zeta(2s) = \sum_{n=1}^{\infty} \frac{1}{n^{2s}}$ \\
   $a(n) = \begin{cases}
-    1: \; n = m \\
+    1: \; n = m^2 \\
     0: \; \text{sicer}
   \end{cases}$ - multiplikativna funkcija. \\
   $a(p^k) = \begin{cases}
@@ -3079,9 +3147,9 @@ $\zeta(s)$ konvergira za $Re \; s > 1$.
   $k = 1$: \\
   $c(p) = 1 \cdot \tau(1) = 2$ (potrebno preveriti zarabi $b$) \\
   $c(p^0) = 1$ \\
-  $c(n) = 2^{\omega(n)}$, $\omega(n)$: število praštevilskih delitevljev. \\
+  $c(n) = 2^{\omega(n)}$, $\omega(n)$: število praštevilskih deliteljev. \\
   $\frac{\zeta^2(s)}{\zeta(2s)} = \sum_{n=1}^{\infty} \frac{2^{\omega(n)}}{n^s}$ \\
-  $\sum_{n=1}^{\infty} \frac{2^{\omega(n)}}{n^2} = \frac{\zeta^2(2)}{\zeta(4)}
+  $\sum_{n=1}^{\infty} \frac{2^{\omega(n)}}{n^s} = \frac{\zeta^2(2)}{\zeta(4)}
   = \frac{\left(\frac{\pi^2}{6}\right)^2}{\frac{\pi^2}{90}} = \frac{5}{2}$ (konvergira počasi).
 \end{ex}
 
@@ -3114,9 +3182,9 @@ $\Theta(g)(\Theta(h)(x)) = \vartheta(g, \vartheta(h, x))$. \\
 Obratno: $\Theta: G \to S_X$, homomorfizem je \\
 $\vartheta: G \times X \to X$ \\
 $\vartheta(g, x) = \Theta(g)(x)$ delovanje. \\
-Če je $\Theta$ injektiven homomorfizem ($ker \Theta$ trivialno), je delovanje zvesto (angl. faithful). \\
+Če je $\Theta$ injektiven homomorfizem ($ker \, \Theta$ trivialno), je delovanje zvesto (angl. faithful). \\
 Torej: $g \cdot x = x \; \forall x \in X \implies g = e$. \\
-V tem primeru je $G \cong \Xi(G)$, BŠS $G \leq S_X, G$ permutacijska grupa. \\
+V tem primeru je $G \cong \Phi(G)$, BŠS $G \leq S_X, G$ permutacijska grupa. \\
 Zvesto delovanje $\equiv$ permutacijska grupa $\equiv$ zvesta permutacijska upodobitev. \\
 $G \to S_X$ permutacijska upodobitev. \\
 Odslej: $X, G$ končni, delovanje zvesto $(G \leq S_X)$. \\
@@ -3145,6 +3213,7 @@ V splošnem ni $G_x \triangleleft G$.
   $g x = h x \iff (h^{-1} g) x = x \iff h^{-1} g \in G_x \iff h^{-1} g G_x = G_x \iff g G_x = h G_x$. \\
   Sujrektivnost: \\
   $g \cdot G_x = \phi(g \cdot x)$.
+  \qed
 \end{pro}
 \begin{theorem}[Burnsideova lema]
   $|X / G| = \frac{1}{|G|} \sum_{g \in G} \left|x^g\right|$. \\
@@ -3161,6 +3230,7 @@ V splošnem ni $G_x \triangleleft G$.
   \end{align*}
   $\sigma$: orbita.
   % skica
+  \qed
 \end{pro}
 
 
@@ -3202,6 +3272,7 @@ Barvanje $b: X \to R$.
   $b(\vartheta(g^{-1}, x)) = b(x) \; \forall x \in X$ \\
   $x = \vartheta(g, x)$ \\
   $b(x_0) = b(\vartheta(g, x_0)) = 1 \implies \vartheta(g, x_0) = x_0 \stackrel{\vartheta \text{ zvesto}}{\implies} g = e$.
+  \qed
 \end{pro}
 Torej za $r > 1$ lahko uporabimo Burnsideovo lemo za $\widehat{\vartheta}$. \\
 Število orbit = število neekvivalentnih barvanj. \\
@@ -3287,6 +3358,7 @@ Polya: število neekvivalentnih barvanj = $Z_G(r, r \dots r)$.
   Isto (distributivnost, vsota $\dots$). \\
   Za vsak cikel izberem $u_i$. \\
   Vsota dolžin z izbranim $u_i$ mora biti $\beta_i$.
+  \qed
 \end{pro}
 \begin{rem} \text{} \\
   $\left|X^g\right| = \left|X^{g^{'}}\right|$ \\
@@ -3303,9 +3375,9 @@ Polya: število neekvivalentnih barvanj = $Z_G(r, r \dots r)$.
 Upodobitev grupe $G$ je homomorfizem. \\
 $G \to GL_d$ \\
 $GL_d$: grupa obrnljivih matrik velikosti $d \times d$. \\
-Karakter upodobitve $\rho$ je $\Xi(g) = sl_{\rho}(g)$, $sl$: sled. \\
+Karakter upodobitve $\rho$ je $\chi(g) = sl_{\rho}(g)$, $sl$: sled. \\
 Izkaže se: do izomorfizma natančno določa upodobitev \\
-$\Xi\left(h g h^{-1}\right) = sl_{\rho}\left(h g h^{-1}\right) = sl_{\rho}(h) \cdot sl_{\rho}(g) \cdot sl_{\rho}(h^{-1})
+$\chi \left(h g h^{-1}\right) = sl_{\rho}\left(h g h^{-1}\right) = sl_{\rho}(h) \cdot sl_{\rho}(g) \cdot sl_{\rho}(h^{-1})
 = sl_{\rho}(g)$; \\
 $sl\left(A B A^{-1}\right) = sl\left(A^{-1} A B\right) = sl(B)$. \\
 Permutacijska upodobitev: \\
@@ -3377,6 +3449,7 @@ $313 \quad \underline{2} \; \_ \; \underline{1}$: ne gre.
   % skica
   $y_i \leq i \iff y_{i}-1 \leq i-1$. \\
   Po indukciji lahko tudi ostali parkirajo.
+  \qed
 \end{pro}
 \begin{theorem} \text{} \\
   $|PF_n| = (n+1)^{n-1}$ \\
@@ -3399,19 +3472,20 @@ $2 1 \to 2$
   $2 2 \quad \underline{2} \; \_ \; \underline{1}$ \\
   Vsi lahko parkirajo, eno mesto je prosto. \\
   $x$ in $x + (k, k \dots k)$: zamaknjeno na $k$ mest. \\
-  $V$ vsakem (levem) odseku podgrupe, generirane z $(1, 1 \dots )$ je natanko en element v $FP_n$ \\
-  $\implies \; |FP_n| = \frac{\left|Z_{n+1}^n\right|}{n+1} = (n+1)^{n-1}$. \\
+  $V$ vsakem (levem) odseku podgrupe, generirane z $(1, 1 \dots )$ je natanko en element v $PF_n$ \\
+  $\implies \; |PF_n| = \frac{\left|Z_{n+1}^n\right|}{n+1} = (n+1)^{n-1}$. \\
   Inverz of $\psi:$ \\
   $\Z_{n+1}^{n-1} \to PF_n$ \\
   $(a_1, a_2 \dots a_{n-1}) \mapsto (x_1, x_1+a_1, x_1+a_1+a_2 \dots)$. \\
-  Obstaja natanko en $x_1$, da je to parkirna funkcija. 
+  Obstaja natanko en $x_1$, da je to parkirna funkcija.
+  \qed
 \end{pro}
-Delovanje $S_n$ na $FP_n$. \\
-$\pi \cdot x_1 \dots x_n = x_{\pi^{-1}(1)} \dots x_{\pi^{-1}(n)}$ \\
-zvesto: \checkmark \\
+Delovanje $S_n$ na $PF_n$. \\
+$\pi \cdot x_1 \dots x_n = x_{\pi^{-1}(1)} \dots x_{\pi^{-1}(n)}$. \\
+Zvesto: \checkmark \\
 Koliko je negibnih točk $\pi$? \\
 BŠS: $\pi = (1 \; 2 \dots \lambda_1) (\lambda_1 + 1 \dots \lambda_1 + \lambda_2) \dots$ \\
-$\pi = (1 \; 2 \; 3 \; 4) (5 \; 6 \; 6) (8)$ \\
+$\pi = (1 \; 2 \; 3 \; 4) (5 \; 6 \; 7) (8)$ \\
 $\pi \cdot x = x$ \\
 $\pi \cdot x_1 \dots x_8 = x_3 x_1 x_2 x_3 \, x_7 x_5 x_6 \, x_8$. \\
 Če $x_1 = x_2 = x_3 = x_4$ in $x_5 = x_6 = x_7$. \\
